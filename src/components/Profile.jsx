@@ -1,7 +1,7 @@
 import {
   profileSection,
   profile_container,
-  profile_item_container,
+  profile_kong_container,
   profile_pic_1,
   profile_pic_2,
   profile_title_text,
@@ -10,18 +10,19 @@ import {
   ul,
   li_strong,
   li_span,
+  profile_kong,
+  profile_jeong,
+  profile_jeong_container,
 } from "@/styles/style.css.ts";
 
 const Profile = () => {
   return (
     <section className={profileSection}>
-      <div className={profile_container}>
-        <div className={profile_item_container}>
-          <div className={flex}>
-            <h2 className={profile_title_text}>
-              변호사 <em className={name}>공 지 연</em>
-            </h2>
-          </div>
+      <div className={profile_kong}>
+        <div className={profile_kong_container}>
+          <h2 className={profile_title_text}>
+            변호사 <em className={name}>공 지 연</em>
+          </h2>
           <ul className={ul}>
             <li>
               <span className={li_span}>2023 ~ </span>
@@ -63,7 +64,9 @@ const Profile = () => {
             </li>
           </ul>
         </div>
-        <div className={profile_item_container}>
+      </div>
+      <div className={profile_jeong}>
+        <div className={profile_jeong_container}>
           <div className={flex}>
             <h2 className={profile_title_text}>
               변호사 <em className={name}>정 진 권</em>
@@ -97,9 +100,8 @@ const Profile = () => {
             <li>
               <span className={li_span}>2022 ~ 2022</span>
               <strong className={li_strong}>
-                서울 서초구청 서초재능TV 생활법률담당 강연
-                <br />
-                (학교폭력, 조세상속, 공공주택, 반려동물)
+                서울 서초구청 서초재능TV 생활법률담당 강연 (학교폭력, 조세상속,
+                공공주택, 반려동물)
               </strong>
             </li>
             <li>

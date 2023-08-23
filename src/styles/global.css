@@ -1,5 +1,11 @@
 @font-face {
   font-family: Pretendard;
+  font-weight: 200;
+  src: url("/fonts/Pretendard-Light.subset.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: Pretendard;
   font-weight: 300;
   src: url("/fonts/Pretendard-Regular.subset.woff2") format("woff2");
 }
@@ -22,6 +28,18 @@
   src: url("/fonts/Pretendard-Bold.subset.woff2") format("woff2");
 }
 
+@font-face {
+  font-family: Pretendard;
+  font-weight: 700;
+  src: url("/fonts/Pretendard-ExtraBold.subset.woff2") format("woff2");
+}
+
+@font-face {
+  font-family: Pretendard;
+  font-weight: 800;
+  src: url("/fonts/Pretendard-Black.subset.woff2") format("woff2");
+}
+
 html,
 body {
   margin: 0;
@@ -40,4 +58,6 @@ em {
 .main-carousel .slick-track {
   display: flex;
   flex-wrap: wrap;
+  width: 100svw;
+  /* height: 100svh; */
 }
