@@ -1,4 +1,4 @@
-import { getSinglePost, getPosts } from "../lib/posts";
+import { getSinglePost, getPosts } from "../../lib/posts";
 
 const PostPage = (props) => {
   console.log(props);

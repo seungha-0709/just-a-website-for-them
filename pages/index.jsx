@@ -51,7 +51,7 @@ const MainPage = (props) => {
       {isMobileView ? (
         <h1>모바일용 화면 준비 중</h1>
       ) : (
-        <Desktop posts={props.posts} />
+        <Desktop posts={blogPosts} />
       )}
     </div>
   );
