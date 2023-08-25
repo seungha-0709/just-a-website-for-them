@@ -1,12 +1,8 @@
-import { useMemo, useEffect, useRef, useState } from "react";
+import { useMemo, useEffect, useRef, useState, Suspense } from "react";
 import { getPosts } from "../lib/posts";
-import { contents } from "@/styles/style.css";
-import Main from "@/components/Main";
-import Profile from "@/components/Profile";
-import Blogs from "@/components/Blogs";
-import Header from "@/components/Header";
-import Nav from "@/components/Nav";
+
 import Slider from "react-slick";
+import Desktop from "@/components/desktop/Desktop";
 
 const MainPage = (props) => {
   const { posts: blogPosts } = props;
@@ -26,9 +22,8 @@ const MainPage = (props) => {
 
   const bodyRef = useRef(null);
   const mainCarouselRef = useRef(Slider);
-  console.log(mainCarouselRef);
 
-  const [width, setWidth] = useState(false);
+  const [width, setWidth] = useState();
 
   const isMobileView = useMemo(() => {
     if (width < 1200) {
@@ -38,6 +33,8 @@ const MainPage = (props) => {
   }, [width]);
 
   useEffect(() => {
+    window && setWidth(window.innerWidth);
+
     const resizeObserver = new ResizeObserver((entries) => {
       setWidth(entries[0].contentRect.width);
     });
@@ -51,24 +48,11 @@ const MainPage = (props) => {
 
   return (
     <div ref={bodyRef}>
-      {!isMobileView && (
-        <>
-          <Header />
-          <div style={{ width: "100%", height: "fit-content" }}>
-            {/* <Slider
-          ref={mainCarouselRef}
-          {...carouselSettings}
-          // style={{ paddingTop: 60 }}
-        > */}
-            <Main toNext={mainCarouselRef.current.slickNext} />
-            <Profile toPreview={mainCarouselRef.current.slickPrev} />
-            <Blogs blogPosts={blogPosts} />
-            {/* </Slider> */}
-          </div>
-          <section className={contents}></section>
-        </>
+      {isMobileView ? (
+        <h1>모바일용 화면 준비 중</h1>
+      ) : (
+        <Desktop posts={props.posts} />
       )}
-      {isMobileView && <h1>모바일용 화면 준비 중</h1>}
     </div>
   );
 };

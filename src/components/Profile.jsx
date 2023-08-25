@@ -13,12 +13,23 @@ import {
   profile_kong,
   profile_jeong,
   profile_jeong_container,
+  profile_kong_backgroundStyle,
+  profile_jeong_backgroundStyle,
 } from "@/styles/style.css.ts";
+
+import Image from "next/image";
 
 const Profile = () => {
   return (
-    <section className={profileSection}>
+    <section id="profile" className={profileSection}>
       <div className={profile_kong}>
+        <Image
+          src="https://storage.googleapis.com/profile_image_0709/profile_kongJiYeon.png"
+          alt="법무법인 소울 - 공지연 & 정진권 변호사"
+          fill
+          quality={100}
+          className={profile_kong_backgroundStyle}
+        />
         <div className={profile_kong_container}>
           <h2 className={profile_title_text}>
             변호사 <em className={name}>공 지 연</em>
@@ -66,6 +77,13 @@ const Profile = () => {
         </div>
       </div>
       <div className={profile_jeong}>
+        <Image
+          src="https://storage.googleapis.com/profile_image_0709/profile_JeongJinKwon.png"
+          alt="법무법인 소울 - 공지연 & 정진권 변호사"
+          fill
+          quality={100}
+          className={profile_jeong_backgroundStyle}
+        />
         <div className={profile_jeong_container}>
           <div className={flex}>
             <h2 className={profile_title_text}>

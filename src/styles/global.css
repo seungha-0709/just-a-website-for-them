@@ -61,3 +61,6 @@ em {
   width: 100svw;
   /* height: 100svh; */
 }
+p {
+  margin: 0;
+}
