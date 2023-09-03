@@ -21,7 +21,7 @@ const Profile = dynamic(() => import("../Profile"), {
 const Blogs = dynamic(() => import("../Blogs"), {
   loading: () => <p>Loading...</p>,
 });
-const Success = dynamic(() => import("../Profile"), {
+const Success = dynamic(() => import("../Success"), {
   loading: () => <p>Loading...</p>,
 });
 // const Profile = dynamic(() => import("../Profile"));

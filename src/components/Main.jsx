@@ -20,6 +20,7 @@ const Main = (props) => {
         alt="법무법인 소울 - 공지연 & 정진권 변호사"
         fill
         quality={100}
+        priority
         className={mainBackgroundStyle}
       />
       <div className={main_title_area}>
