@@ -81,14 +81,14 @@ const Mobile = ({ posts, success, featuredPosts }) => {
       ...isClicked,
       tel: isClicked.tel++,
     });
-    document.location.href("tel:01096129677");
+    window.location.href("tel:01096129677");
   };
   const handlePlaceClick = () => {
     setIsClicked({
       ...isClicked,
       place: isClicked.place++,
     });
-    document.location.href("#place");
+    window.location.href("#place");
   };
 
   return (
