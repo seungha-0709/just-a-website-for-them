@@ -1,11 +1,20 @@
+"use client";
+
 import { useMemo, useEffect, useRef, useState, Suspense } from "react";
 import { getPosts } from "../lib/posts";
 
 import Slider from "react-slick";
-import Desktop from "@/components/desktop/Desktop";
+// import Desktop from "@/components/desktop/Desktop";
 import { root } from "@/styles/root.css";
-import Mobile from "@/components/mobile/Mobile";
+// import Mobile from "@/components/mobile/Mobile";
 import dynamic from "next/dynamic";
+
+const Mobile = dynamic(() => import("@/components/mobile/Mobile"), {
+  loading: () => <p>loading...</p>,
+});
+const Desktop = dynamic(() => import("@/components/desktop/Desktop"), {
+  loading: () => <p>loading...</p>,
+});
 
 const MainPage = (props) => {
   const { posts: blogPosts, success, featuredPosts } = props;
