@@ -24,7 +24,7 @@ const Profile = () => {
     <section id="profile" className={profileSection}>
       <div className={profile_kong}>
         <Image
-          src="/image/profile_kongJiYeon.png"
+          src="/image/profile_kong.png"
           alt="법무법인 소울 - 공지연 & 정진권 변호사"
           fill
           quality={100}
@@ -76,7 +76,7 @@ const Profile = () => {
       </div>
       <div className={profile_jeong}>
         <Image
-          src="/image/profile_JeongJinKwon.png"
+          src="/image/profile_jeong.png"
           alt="법무법인 소울 - 공지연 & 정진권 변호사"
           fill
           quality={100}
