@@ -335,8 +335,8 @@ export const globalNav = style({
   right: 1,
   zIndex: 10,
   transform: "translate(0%, -50%)",
-  width: 100,
-  background: root.color.WHITE,
+  width: 120,
+  background: "transparent",
 });
 
 export const globalNav_button = style({

@@ -76,13 +76,6 @@ const Header = () => {
               성공 사례
             </NavButton>
           </li>
-          <li>
-            <NavButton
-              onClick={() => router.push("/#reviews", { scroll: true })}
-            >
-              고객 후기
-            </NavButton>
-          </li>
         </ul>
         <div>
           <StyledButton>블로그</StyledButton>
