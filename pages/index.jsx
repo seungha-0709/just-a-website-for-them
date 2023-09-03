@@ -32,7 +32,6 @@ const MainPage = (props) => {
   };
 
   const bodyRef = useRef(null);
-  const mainCarouselRef = useRef(Slider);
 
   const [width, setWidth] = useState();
 
@@ -62,25 +61,27 @@ const MainPage = (props) => {
     setIsMobileView(false);
   }, [width]);
 
-  if (!mainCarouselRef.current) {
-    return <></>;
+  if (!width) {
+    return <div ref={bodyRef}></div>;
   }
 
   return (
     <div ref={bodyRef} style={{ background: root.color.COLOR_01 }}>
-      {isMobileView ? (
-        <Mobile
-          posts={blogPosts}
-          success={success}
-          featuredPosts={featuredPosts}
-        />
-      ) : (
-        <Desktop
-          posts={blogPosts}
-          success={success}
-          featuredPosts={featuredPosts}
-        />
-      )}
+      <Suspense fallback={<p>loading</p>}>
+        {isMobileView ? (
+          <Mobile
+            posts={blogPosts}
+            success={success}
+            featuredPosts={featuredPosts}
+          />
+        ) : (
+          <Desktop
+            posts={blogPosts}
+            success={success}
+            featuredPosts={featuredPosts}
+          />
+        )}
+      </Suspense>
     </div>
   );
 };
