@@ -5,7 +5,6 @@ import {
   main_title_text,
   mainBackgroundStyle,
   main_title_em,
-  main_title_name,
   main_title_main_text,
 } from "@/styles/style.css.ts";
 import Button from "./ui/Button";

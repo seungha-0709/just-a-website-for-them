@@ -9,7 +9,7 @@ import Slider from "react-slick";
 import { contents, desktop_container } from "@/styles/style.css";
 import Nav from "../Nav";
 
-const Desktop = ({ posts: blogPosts, success, featuredPosts }) => {
+const Desktop = ({ posts, success, featuredPosts }) => {
   const mainCarouselRef = useRef(Slider);
 
   return (
@@ -25,7 +25,7 @@ const Desktop = ({ posts: blogPosts, success, featuredPosts }) => {
             > */}
           <Main toNext={mainCarouselRef.current.slickNext} />
           <Profile toPreview={mainCarouselRef.current.slickPrev} />
-          <Blogs blogPosts={blogPosts} featuredPosts={featuredPosts} />
+          <Blogs blogPosts={posts} featuredPosts={featuredPosts} />
           <Success examples={success} />
           {/* <Reviews /> */}
           {/* </Slider> */}

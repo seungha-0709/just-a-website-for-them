@@ -4,6 +4,7 @@ import { getPosts } from "../lib/posts";
 import Slider from "react-slick";
 import Desktop from "@/components/desktop/Desktop";
 import { root } from "@/styles/root.css";
+import Mobile from "@/components/mobile/Mobile";
 
 const MainPage = (props) => {
   const { posts: blogPosts, success, featuredPosts } = props;
@@ -49,7 +50,11 @@ const MainPage = (props) => {
   return (
     <div ref={bodyRef} style={{ background: root.color.COLOR_01 }}>
       {isMobileView ? (
-        <h1>모바일용 화면 준비 중</h1>
+        <Mobile
+          posts={blogPosts}
+          success={success}
+          featuredPosts={featuredPosts}
+        />
       ) : (
         <Desktop
           posts={blogPosts}

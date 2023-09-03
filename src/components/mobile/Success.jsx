@@ -11,7 +11,7 @@ import {
   successBackgroundStyle,
   success_example_item_image,
   success_subtitle,
-} from "@/styles/style.css";
+} from "@/styles/mobileStyle.css";
 import Image from "next/image";
 import { mainBackgroundStyle } from "@/styles/style.css";
 import { Dialog as MuiDialog, styled } from "@mui/material";
