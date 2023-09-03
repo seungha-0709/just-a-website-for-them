@@ -274,7 +274,7 @@ export const successBackgroundStyle = style({
 });
 export const successSection = style({
   width: "100%",
-  height: "100svh",
+  height: 500,
   position: "relative",
   display: "flex",
   justifyContent: "center",
@@ -353,28 +353,30 @@ export const success_content_area = style({
 });
 
 export const success_title = style({
-  fontSize: 48,
-  fontWeight: 700,
+  fontSize: 24,
+  fontWeight: 500,
   color: root.color.COLOR_08,
   marginTop: 0,
-  marginBottom: 60,
+  marginBottom: 30,
 });
 
 export const success_subtitle = style({
-  fontSize: 28,
+  fontSize: 16,
   fontWeight: 400,
   color: root.color.COLOR_06,
   marginTop: 0,
   lineHeight: 1.6,
   textAlign: "center",
-  marginBottom: 120,
+  marginBottom: 40,
 });
 
 export const success_example_container = style({
   display: "flex",
+  width: "fit-content",
+  height: 150,
   gap: 20,
   alignItems: "center",
-  justifyContent: "space-between",
+  justifyContent: "center",
 });
 
 export const success_example_item = style({

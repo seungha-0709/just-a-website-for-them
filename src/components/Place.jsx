@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { reviews_backgroundStyle, reviews_section } from "@/styles/style.css";
 
-const Reviews = () => {
+const Place = () => {
   return (
     <section id="reviews" className={reviews_section}>
       <Image
@@ -15,4 +15,4 @@ const Reviews = () => {
   );
 };
 
-export default Reviews;
+export default Place;

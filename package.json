@@ -11,6 +11,7 @@
   "dependencies": {
     "@emotion/react": "^11.11.1",
     "@emotion/styled": "^11.11.0",
+    "@mui/icons-material": "^5.14.7",
     "@mui/material": "^5.14.5",
     "@tryghost/content-api": "^1.11.16",
     "@vanilla-extract/css": "^1.12.0",
@@ -19,6 +20,7 @@
     "next": "13.4.16",
     "react": "18.2.0",
     "react-dom": "18.2.0",
+    "react-horizontal-scrolling-menu": "^4.1.0",
     "react-slick": "^0.29.0",
     "sharp": "^0.32.5",
     "typescript": "^5.1.6"

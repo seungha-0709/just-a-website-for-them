@@ -49,10 +49,15 @@ body {
   overflow-x: hidden;
   position: relative;
   box-sizing: border-box !important;
+  -ms-overflow-style: none !important;
+  scrollbar-width: none !important;
 
   #profile {
     scroll-margin: 76px;
   }
+}
+::-webkit-scrollbar {
+  display: none !important;
 }
 
 em {
@@ -67,4 +72,9 @@ em {
 }
 p {
   margin: 0;
+}
+
+.react-horizontal-scrolling-menu--wrapper {
+  display: flex;
+  flex-direction: row !important;
 }
