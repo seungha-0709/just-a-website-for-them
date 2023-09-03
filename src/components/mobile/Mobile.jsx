@@ -48,6 +48,8 @@ const Mobile = ({ posts, success, featuredPosts }) => {
   const [tabIndex, setTabIndex] = useState(0);
   const [isClicked, setIsClicked] = useState({
     kakao: 0,
+    tel: 0,
+    place: 0,
   });
 
   useEffect(() => {
@@ -72,6 +74,21 @@ const Mobile = ({ posts, success, featuredPosts }) => {
       kakao: isClicked.kakao++,
     });
     window.open("https://pf.kakao.com/_TsAxdG");
+  };
+
+  const handleTelClick = () => {
+    setIsClicked({
+      ...isClicked,
+      tel: isClicked.tel++,
+    });
+    document.location.href("tel:01096129677");
+  };
+  const handlePlaceClick = () => {
+    setIsClicked({
+      ...isClicked,
+      place: isClicked.place++,
+    });
+    document.location.href("#place");
   };
 
   return (
@@ -103,8 +120,16 @@ const Mobile = ({ posts, success, featuredPosts }) => {
           label="카톡 문의"
           icon={<IconKakaotalk />}
         />
-        <BottomNavigationAction label="오시는 길" icon={<IconPlace />} />
-        <BottomNavigationAction label="대표 전화" icon={<IconPhone />} />
+        <BottomNavigationAction
+          onClick={handlePlaceClick}
+          label="오시는 길"
+          icon={<IconPlace />}
+        />
+        <BottomNavigationAction
+          onClick={handleTelClick}
+          label="대표 전화"
+          icon={<IconPhone />}
+        />
       </BottomNavigation>
     </>
   );
