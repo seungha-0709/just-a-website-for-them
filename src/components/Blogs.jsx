@@ -54,7 +54,7 @@ const Blogs = ({ blogPosts: posts, featuredPosts }) => {
   return (
     <section id="blogs" className={blogSection}>
       <Image
-        src="https://storage.googleapis.com/profile_image_0709/blog_bg.png"
+        src="/image/blog_bg.png"
         alt="법무법인 소울 - 공지연 & 정진권 변호사"
         width={1000}
         height={600}

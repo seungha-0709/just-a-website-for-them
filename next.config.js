@@ -3,6 +3,7 @@ const withVanillaExtract = createVanillaExtractPlugin();
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  optimizeFonts: true,
   images: {
     remotePatterns: [
       {
