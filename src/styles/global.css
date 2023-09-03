@@ -49,6 +49,10 @@ body {
   overflow-x: hidden;
   position: relative;
   box-sizing: border-box !important;
+
+  #profile {
+    scroll-margin: 76px;
+  }
 }
 
 em {

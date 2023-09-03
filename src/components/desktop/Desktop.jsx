@@ -6,29 +6,33 @@ import Blogs from "../Blogs";
 import Success from "../Success";
 import Reviews from "../Reviews";
 import Slider from "react-slick";
-import { contents } from "@/styles/style.css";
+import { contents, desktop_container } from "@/styles/style.css";
+import Nav from "../Nav";
 
-const Desktop = ({ posts: blogPosts }) => {
+const Desktop = ({ posts: blogPosts, success, featuredPosts }) => {
   const mainCarouselRef = useRef(Slider);
 
   return (
-    <div style={{ scrollMargin: 76, scrollBehavior: "smooth" }}>
+    <>
       <Header />
-      <div style={{ width: "100%", height: "fit-content" }}>
-        {/* <Slider
+      <Nav />
+      <div className={desktop_container}>
+        <div>
+          {/* <Slider
               ref={mainCarouselRef}
               {...carouselSettings}
               // style={{ paddingTop: 60 }}
             > */}
-        <Main toNext={mainCarouselRef.current.slickNext} />
-        <Profile toPreview={mainCarouselRef.current.slickPrev} />
-        <Blogs blogPosts={blogPosts} />
-        <Success />
-        <Reviews />
-        {/* </Slider> */}
+          <Main toNext={mainCarouselRef.current.slickNext} />
+          <Profile toPreview={mainCarouselRef.current.slickPrev} />
+          <Blogs blogPosts={blogPosts} featuredPosts={featuredPosts} />
+          <Success examples={success} />
+          {/* <Reviews /> */}
+          {/* </Slider> */}
+        </div>
+        <section className={contents}></section>
       </div>
-      <section className={contents}></section>
-    </div>
+    </>
   );
 };
 

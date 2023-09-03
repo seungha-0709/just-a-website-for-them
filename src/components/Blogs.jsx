@@ -12,7 +12,11 @@ import {
   blog_list_ul,
   blog_section_title,
 } from "@/styles/style.css";
-import { Button as MuiButton, styled } from "@mui/material";
+import {
+  Button as MuiButton,
+  getCardActionAreaUtilityClass,
+  styled,
+} from "@mui/material";
 import Slider from "react-slick";
 import Image from "next/image";
 
@@ -34,9 +38,7 @@ const StyledButton = styled(MuiButton)(() => ({
   },
 }));
 
-const Blogs = ({ blogPosts }) => {
-  console.log(blogPosts);
-
+const Blogs = ({ blogPosts: posts, featuredPosts }) => {
   const sliderSettings = {
     autoplay: true,
     vertical: true,
@@ -47,8 +49,7 @@ const Blogs = ({ blogPosts }) => {
     dots: false,
   };
 
-  const featuredPost = blogPosts.find((post) => !!post.featured);
-  const posts = blogPosts.filter((post) => !post.featured);
+  const featuredPost = featuredPosts[0];
 
   return (
     <section id="blogs" className={blogSection}>
@@ -64,7 +65,7 @@ const Blogs = ({ blogPosts }) => {
         <h2 className={blog_section_title}>
           블로그를 통해 더 많은
           <br />
-          법률 정보를 확인해보세요??(제목미정)
+          법률 정보를 확인해보세요
         </h2>
         <StyledButton>사건 분석 더 보러 가기</StyledButton>
         <h3 className={blog_featured_title}>{featuredPost.title}</h3>

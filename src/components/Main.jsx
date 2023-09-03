@@ -4,6 +4,9 @@ import {
   main_title_area,
   main_title_text,
   mainBackgroundStyle,
+  main_title_em,
+  main_title_name,
+  main_title_main_text,
 } from "@/styles/style.css.ts";
 import Button from "./ui/Button";
 import Image from "next/image";
@@ -22,18 +25,15 @@ const Main = (props) => {
       />
       <div className={main_title_area}>
         <p className={main_title_text}>
-          어쩌고 저쩌고 무슨무슨 블라블라 이러쿵 저러쿵
+          <em className={main_title_em}>공.정.</em>
+          <span className={main_title_main_text}>한 변호사</span>
           <br />
-          소개 문구 어떻게 어떻게 뭐라뭐라 적어서 보내주세요
+          Only for Client&apos;s Justice
         </p>
         <p className={main_content_text}>
-          계절이 지나가는 하늘에는 가을로 가득 차 있습니다. 나는 아무 걱정도
-          없이 가을 속의 별들을 다 헤일 듯합니다. 가슴속에 하나 둘 새겨지는 별을
-          이제 다 못 헤는 것은 쉬이 아침이 오는 까닭이요, 내일 밤이 남은
-          까닭이요, 아직 나의 청춘이 다하지 않은 까닭입니다. 별 하나에 추억과 별
-          하나에 사랑과 별 하나에 쓸쓸함과 별 하나에 동경과 별 하나에 시와 별
-          하나에 어머니, 어머니, 어머님, 나는 별 하나에 아름다운 말 한마디씩
-          불러 봅니다...
+          &quot;당신의 정의, 당신만을 위한 공정&quot;
+          <br />
+          최적의 방법으로 당신만을 위해 싸우겠습니다.
         </p>
       </div>
     </section>

@@ -36,41 +36,39 @@ const Profile = () => {
           </h2>
           <ul className={ul}>
             <li>
-              <span className={li_span}>2023 ~ </span>
+              <span className={li_span}>학력</span>
+              <strong className={li_strong}>경희대학교 자율전공학과</strong>
+            </li>
+            <li>
+              <strong className={li_strong}>경희대학교 법학전문대학원</strong>
+            </li>
+            <li>
+              <span style={{ marginTop: 28 }} className={li_span}>
+                경력
+              </span>
+              <strong className={li_strong}>前) 국방부 실무 수습</strong>
+            </li>
+            <li>
+              <strong className={li_strong}>前) 법무법인 해랑</strong>
+            </li>
+            <li>
               <strong className={li_strong}>
-                서울특별시 마을변호사 법률상담관
+                前) 법무법인 AK 교통사고, 손해배상 전담
               </strong>
             </li>
             <li>
-              <span className={li_span}>2023 ~ </span>
               <strong className={li_strong}>
-                서울특별시 양천구청 전세사기피해 법률상담관
+                現) 법무법인 소울 파트너 변호사
               </strong>
             </li>
             <li>
-              <span className={li_span}>2023 ~ </span>
               <strong className={li_strong}>
-                서울지방경찰청 혜화경찰서 경미범죄심사위원회 즉결심판위원
+                現) 서울 관악경찰서 선도심사위원
               </strong>
             </li>
             <li>
-              <span className={li_span}>2022 ~ 2023</span>
               <strong className={li_strong}>
-                법무법인 AK (형사, 가사, 행정)
-              </strong>
-            </li>
-            <li>
-              <span className={li_span}>2022 ~ 2022</span>
-              <strong className={li_strong}>
-                서울 서초구청 서초재능TV 생활법률담당 강연
-                <br />
-                (학교폭력, 조세상속, 공공주택, 반려동물)
-              </strong>
-            </li>
-            <li>
-              <span className={li_span}>2018 ~ 2018</span>
-              <strong className={li_strong}>
-                감사원 국방감사국 (국방부, 방위사업청 등 담당 감사관)
+                EBS &apos;직업탐구, 별별입니다&apos; 출연
               </strong>
             </li>
           </ul>
@@ -92,44 +90,48 @@ const Profile = () => {
           </div>
           <ul className={ul}>
             <li>
-              <span className={li_span}>2023 ~ </span>
+              <span className={li_span}>학력</span>
+              <strong className={li_strong}>서울대학교 사회학과</strong>
+            </li>
+            <li>
+              <strong className={li_strong}>경희대학교 법학전문대학원</strong>
+            </li>
+            <li>
+              <span style={{ marginTop: 28 }} className={li_span}>
+                경력
+              </span>
               <strong className={li_strong}>
-                서울특별시 마을변호사 법률상담관
+                前) 감사원 국방감사국(국방부, 방위사업청) 감사관
               </strong>
             </li>
             <li>
-              <span className={li_span}>2023 ~ </span>
+              <strong className={li_strong}>前) 울산지검 실무 수습</strong>
+            </li>
+            <li>
               <strong className={li_strong}>
-                서울특별시 양천구청 전세사기피해 법률상담관
+                前) 법무법인 최선, 법무법인 AK
               </strong>
             </li>
             <li>
-              <span className={li_span}>2023 ~ </span>
               <strong className={li_strong}>
-                서울지방경찰청 혜화경찰서 경미범죄심사위원회 즉결심판위원
+                前) 법률사무소 위드윤 파트너 변호사
               </strong>
             </li>
             <li>
-              <span className={li_span}>2022 ~ 2023</span>
               <strong className={li_strong}>
-                법무법인 AK (형사, 가사, 행정)
+                現) 법무법인 소울 파트너 변호사
               </strong>
             </li>
             <li>
-              <span className={li_span}>2022 ~ 2022</span>
               <strong className={li_strong}>
-                서울 서초구청 서초재능TV 생활법률담당 강연 (학교폭력, 조세상속,
-                공공주택, 반려동물)
+                現) 서울 혜화경찰서 즉결심판위원
               </strong>
             </li>
             <li>
-              <span className={li_span}>2018 ~ 2018</span>
               <strong className={li_strong}>
-                감사원 국방감사국 (국방부, 방위사업청 등 담당 감사관)
+                現) 서울 양천구청 전세사기피해 법률상담관
               </strong>
             </li>
-            <li>서울대학교</li>
-            <li>경희대학교 법학전문대학원</li>
           </ul>
         </div>
       </div>

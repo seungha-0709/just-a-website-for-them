@@ -27,6 +27,7 @@ export const mainSection = style({
   position: "relative",
   display: "flex",
   alignItems: "center",
+  paddingLeft: 80,
 });
 
 export const contents = style({
@@ -46,7 +47,7 @@ export const profile_kong_backgroundStyle = style({
 
 export const profileSection = style({
   width: "100%",
-  height: "100svh",
+  height: "calc(100svh - 76px)",
   position: "relative",
   display: "flex",
   gap: 0,
@@ -54,11 +55,14 @@ export const profileSection = style({
   background: root.color.COLOR_04,
   letterSpacing: 1.2,
   fontWeight: 200,
+  boxSizing: "border-box",
+  borderTop: `28px solid ${root.color.COLOR_02}`,
+  borderBottom: `28px solid ${root.color.COLOR_02}`,
 });
 
 export const profile_kong = style({
   width: "100%",
-  height: "50vh",
+  height: "calc(50vh - 76px)",
   position: "relative",
   display: "flex",
   flexDirection: "row-reverse",
@@ -77,7 +81,7 @@ export const profile_jeong_backgroundStyle = style({
 
 export const profile_jeong = style({
   width: "100%",
-  height: "50vh",
+  height: "calc(50vh - 76px)",
   position: "relative",
   zIndex: 3,
   borderBottom: `1px solid ${root.color.COLOR_07}`,
@@ -92,6 +96,7 @@ export const blog_backgroundStyle = style({
 });
 
 export const blogSection = style({
+  background: root.color.WHITE,
   width: "100%",
   height: "100svh",
   display: "flex",
@@ -118,7 +123,7 @@ export const profile_kong_container = style({
   position: "relative",
   zIndex: 3,
   background: "rgba(36, 32, 25, 0.9)",
-  padding: "40px 60px",
+  padding: "30px 50px",
   boxSizing: "border-box",
   color: root.color.COLOR_09,
 });
@@ -164,27 +169,28 @@ export const ul = style({
   boxSizing: "border-box",
   margin: 0,
   fontWeight: 200,
-  fontSize: 14,
+  fontSize: 15,
   height: 600,
   width: "100%",
 });
 
 export const li_span = style({
-  fontWeight: 200,
+  fontWeight: 400,
   color: root.color.COLOR_06,
   display: "block",
   width: "fit-content",
-  marginBottom: 2,
+  margin: "12px 0",
 });
 export const li_strong = style({
   fontWeight: 200,
-  marginBottom: 16,
+  marginBottom: 6,
   display: "block",
 });
 
 export const main_title_area = style({
   position: "relative",
   left: 60,
+  bottom: 56,
   zIndex: 3,
 });
 
@@ -196,10 +202,10 @@ export const main_title_text = style({
 });
 
 export const main_content_text = style({
-  fontSize: 16,
+  fontSize: 28,
   color: root.color.COLOR_09,
-  fontWeight: 200,
-  margin: "20px 0",
+  fontWeight: 500,
+  margin: "50px 0",
   width: 700,
   height: "auto",
   letterSpacing: 1,
@@ -274,16 +280,20 @@ export const blog_list_brief_content = style({
   overflow: "hidden",
 });
 
-export const success_backgroundStyle = style({
+export const successBackgroundStyle = style({
   width: "100%",
   height: "100%",
   objectFit: "cover",
   zIndex: 0,
+  objectPosition: "50%, 0%",
 });
-export const success_section = style({
+export const successSection = style({
   width: "100%",
   height: "100svh",
   position: "relative",
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
 });
 
 export const reviews_backgroundStyle = style({
@@ -313,8 +323,98 @@ export const header_ul = style({
 });
 
 export const header_nav = style({
-  width: 1200,
+  width: 1000,
   display: "flex",
   justifyContent: "space-between",
   alignItems: "center",
+});
+
+export const globalNav = style({
+  position: "fixed",
+  top: "50%",
+  right: 1,
+  zIndex: 10,
+  transform: "translate(0%, -50%)",
+  width: 100,
+  background: root.color.WHITE,
+});
+
+export const globalNav_button = style({
+  width: 100,
+  height: 100,
+});
+
+export const main_title_em = style({
+  fontSize: 120,
+});
+
+export const main_title_name = style({
+  fontSize: 24,
+});
+
+export const main_title_main_text = style({
+  fontSize: 48,
+});
+
+export const success_content_area = style({
+  width: "100%",
+  height: "fit-content",
+  position: "relative",
+  zIndex: 5,
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  flexDirection: "column",
+});
+
+export const success_title = style({
+  fontSize: 48,
+  fontWeight: 700,
+  color: root.color.COLOR_08,
+  marginTop: 0,
+  marginBottom: 60,
+});
+
+export const success_subtitle = style({
+  fontSize: 28,
+  fontWeight: 400,
+  color: root.color.COLOR_06,
+  marginTop: 0,
+  lineHeight: 1.6,
+  textAlign: "center",
+  marginBottom: 120,
+});
+
+export const success_example_container = style({
+  display: "flex",
+  gap: 20,
+  alignItems: "center",
+  justifyContent: "space-between",
+});
+
+export const success_example_item = style({
+  width: 150,
+  height: 150,
+  cursor: "pointer",
+  position: "relative",
+  border: `1px solid ${root.color.COLOR_05}`,
+  "::after": {
+    content: "",
+    position: "absolute",
+    zIndex: 5,
+    top: 0,
+    left: 0,
+    width: "100%",
+    height: "100%",
+    background: "rgba(0, 0, 0, 0.5)",
+  },
+});
+
+export const desktop_container = style({
+  width: 1200,
+  position: "relative",
+  overflow: "hidden",
+  margin: "0 auto",
+  borderLeft: `1px solid ${root.color.COLOR_05}`,
+  borderRight: `1px solid ${root.color.COLOR_05}`,
 });

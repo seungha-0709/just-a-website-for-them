@@ -3,9 +3,10 @@ import { getPosts } from "../lib/posts";
 
 import Slider from "react-slick";
 import Desktop from "@/components/desktop/Desktop";
+import { root } from "@/styles/root.css";
 
 const MainPage = (props) => {
-  const { posts: blogPosts } = props;
+  const { posts: blogPosts, success, featuredPosts } = props;
   const carouselSettings = {
     slidesToShow: 1,
     slidesToScroll: 1,
@@ -13,7 +14,6 @@ const MainPage = (props) => {
     infinite: true,
     arrows: false,
     slide: "div",
-    // className: "main-carousel",
     vertical: true,
     verticalSwiping: true,
     swipeToSlide: true,
@@ -47,11 +47,15 @@ const MainPage = (props) => {
   }
 
   return (
-    <div ref={bodyRef}>
+    <div ref={bodyRef} style={{ background: root.color.COLOR_01 }}>
       {isMobileView ? (
         <h1>모바일용 화면 준비 중</h1>
       ) : (
-        <Desktop posts={blogPosts} />
+        <Desktop
+          posts={blogPosts}
+          success={success}
+          featuredPosts={featuredPosts}
+        />
       )}
     </div>
   );
@@ -69,6 +73,16 @@ export const getStaticProps = async (context) => {
   }
 
   return {
-    props: { posts },
+    props: {
+      featuredPosts: posts.filter((post) =>
+        post.tags.map((v) => v.name).includes("main_featured")
+      ),
+      posts: posts.filter((post) =>
+        post.tags.map((v) => v.name).includes("blog-list")
+      ),
+      success: posts.filter((post) =>
+        post.tags.map((v) => v.name).includes("success")
+      ),
+    },
   };
 };
