@@ -124,31 +124,25 @@ const Success = ({ examples }) => {
   const [selectedValue, setSelectedValue] = useState();
 
   const [selected, setSelected] = useState([]);
-  const [position, setPosition] = useState(0);
 
   const isItemSelected = (id) => !!selected.find((el) => el === id);
-
-  const handleItemClick = (index) => {
-    setSelectedValue(index);
-    setIsDialogOpen(true);
-  };
 
   const handleDialogClose = () => {
     setIsDialogOpen(false);
   };
 
-  console.log(examples);
-
   const handleClick =
-    (id) =>
+    (item, index) =>
     ({ getItemById, scrollToItem }) => {
-      const itemSelected = isItemSelected(id);
+      const itemSelected = isItemSelected(index);
 
       setSelected((currentSelected) =>
         itemSelected
-          ? currentSelected.filter((el) => el !== id)
-          : currentSelected.concat(id)
+          ? currentSelected.filter((el) => el !== index)
+          : currentSelected.concat(index)
       );
+      setSelectedValue(index);
+      setIsDialogOpen(true);
     };
 
   return (
@@ -174,7 +168,7 @@ const Success = ({ examples }) => {
             {examples.map((item, index) => {
               return (
                 <SuccessItem
-                  onClick={() => handleItemClick(item)}
+                  onClick={handleClick(item, index)}
                   key={index}
                   itemID={index}
                   item={item}
