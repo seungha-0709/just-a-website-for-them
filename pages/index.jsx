@@ -5,6 +5,7 @@ import Slider from "react-slick";
 import Desktop from "@/components/desktop/Desktop";
 import { root } from "@/styles/root.css";
 import Mobile from "@/components/mobile/Mobile";
+import dynamic from "next/dynamic";
 
 const MainPage = (props) => {
   const { posts: blogPosts, success, featuredPosts } = props;
@@ -26,12 +27,13 @@ const MainPage = (props) => {
 
   const [width, setWidth] = useState();
 
-  const isMobileView = useMemo(() => {
-    if (width < 1200) {
-      return true;
-    }
-    return false;
-  }, [width]);
+  const [isMobileView, setIsMobileView] = useState();
+  // const isMobileView = useMemo(() => {
+  //   if (width < 1200) {
+  //     return true;
+  //   }
+  //   return false;
+  // }, [width]);
 
   useEffect(() => {
     window && setWidth(window.innerWidth);
@@ -42,6 +44,14 @@ const MainPage = (props) => {
 
     resizeObserver.observe(bodyRef.current);
   }, []);
+
+  useEffect(() => {
+    if (width < 1200) {
+      setIsMobileView(true);
+      return;
+    }
+    setIsMobileView(false);
+  }, [width]);
 
   if (!mainCarouselRef.current) {
     return <></>;

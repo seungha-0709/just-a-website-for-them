@@ -1,13 +1,30 @@
+"use client";
+
 import { useRef, useEffect } from "react";
 import Header from "../Header";
-import Main from "../Main";
-import Profile from "../Profile";
-import Blogs from "../Blogs";
-import Success from "../Success";
-import Reviews from "../Reviews";
+// import Main from "../Main";
+// import Profile from "../Profile";
+// import Blogs from "../Blogs";
+// import Success from "../Success";
+// import Reviews from "../Reviews";
 import Slider from "react-slick";
 import { contents, desktop_container } from "@/styles/style.css";
 import Nav from "../Nav";
+import dynamic from "next/dynamic";
+
+const Main = dynamic(() => import("../Main"), {
+  loading: () => <p>Loading...</p>,
+});
+const Profile = dynamic(() => import("../Profile"), {
+  loading: () => <p>Loading...</p>,
+});
+const Blogs = dynamic(() => import("../Blogs"), {
+  loading: () => <p>Loading...</p>,
+});
+const Success = dynamic(() => import("../Profile"), {
+  loading: () => <p>Loading...</p>,
+});
+// const Profile = dynamic(() => import("../Profile"));
 
 const Desktop = ({ posts, success, featuredPosts }) => {
   const mainCarouselRef = useRef(Slider);
