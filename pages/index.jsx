@@ -8,6 +8,7 @@ import Slider from "react-slick";
 import { root } from "@/styles/root.css";
 // import Mobile from "@/components/mobile/Mobile";
 import dynamic from "next/dynamic";
+import { NextSeo } from "next-seo";
 
 const Mobile = dynamic(() => import("@/components/mobile/Mobile"), {
   loading: () => <p>loading...</p>,
@@ -66,23 +67,43 @@ const MainPage = (props) => {
   }
 
   return (
-    <div ref={bodyRef} style={{ background: root.color.COLOR_01 }}>
-      <Suspense fallback={<p>loading</p>}>
-        {isMobileView ? (
-          <Mobile
-            posts={blogPosts}
-            success={success}
-            featuredPosts={featuredPosts}
-          />
-        ) : (
-          <Desktop
-            posts={blogPosts}
-            success={success}
-            featuredPosts={featuredPosts}
-          />
-        )}
-      </Suspense>
-    </div>
+    <>
+      <NextSeo
+        title={"공지연, 정진권 변호사 - 법무법인 소울"}
+        description="당신의 정의, 당신만을 위한 공정, 최적의 방법으로 당신만을 위해 싸우겠습니다."
+        openGraph={{
+          title: "공지연, 정진권 변호사 - 법무법인 소울",
+          description:
+            "당신의 정의, 당신만을 위한 공정, 최적의 방법으로 당신만을 위해 싸우겠습니다.",
+          images: [
+            {
+              url: "/image/main_bg.png",
+              width: 400,
+              height: 280,
+              alt: "공지연, 정진권 변호사 - 법무법인 소울",
+              type: "image/png",
+            },
+          ],
+        }}
+      />
+      <div ref={bodyRef} style={{ background: root.color.COLOR_01 }}>
+        <Suspense fallback={<p>loading</p>}>
+          {isMobileView ? (
+            <Mobile
+              posts={blogPosts}
+              success={success}
+              featuredPosts={featuredPosts}
+            />
+          ) : (
+            <Desktop
+              posts={blogPosts}
+              success={success}
+              featuredPosts={featuredPosts}
+            />
+          )}
+        </Suspense>
+      </div>
+    </>
   );
 };
 

@@ -40,6 +40,7 @@ const BottomNavigationAction = styled(MuiBottomNavigationAction)(() => ({
   borderRight: `1px solid ${root.color.COLOR_05}`,
   //   },
   "&:active": {
+    fontSize: 14,
     color: root.color.COLOR_08,
     background: root.color.COLOR_03,
   },
