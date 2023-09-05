@@ -7,10 +7,10 @@ const nextConfig = {
   // output: "standalone",
   images: {
     minimumCacheTTL: 31536000,
-    // domains: [
-    //   "images.unsplash.com",
-    //   "just-a-website-for-theme.s3.ap-northeast-2.amazonaws.com",
-    // ],
+    domains: [
+      "images.unsplash.com",
+      "just-a-website-for-theme.s3.ap-northeast-2.amazonaws.com",
+    ],
     remotePatterns: [
       {
         protocol: "https",

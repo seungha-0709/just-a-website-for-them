@@ -13,21 +13,23 @@ import { Storage } from "aws-amplify";
 import { useState, useEffect } from "react";
 
 const Main = (props) => {
-  const [images, setImages] = useState([]);
+  const [image, setImage] = useState("");
   const getUploadedImage = async () => {
     const file = await Storage.get("main_bg.png", {
       level: "public",
     });
-    setImages(file);
+    setImage(file);
   };
   useEffect(() => {
     getUploadedImage();
   }, []);
 
+  console.log(image);
+
   return (
     <section id="main" className={mainSection}>
       <Image
-        src={images}
+        src={image}
         alt="법무법인 소울 - 공지연 & 정진권 변호사"
         fill
         quality={100}

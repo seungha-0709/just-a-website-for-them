@@ -13,7 +13,6 @@ import IconKakaotalk from "@/assets/icons/IconKakaotalk";
 import IconPlace from "@/assets/icons/IconPlace";
 import IconPhone from "@/assets/icons/IconPhone";
 import Place from "./Place";
-import { useEffect } from "react";
 
 const BottomNavigation = styled(MuiBottomNavigation)(() => ({
   background: root.color.COLOR_01,
