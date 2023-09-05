@@ -100,7 +100,7 @@ const Success = ({ examples }) => {
   return (
     <section id="success" className={successSection}>
       <Image
-        src="https://just-a-website-for-theme.s3.ap-northeast-2.amazonaws.com/bg_2.png"
+        src="/bg_2.png"
         alt="법무법인 소울 - 공지연 & 정진권 변호사"
         fill
         quality={100}

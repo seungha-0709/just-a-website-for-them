@@ -51,7 +51,7 @@ const Header = () => {
     <header className={header}>
       <nav className={header_nav}>
         <Image
-          src="https://just-a-website-for-theme.s3.ap-northeast-2.amazonaws.com/lawfirm_logo.png"
+          src="/lawfirm_logo.png"
           width={102}
           height={46}
           alt="법무법인 소울"

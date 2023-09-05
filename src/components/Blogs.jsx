@@ -54,7 +54,7 @@ const Blogs = ({ blogPosts: posts, featuredPosts }) => {
   return (
     <section id="blogs" className={blogSection}>
       <Image
-        src="https://just-a-website-for-theme.s3.ap-northeast-2.amazonaws.com/blog_bg.png"
+        src="/blog_bg.png"
         alt="법무법인 소울 - 공지연 & 정진권 변호사"
         width={1000}
         height={600}

@@ -108,10 +108,11 @@ const Mobile = ({ posts, success, featuredPosts }) => {
         }}
       >
         <Image
-          src="https://just-a-website-for-theme.s3.ap-northeast-2.amazonaws.com/lawfirm_logo.png"
+          src="/lawfirm_logo.png"
           width={90}
           height={40}
           alt="법무법인 소울"
+          priority
         />
         <div />
       </AppBar>

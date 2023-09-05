@@ -7,20 +7,24 @@ const nextConfig = {
   // output: "standalone",
   images: {
     minimumCacheTTL: 31536000,
-    remotePatterns: [
-      {
-        protocol: "https",
-        hostname: "**.s3.ap-northeast-2.amazonaws.com",
-        port: "",
-        pathname: "/**",
-      },
-      {
-        protocol: "https",
-        hostname: "images.unsplash.com",
-        port: "",
-        pathname: "/**",
-      },
+    domains: [
+      "images.unsplash.com",
+      "just-a-website-for-theme.s3.ap-northeast-2.amazonaws.com",
     ],
+    // remotePatterns: [
+    //   {
+    //     protocol: "https",
+    //     hostname: "**.s3.ap-northeast-2.amazonaws.com",
+    //     port: "",
+    //     pathname: "/**",
+    //   },
+    //   {
+    //     protocol: "https",
+    //     hostname: "images.unsplash.com",
+    //     port: "",
+    //     pathname: "/**",
+    //   },
+    // ],
   },
 };
 
