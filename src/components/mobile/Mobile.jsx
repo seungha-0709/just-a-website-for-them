@@ -54,21 +54,21 @@ const Mobile = ({ posts, success, featuredPosts }) => {
     place: 0,
   });
 
-  useEffect(() => {
-    if (window) {
-      window.CallMtm =
-        window.CallMtm ||
-        function () {
-          (window.CallMtm.q = window.CallMtm.q || []).push(arguments);
-        };
+  //   useEffect(() => {
+  //     if (window) {
+  //       window.CallMtm =
+  //         window.CallMtm ||
+  //         function () {
+  //           (window.CallMtm.q = window.CallMtm.q || []).push(arguments);
+  //         };
 
-      CallMtm({
-        productName: "kakao_mobile", //광고주 측에서 설정하고 싶은 값(default convType)
-        convType: "etc", //etc, join, login
-        click: "", //click으로 전환 잡을 경우 css selector 값
-      });
-    }
-  }, [isClicked.kakao]);
+  //       CallMtm({
+  //         productName: "kakao_mobile", //광고주 측에서 설정하고 싶은 값(default convType)
+  //         convType: "etc", //etc, join, login
+  //         click: "", //click으로 전환 잡을 경우 css selector 값
+  //       });
+  //     }
+  //   }, [isClicked.kakao]);
 
   const handleKakaoClick = () => {
     setIsClicked({
