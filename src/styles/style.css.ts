@@ -22,7 +22,7 @@ export const mainBackgroundStyle = style({
 });
 
 export const mainSection = style({
-  width: "100%",
+  width: 1200,
   height: "100svh",
   position: "relative",
   display: "flex",
@@ -143,7 +143,7 @@ export const profile_title_text = style({
   fontSize: 20,
   fontWeight: 400,
   marginTop: 0,
-  marginBottom: 36,
+  marginBottom: 20,
   selectors: {
     ["em &"]: {
       fontSize: 28,
@@ -230,6 +230,7 @@ export const blog_featured_title = style({
   fontWeight: 600,
   fontSize: 20,
   color: root.color.COLOR_02,
+  marginBottom: 20,
 });
 
 export const blog_featured_content = style({

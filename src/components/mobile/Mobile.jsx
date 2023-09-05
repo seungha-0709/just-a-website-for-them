@@ -30,18 +30,23 @@ const BottomNavigation = styled(MuiBottomNavigation)(() => ({
 }));
 
 const BottomNavigationAction = styled(MuiBottomNavigationAction)(() => ({
-  //   "& .MuiBottomNavigationAction-label": {
   color: root.color.COLOR_08,
   fontSize: 14,
   zIndex: 5,
   fontFace: "Pretendard",
   width: "100%",
   borderRight: `1px solid ${root.color.COLOR_05}`,
-  //   },
+  "& .MuiBottomNavigationAction-label": {
+    fontSize: 14,
+  },
   "&:active": {
     fontSize: 14,
     color: root.color.COLOR_08,
     background: root.color.COLOR_03,
+  },
+  "& .Mui-selected": {
+    fontSize: 14,
+    color: root.color.COLOR_08,
   },
 }));
 

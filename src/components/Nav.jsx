@@ -26,6 +26,7 @@ const BottomNavigation = styled(MuiBottomNavigation)(() => ({
     flexDirection: "column",
     justifyContent: "center",
     alignItems: "center",
+    fontSize: 16,
     gap: 0,
     // borderTop: `1px solid ${root.color.COLOR_05}`,
   },
@@ -56,6 +57,7 @@ const BottomNavigationAction = styled(MuiBottomNavigationAction)(() => ({
     color: root.color.COLOR_08,
   },
   "&:active": {
+    fontSize: 16,
     color: root.color.COLOR_08,
     background: root.color.COLOR_03,
   },
@@ -123,17 +125,20 @@ const Nav = ({ slickGoTo }) => {
           icon={<IconCounsel />}
         />
         <BottomNavigationAction
+          style={{ background: root.color.POINT_01 }}
           onClick={handleKakaoClick}
           label="카톡 문의"
           icon={<IconKakaotalk />}
         />
         <BottomNavigationAction
+          style={{ background: root.color.POINT_04 }}
           onClick={handlePlaceClick}
           label="오시는 길"
           icon={<IconPlace />}
         />
         <BottomNavigationAction
           onClick={handleTelClick}
+          style={{ background: root.color.BLACK }}
           label="대표 전화"
           icon={<IconPhone />}
         />

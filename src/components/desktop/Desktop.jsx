@@ -11,6 +11,7 @@ import Slider from "react-slick";
 import { contents, desktop_container } from "@/styles/style.css";
 import Nav from "../Nav";
 import dynamic from "next/dynamic";
+import Place from "../Place";
 
 const Main = dynamic(() => import("../Main"), {
   loading: () => <p>Loading...</p>,
@@ -35,17 +36,11 @@ const Desktop = ({ posts, success, featuredPosts }) => {
       <Nav />
       <div className={desktop_container}>
         <div>
-          {/* <Slider
-              ref={mainCarouselRef}
-              {...carouselSettings}
-              // style={{ paddingTop: 60 }}
-            > */}
           <Main toNext={mainCarouselRef.current.slickNext} />
           <Profile toPreview={mainCarouselRef.current.slickPrev} />
           <Blogs blogPosts={posts} featuredPosts={featuredPosts} />
           <Success examples={success} />
-          {/* <Reviews /> */}
-          {/* </Slider> */}
+          <Place />
         </div>
         <section className={contents}></section>
       </div>

@@ -4,6 +4,7 @@ import {
   blog_backgroundStyle,
   blog_contents_container,
   blog_featured_content,
+  blog_featured_content_html,
   blog_featured_title,
   blog_list_brief_content,
   blog_list_container,
@@ -24,12 +25,14 @@ const StyledButton = styled(MuiButton)(() => ({
   background: root.color.POINT_02,
   color: root.color.WHITE,
   height: 40,
-  width: 40,
+  width: "fit-content",
   borderRadius: 20,
   fontWeight: 600,
-  fontSize: 16,
+  fontSize: 14,
+  display: "block",
   transition: "all 0.5s",
-  margin: "40px 0",
+  margin: "12px 0",
+  padding: "0px 16px",
   "&:hover": {
     background: root.color.COLOR_01,
   },
@@ -59,6 +62,7 @@ const Blogs = ({ blogPosts: posts, featuredPosts }) => {
         width={400}
         height={200}
         quality={100}
+        loading="lazy"
         className={blog_backgroundStyle}
       />
       <div className={blog_contents_container}>
@@ -67,12 +71,17 @@ const Blogs = ({ blogPosts: posts, featuredPosts }) => {
           <br />
           법률 정보를 확인해보세요
         </h2>
-        <StyledButton></StyledButton>
-        <h3 className={blog_featured_title}>{featuredPost.title}</h3>
-        <div
-          className={blog_featured_content}
-          dangerouslySetInnerHTML={{ __html: featuredPost.html }}
-        />
+        <div style={{ marginTop: 40, marginBottom: 40 }}>
+          <StyledButton>공지연 변호사 블로그</StyledButton>
+          <StyledButton>정진권 변호사 블로그</StyledButton>
+        </div>
+        <p className={blog_featured_title}>{featuredPost.title}</p>
+        <div className={blog_featured_content}>
+          <div
+            className={blog_featured_content_html}
+            dangerouslySetInnerHTML={{ __html: featuredPost.html }}
+          />
+        </div>
       </div>
       <div className={blog_list_container}>
         <ul className={blog_list_ul}>

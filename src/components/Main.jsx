@@ -7,29 +7,15 @@ import {
   main_title_em,
   main_title_main_text,
 } from "@/styles/style.css.ts";
-import Button from "./ui/Button";
 import Image from "next/image";
-import { Storage } from "aws-amplify";
-import { useState, useEffect } from "react";
 
 const Main = (props) => {
-  const [image, setImage] = useState("");
-  const getUploadedImage = async () => {
-    const file = await Storage.get("main_bg.png", {
-      level: "public",
-    });
-    setImage(file);
-  };
-  useEffect(() => {
-    getUploadedImage();
-  }, []);
-
-  console.log(image);
-
   return (
     <section id="main" className={mainSection}>
       <Image
-        src={image}
+        src={
+          "https://just-a-website-for-theme.s3.ap-northeast-2.amazonaws.com/main_image.png"
+        }
         alt="법무법인 소울 - 공지연 & 정진권 변호사"
         fill
         quality={100}

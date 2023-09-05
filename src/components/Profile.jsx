@@ -84,11 +84,10 @@ const Profile = () => {
           className={profile_jeong_backgroundStyle}
         />
         <div className={profile_jeong_container}>
-          <div className={flex}>
-            <h2 className={profile_title_text}>
-              변호사 <em className={name}>정 진 권</em>
-            </h2>
-          </div>
+          <h2 className={profile_title_text}>
+            변호사 <em className={name}>정 진 권</em>
+          </h2>
+
           <ul className={ul}>
             <li>
               <span className={li_span}>학력</span>

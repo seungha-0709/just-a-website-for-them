@@ -68,7 +68,7 @@ const Blogs = ({ blogPosts: posts, featuredPosts }) => {
           법률 정보를 확인해보세요
         </h2>
         <StyledButton>사건 분석 더 보러 가기</StyledButton>
-        <h3 className={blog_featured_title}>{featuredPost.title}</h3>
+        <p className={blog_featured_title}>{featuredPost.title}</p>
         <div
           className={blog_featured_content}
           dangerouslySetInnerHTML={{ __html: featuredPost.html }}

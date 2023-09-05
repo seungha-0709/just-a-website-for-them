@@ -211,6 +211,7 @@ export const blog_featured_title = style({
   fontWeight: 600,
   fontSize: 16,
   color: root.color.COLOR_02,
+  marginBottom: 20,
 });
 
 export const blog_featured_content = style({
