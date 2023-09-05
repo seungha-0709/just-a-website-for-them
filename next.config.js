@@ -10,9 +10,9 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "storage.googleapis.com",
+        hostname: "just-a-website-for-theme.s3.ap-northeast-2.amazonaws.com",
         port: "",
-        pathname: "/profile_image_0709/**",
+        pathname: "/*",
       },
       {
         protocol: "https",

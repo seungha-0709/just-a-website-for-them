@@ -77,7 +77,7 @@ const MainPage = (props) => {
             "당신의 정의, 당신만을 위한 공정, 최적의 방법으로 당신만을 위해 싸우겠습니다.",
           images: [
             {
-              url: "/image/main_bg.png",
+              url: "https://just-a-website-for-theme.s3.ap-northeast-2.amazonaws.com/main_bg.png",
               width: 400,
               height: 280,
               alt: "공지연, 정진권 변호사 - 법무법인 소울",

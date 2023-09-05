@@ -16,7 +16,7 @@ const Main = (props) => {
   return (
     <section id="main" className={mainSection}>
       <Image
-        src="/image/main_bg.png"
+        src="https://just-a-website-for-theme.s3.ap-northeast-2.amazonaws.com/main_bg.png"
         alt="법무법인 소울 - 공지연 & 정진권 변호사"
         fill
         quality={100}

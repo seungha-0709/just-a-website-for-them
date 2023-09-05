@@ -74,7 +74,7 @@ const Profile = () => {
           }}
         >
           <Image
-            src="/image/profile_kong.png"
+            src="https://just-a-website-for-theme.s3.ap-northeast-2.amazonaws.com/profile_kong.png"
             alt="법무법인 소울 - 공지연 변호사"
             fill
             className={profile_kong_backgroundStyle}
@@ -82,7 +82,7 @@ const Profile = () => {
         </div>
         <div style={{ width: "50%", height: 200, position: "relative" }}>
           <Image
-            src="/image/profile_jeong.png"
+            src="https://just-a-website-for-theme.s3.ap-northeast-2.amazonaws.com/profile_jeong.png"
             alt="법무법인 소울 - 공지연 & 정진권 변호사"
             fill
             quality={100}
