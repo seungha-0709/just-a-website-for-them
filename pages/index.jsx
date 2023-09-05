@@ -62,9 +62,9 @@ const MainPage = (props) => {
     setIsMobileView(false);
   }, [width]);
 
-  if (!width) {
-    return <div ref={bodyRef}></div>;
-  }
+  // if (!width) {
+  //   return <div ref={bodyRef}></div>;
+  // }
 
   return (
     <>
