@@ -1,0 +1,14 @@
+{
+  "resourceName": "s3justawebsiteforthemstoraged22648f6",
+  "bucketName": "just-a-website-for-them-storage-d22648f6",
+  "policyUUID": "a0a23d78",
+  "storageAccess": "authAndGuest",
+  "guestAccess": [
+    "READ"
+  ],
+  "authAccess": [
+    "CREATE_AND_UPDATE",
+    "READ",
+    "DELETE"
+  ]
+}
