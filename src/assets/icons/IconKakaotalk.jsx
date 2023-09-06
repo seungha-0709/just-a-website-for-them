@@ -17,7 +17,7 @@ const IconKakaotalk = () => {
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <g clip-path="url(#clip0_39_260)">
+        <g clipPath="url(#clip0_39_260)">
           <path
             d="M14.6172 16.7846H16.921L15.7691 13.5923L14.6172 16.7846Z"
             fill="#FFD28F"

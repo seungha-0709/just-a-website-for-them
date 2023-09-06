@@ -72,6 +72,11 @@ const Profile = () => {
                 EBS &apos;직업탐구, 별별입니다&apos; 출연
               </strong>
             </li>
+            <li>
+              <strong className={li_strong}>
+                서울 관악경찰서 안보자문협의회 회원
+              </strong>
+            </li>
           </ul>
         </div>
       </div>

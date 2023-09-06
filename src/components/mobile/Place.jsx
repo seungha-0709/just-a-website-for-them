@@ -16,9 +16,10 @@ const Place = () => {
         loading="lazy"
         className={place_backgroundStyle}
       />
+
       <Map
         center={{ lat: 37.517413, lng: 127.028738 }}
-        style={{ width: 600, height: 400 }}
+        style={{ width: 260, height: 200 }}
       >
         <MapMarker position={{ lat: 37.517413, lng: 127.028738 }}>
           <div style={{ color: "#000" }}>법무법인 소울</div>

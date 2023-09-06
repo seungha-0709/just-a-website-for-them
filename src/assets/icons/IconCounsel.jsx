@@ -21,9 +21,9 @@ const IconCounsel = () => {
           d="M27.6528 15.0139C27.6573 16.737 27.2547 18.4369 26.4778 19.975C25.5567 21.8181 24.1406 23.3684 22.3881 24.4521C20.6357 25.5359 18.6161 26.1103 16.5556 26.1111C14.8324 26.1156 13.1326 25.713 11.5945 24.9361L4.15283 27.4167L6.63339 19.975C5.85649 18.4369 5.45389 16.737 5.45839 15.0139C5.45918 12.9534 6.03363 10.9338 7.11738 9.18138C8.20113 7.42893 9.75139 6.01282 11.5945 5.09166C13.1326 4.31477 14.8324 3.91217 16.5556 3.91666H17.2084C19.9296 4.06679 22.4999 5.21538 24.427 7.14251C26.3541 9.06963 27.5027 11.6399 27.6528 14.3611V15.0139Z"
           fill="#D7B98C"
           stroke="#D7B98C"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
         <line
           x1="11.3076"
@@ -31,8 +31,8 @@ const IconCounsel = () => {
           x2="22.7362"
           y2="11.3095"
           stroke="#C6B499"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
         <line
           x1="11.3076"
@@ -40,8 +40,8 @@ const IconCounsel = () => {
           x2="22.7362"
           y2="11.3095"
           stroke="#4A4133"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
         <line
           x1="11.3076"
@@ -49,8 +49,8 @@ const IconCounsel = () => {
           x2="18.26"
           y2="16.5317"
           stroke="#C6B499"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
         <line
           x1="11.3076"
@@ -58,8 +58,8 @@ const IconCounsel = () => {
           x2="18.26"
           y2="16.5317"
           stroke="#4A4133"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
         <line
           x1="11.3076"
@@ -67,8 +67,8 @@ const IconCounsel = () => {
           x2="16.0219"
           y2="20.8214"
           stroke="#C6B499"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
         <line
           x1="11.3076"
@@ -76,16 +76,16 @@ const IconCounsel = () => {
           x2="16.0219"
           y2="20.8214"
           stroke="#4A4133"
-          stroke-width="2"
-          stroke-linecap="round"
+          strokeWidth="2"
+          strokeLinecap="round"
         />
         <path
           d="M18.1408 25.4583C18.1344 27.6738 18.7095 29.8594 19.8193 31.8369C21.1353 34.2066 23.1583 36.1998 25.6618 37.5932C28.1653 38.9866 31.0504 39.7252 33.9939 39.7262C36.4556 39.732 38.8839 39.2143 41.0812 38.2155L51.7122 41.4047L48.1685 31.8369C49.2784 29.8594 49.8535 27.6738 49.8471 25.4583C49.8459 22.8092 49.0253 20.2126 47.4771 17.9594C45.9289 15.7063 43.7142 13.8856 41.0812 12.7012C38.8839 11.7024 36.4556 11.1847 33.9939 11.1905H33.0614C29.1739 11.3835 25.5022 12.8603 22.7491 15.338C19.9961 17.8157 18.3552 21.1203 18.1408 24.6191V25.4583Z"
           fill="#8F8069"
           stroke="#8F8069"
-          stroke-width="2"
-          stroke-linecap="round"
-          stroke-linejoin="round"
+          strokeWidth="2"
+          strokeLinecap="round"
+          strokeLinejoin="round"
         />
         <path
           d="M25.9448 27.9762C24.7303 27.9762 23.712 26.969 23.7365 25.7132C23.712 24.4947 24.7303 23.5 25.9448 23.5C27.1226 23.5 28.1654 24.4947 28.1777 25.7132C28.1654 26.969 27.1226 27.9762 25.9448 27.9762Z"

@@ -63,12 +63,12 @@ const BottomNavigationAction = styled(MuiBottomNavigationAction)(() => ({
   },
 }));
 
-const Nav = ({ slickGoTo }) => {
-  const [tabIndex, setTabIndex] = useState(0);
+const Nav = () => {
   const [isClicked, setIsClicked] = useState({
     kakao: 0,
     tel: 0,
     place: 0,
+    mail: 0,
   });
 
   useEffect(() => {
@@ -80,12 +80,60 @@ const Nav = ({ slickGoTo }) => {
         };
 
       CallMtm({
-        productName: "kakao_mobile", //광고주 측에서 설정하고 싶은 값(default convType)
-        convType: "etc", //etc, join, login
-        click: "", //click으로 전환 잡을 경우 css selector 값
+        productName: "mail_pc", //광고주 측에서 설정하고 싶은 값(default convType)
+        convType: "mail_pc", //etc, join, login
+        click: "#mail_pc", //click으로 전환 잡을 경우 css selector 값
+      });
+    }
+  }, [isClicked.mail]);
+
+  useEffect(() => {
+    if (window) {
+      window.CallMtm =
+        window.CallMtm ||
+        function () {
+          (window.CallMtm.q = window.CallMtm.q || []).push(arguments);
+        };
+
+      CallMtm({
+        productName: "kakao_pc",
+        convType: "kakao_pc",
+        click: "#kakao_pc",
       });
     }
   }, [isClicked.kakao]);
+
+  useEffect(() => {
+    if (window) {
+      window.CallMtm =
+        window.CallMtm ||
+        function () {
+          (window.CallMtm.q = window.CallMtm.q || []).push(arguments);
+        };
+
+      CallMtm({
+        productName: "tel_pc",
+        convType: "tel_pc",
+        click: "#tel_pc",
+      });
+    }
+  }, [isClicked.tel]);
+
+  useEffect(() => {
+    if (window) {
+      window.CallMtm =
+        window.CallMtm ||
+        function () {
+          (window.CallMtm.q = window.CallMtm.q || []).push(arguments);
+        };
+
+      CallMtm({
+        productName: "place_pc",
+        convType: "place_pc",
+        click: "#place_pc",
+      });
+    }
+  }, [isClicked.place]);
 
   const handleKakaoClick = () => {
     setIsClicked({
@@ -95,12 +143,20 @@ const Nav = ({ slickGoTo }) => {
     window.open("https://pf.kakao.com/_TsAxdG");
   };
 
+  const handleMailClick = () => {
+    setIsClicked({
+      ...isClicked,
+      kakao: isClicked.mail++,
+    });
+    // window.open("https://pf.kakao.com/_TsAxdG");
+  };
+
   const handleTelClick = () => {
     setIsClicked({
       ...isClicked,
       tel: isClicked.tel++,
     });
-    window.location.href = "tel:01096129677";
+    window.location.href = "tel:01079340883";
   };
   const handlePlaceClick = () => {
     setIsClicked({
