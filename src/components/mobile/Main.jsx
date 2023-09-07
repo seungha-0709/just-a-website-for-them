@@ -18,6 +18,7 @@ const Main = (props) => {
         src="https://just-a-website-for-theme.s3.ap-northeast-2.amazonaws.com/mobile/mobile_main_bg.png"
         alt="법무법인 소울 - 공지연 & 정진권 변호사"
         fill
+        priority
         quality={100}
         className={mainBackgroundStyle}
       />
