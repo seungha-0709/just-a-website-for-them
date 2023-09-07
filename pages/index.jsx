@@ -9,6 +9,7 @@ import { root } from "@/styles/root.css";
 // import Mobile from "@/components/mobile/Mobile";
 import dynamic from "next/dynamic";
 import { NextSeo } from "next-seo";
+import { LinearProgress, styled } from "@mui/material";
 
 const Mobile = dynamic(() => import("@/components/mobile/Mobile"), {
   loading: () => <p>loading...</p>,
@@ -16,6 +17,18 @@ const Mobile = dynamic(() => import("@/components/mobile/Mobile"), {
 const Desktop = dynamic(() => import("@/components/desktop/Desktop"), {
   loading: () => <p>loading...</p>,
 });
+
+const BorderLinearProgress = styled(LinearProgress)(() => ({
+  height: 10,
+  borderRadius: 5,
+  [`& .MuiLinearProgress-root`]: {
+    backgroundColor: root.color.WHITE,
+  },
+  [`& .MuiLinearProgress-bar`]: {
+    borderRadius: 5,
+    backgroundColor: root.color.COLOR_05,
+  },
+}));
 
 const MainPage = (props) => {
   const { posts: blogPosts, success, featuredPosts } = props;
@@ -34,21 +47,13 @@ const MainPage = (props) => {
 
   const bodyRef = useRef(null);
 
-  const [width, setWidth] = useState();
+  const [width, setWidth] = useState(0);
 
-  const [isMobileView, setIsMobileView] = useState();
-  // const isMobileView = useMemo(() => {
-  //   if (width < 1200) {
-  //     return true;
-  //   }
-  //   return false;
-  // }, [width]);
+  const [isDesktopView, setIsDesktopView] = useState();
 
   useEffect(() => {
-    window && setWidth(window.innerWidth);
-
     const resizeObserver = new ResizeObserver((entries) => {
-      setWidth(entries[0].contentRect.width);
+      setTimeout(() => setWidth(entries[0].contentRect.width), 2000);
     });
 
     resizeObserver.observe(bodyRef.current);
@@ -56,10 +61,10 @@ const MainPage = (props) => {
 
   useEffect(() => {
     if (width < 1200) {
-      setIsMobileView(true);
+      setIsDesktopView(false);
       return;
     }
-    setIsMobileView(false);
+    setIsDesktopView(true);
   }, [width]);
 
   // if (!width) {
@@ -77,7 +82,7 @@ const MainPage = (props) => {
             "당신의 정의, 당신만을 위한 공정, 최적의 방법으로 당신만을 위해 싸우겠습니다.",
           images: [
             {
-              url: "/main_bg.png",
+              url: "https://just-a-website-for-theme.s3.ap-northeast-2.amazonaws.com/mobile/mobile_main_bg.png",
               width: 400,
               height: 280,
               alt: "공지연, 정진권 변호사 - 법무법인 소울",
@@ -86,21 +91,55 @@ const MainPage = (props) => {
           ],
         }}
       />
-      <div ref={bodyRef} style={{ background: root.color.COLOR_01 }}>
+      <div
+        ref={bodyRef}
+        style={{
+          background: root.color.COLOR_01,
+          width: "100%",
+          minHeight: "100svh",
+        }}
+      >
+        {!width && (
+          <div
+            style={{
+              width: "100%",
+              height: "100svh",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <div
+              style={{
+                width: "50%",
+                height: 30,
+                display: "flex",
+
+                alignItems: "center",
+              }}
+            >
+              <BorderLinearProgress style={{ width: "100%" }} color="inherit" />
+            </div>
+          </div>
+        )}
         <Suspense fallback={<p>loading</p>}>
-          {isMobileView ? (
-            <Mobile
-              posts={blogPosts}
-              success={success}
-              featuredPosts={featuredPosts}
-            />
-          ) : (
+          {!!width && typeof isDesktopView !== "undefined" && isDesktopView && (
             <Desktop
               posts={blogPosts}
               success={success}
               featuredPosts={featuredPosts}
             />
           )}
+
+          {!!width &&
+            typeof isDesktopView !== "undefined" &&
+            !isDesktopView && (
+              <Mobile
+                posts={blogPosts}
+                success={success}
+                featuredPosts={featuredPosts}
+              />
+            )}
         </Suspense>
       </div>
     </>

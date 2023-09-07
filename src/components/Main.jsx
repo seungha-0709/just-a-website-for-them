@@ -35,6 +35,9 @@ const Main = (props) => {
           최적의 방법으로 당신만을 위해 싸우겠습니다.
         </p>
       </div>
+      {/* <div>
+        <div></div>
+      </div> */}
     </section>
   );
 };
