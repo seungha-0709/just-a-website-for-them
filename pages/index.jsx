@@ -123,23 +123,23 @@ const MainPage = (props) => {
           </div>
         )}
         <Suspense fallback={<p>loading</p>}>
-          {!!width && typeof isDesktopView !== "undefined" && isDesktopView && (
-            <Desktop
-              posts={blogPosts}
-              success={success}
-              featuredPosts={featuredPosts}
-            />
-          )}
+          <Desktop
+            isRender={
+              !!width && typeof isDesktopView !== "undefined" && isDesktopView
+            }
+            posts={blogPosts}
+            success={success}
+            featuredPosts={featuredPosts}
+          />
 
-          {!!width &&
-            typeof isDesktopView !== "undefined" &&
-            !isDesktopView && (
-              <Mobile
-                posts={blogPosts}
-                success={success}
-                featuredPosts={featuredPosts}
-              />
-            )}
+          <Mobile
+            isRender={
+              !!width && typeof isDesktopView !== "undefined" && !isDesktopView
+            }
+            posts={blogPosts}
+            success={success}
+            featuredPosts={featuredPosts}
+          />
         </Suspense>
       </div>
     </>

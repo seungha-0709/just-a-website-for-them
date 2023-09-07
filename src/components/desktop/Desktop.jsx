@@ -27,11 +27,11 @@ const Success = dynamic(() => import("../Success"), {
 });
 // const Profile = dynamic(() => import("../Profile"));
 
-const Desktop = ({ posts, success, featuredPosts }) => {
+const Desktop = ({ posts, success, featuredPosts, isRender }) => {
   const mainCarouselRef = useRef(Slider);
 
   return (
-    <>
+    <div style={{ display: `${isRender ? "block" : "none"}` }}>
       <Header />
       <Nav />
       <div className={desktop_container}>
@@ -44,7 +44,7 @@ const Desktop = ({ posts, success, featuredPosts }) => {
         </div>
         <section className={contents}></section>
       </div>
-    </>
+    </div>
   );
 };
 

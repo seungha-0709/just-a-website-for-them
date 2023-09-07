@@ -50,7 +50,7 @@ const BottomNavigationAction = styled(MuiBottomNavigationAction)(() => ({
   },
 }));
 
-const Mobile = ({ posts, success, featuredPosts }) => {
+const Mobile = ({ posts, success, featuredPosts, isRender }) => {
   const [tabIndex, setTabIndex] = useState(0);
   const [isClicked, setIsClicked] = useState({
     kakao: 0,
@@ -155,7 +155,7 @@ const Mobile = ({ posts, success, featuredPosts }) => {
   };
 
   return (
-    <>
+    <div style={{ display: `${isRender ? "block" : "none"}` }}>
       <AppBar
         position="fixed"
         style={{
@@ -219,7 +219,7 @@ const Mobile = ({ posts, success, featuredPosts }) => {
           icon={<IconPhone />}
         />
       </BottomNavigation>
-    </>
+    </div>
   );
 };
 
