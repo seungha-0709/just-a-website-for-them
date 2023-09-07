@@ -190,9 +190,9 @@ const Mobile = ({ posts, success, featuredPosts }) => {
         }}
         showLabels
         value={tabIndex}
-        onChange={(event, newValue) => {
-          setTabIndex(newValue);
-        }}
+        // onChange={(event, newValue) => {
+        //   setTabIndex(newValue);
+        // }}
       >
         <BottomNavigationAction
           onClick={handleMailClick}

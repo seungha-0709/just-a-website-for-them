@@ -4,6 +4,55 @@ export default function Document() {
   return (
     <Html lang="ko">
       <Head>
+        <link
+          rel="preload"
+          href="https://just-a-website-for-theme.s3.ap-northeast-2.amazonaws.com/fonts/Pretendard-Black.subset.woff2"
+          as="font"
+          type="font/woff2"
+          // crossorigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="https://just-a-website-for-theme.s3.ap-northeast-2.amazonaws.com/fonts/Pretendard-ExtraBold.subset.woff2"
+          as="font"
+          type="font/woff2"
+          // crossorigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="https://just-a-website-for-theme.s3.ap-northeast-2.amazonaws.com/fonts/Pretendard-Bold.subset.woff2"
+          as="font"
+          type="font/woff2"
+          // crossorigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="https://just-a-website-for-theme.s3.ap-northeast-2.amazonaws.com/fonts/Pretendard-SemiBold.subset.woff2"
+          as="font"
+          type="font/woff2"
+          // crossorigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="https://just-a-website-for-theme.s3.ap-northeast-2.amazonaws.com/fonts/Pretendard-Medium.subset.woff2"
+          as="font"
+          type="font/woff2"
+          // crossorigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="https://just-a-website-for-theme.s3.ap-northeast-2.amazonaws.com/fonts/Pretendard-Regular.subset.woff2"
+          as="font"
+          type="font/woff2"
+          // crossorigin="anonymous"
+        />
+        <link
+          rel="preload"
+          href="https://just-a-website-for-theme.s3.ap-northeast-2.amazonaws.com/fonts/Pretendard-Light.subset.woff2"
+          as="font"
+          type="font/woff2"
+          // crossorigin="anonymous"
+        />
         <script
           defer
           async

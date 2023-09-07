@@ -1,43 +1,64 @@
+@import url("https://just-a-website-for-theme.s3.ap-northeast-2.amazonaws.com/fonts/Pretendard-Light.subset.woff2");
+@import url("https://just-a-website-for-theme.s3.ap-northeast-2.amazonaws.com/fonts/Pretendard-Regular.subset.woff2");
+@import url("https://just-a-website-for-theme.s3.ap-northeast-2.amazonaws.com/fonts/Pretendard-Medium.subset.woff2");
+@import url("https://just-a-website-for-theme.s3.ap-northeast-2.amazonaws.com/fonts/Pretendard-SemiBold.subset.woff2");
+@import url("https://just-a-website-for-theme.s3.ap-northeast-2.amazonaws.com/fonts/Pretendard-Bold.subset.woff2");
+@import url("https://just-a-website-for-theme.s3.ap-northeast-2.amazonaws.com/fonts/Pretendard-Black.subset.woff2");
+
 @font-face {
   font-family: Pretendard;
   font-weight: 200;
-  src: url("/fonts/Pretendard-Light.subset.woff2") format("woff2");
+  font-display: fallback;
+  src: url("https://just-a-website-for-theme.s3.ap-northeast-2.amazonaws.com/fonts/Pretendard-Light.subset.woff2")
+    format("woff2");
 }
 
 @font-face {
   font-family: Pretendard;
   font-weight: 300;
-  src: url("/fonts/Pretendard-Regular.subset.woff2") format("woff2");
+  font-display: fallback;
+  src: url("https://just-a-website-for-theme.s3.ap-northeast-2.amazonaws.com/fonts/Pretendard-Regular.subset.woff2")
+    format("woff2");
 }
 
 @font-face {
   font-family: Pretendard;
   font-weight: 400;
-  src: url("/fonts/Pretendard-Medium.subset.woff2") format("woff2");
+  font-display: fallback;
+  src: url("https://just-a-website-for-theme.s3.ap-northeast-2.amazonaws.com/fonts/Pretendard-Medium.subset.woff2")
+    format("woff2");
 }
 
 @font-face {
   font-family: Pretendard;
   font-weight: 500;
-  src: url("/fonts/Pretendard-SemiBold.subset.woff2") format("woff2");
+  font-display: fallback;
+  src: url("https://just-a-website-for-theme.s3.ap-northeast-2.amazonaws.com/fonts/Pretendard-SemiBold.subset.woff2")
+    format("woff2");
 }
 
 @font-face {
   font-family: Pretendard;
   font-weight: 600;
-  src: url("/fonts/Pretendard-Bold.subset.woff2") format("woff2");
+  font-display: fallback;
+  src: url("https://just-a-website-for-theme.s3.ap-northeast-2.amazonaws.com/fonts/Pretendard-Bold.subset.woff2")
+    format("woff2");
 }
 
 @font-face {
   font-family: Pretendard;
   font-weight: 700;
-  src: url("/fonts/Pretendard-ExtraBold.subset.woff2") format("woff2");
+  font-display: fallback;
+  src: url("https://just-a-website-for-theme.s3.ap-northeast-2.amazonaws.com/fonts/Pretendard-ExtraBold.subset.woff2")
+    format("woff2");
 }
 
 @font-face {
   font-family: Pretendard;
   font-weight: 800;
-  src: url("/fonts/Pretendard-Black.subset.woff2") format("woff2");
+  font-display: fallback;
+  src: url("https://just-a-website-for-theme.s3.ap-northeast-2.amazonaws.com/fonts/Pretendard-Black.subset.woff2")
+    format("woff2");
 }
 
 html,

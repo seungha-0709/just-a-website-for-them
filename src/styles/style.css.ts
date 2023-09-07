@@ -297,16 +297,19 @@ export const successSection = style({
   alignItems: "center",
 });
 
-export const reviews_backgroundStyle = style({
+export const place_backgroundStyle = style({
   width: "100%",
   height: "100%",
   objectFit: "cover",
   zIndex: 0,
 });
-export const reviews_section = style({
+export const placeSection = style({
   width: "100%",
   height: "100svh",
   position: "relative",
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
 });
 
 export const header_ul = style({

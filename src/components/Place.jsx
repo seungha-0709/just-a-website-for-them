@@ -1,20 +1,17 @@
 import Image from "next/image";
-import { reviews_backgroundStyle, reviews_section } from "@/styles/style.css";
-import { Map, MapMarker, useKakaoLoader } from "react-kakao-maps-sdk";
+import { placeSection, place_backgroundStyle } from "@/styles/style.css";
+import { Map, MapMarker } from "react-kakao-maps-sdk";
 
 const Place = () => {
-  // const { loading, error } = useKakaoLoader({
-  //   appkey: process.env.NEXT_PIBLIC_KAKAO_JS_KEY, // 발급 받은 APPKEY
-  // });
   return (
-    <section id="place" className={reviews_section}>
+    <section id="place" className={placeSection}>
       <Image
         src="https://just-a-website-for-theme.s3.ap-northeast-2.amazonaws.com/bg_3.png"
         alt="법무법인 소울 - 공지연 & 정진권 변호사"
         fill
         loading="lazy"
         quality={100}
-        className={reviews_backgroundStyle}
+        className={place_backgroundStyle}
       />
 
       <Map

@@ -17,7 +17,7 @@ const BottomNavigation = styled(MuiBottomNavigation)(() => ({
   "&.MuiBottomNavigation-root": {
     background: root.color.COLOR_01,
     position: "relative",
-    top: "-50%",
+    // top: "-50%",
     left: 0,
     zIndex: 20,
     width: 120,
@@ -32,7 +32,7 @@ const BottomNavigation = styled(MuiBottomNavigation)(() => ({
   },
   "& .MuiButtonBase-root": {
     width: 120,
-    height: 140,
+    height: 120,
     padding: 20,
     fontSize: 16,
     border: `1px solid ${root.color.COLOR_05}`,
@@ -46,7 +46,7 @@ const BottomNavigation = styled(MuiBottomNavigation)(() => ({
 
 const BottomNavigationAction = styled(MuiBottomNavigationAction)(() => ({
   "& .MuiBottomNavigationAction-label": {
-    marginTop: 8,
+    // marginTop: 8,
     color: root.color.COLOR_08,
     fontSize: 16,
     zIndex: 5,
@@ -64,6 +64,7 @@ const BottomNavigationAction = styled(MuiBottomNavigationAction)(() => ({
 }));
 
 const Nav = () => {
+  const [tabIndex, setTabIndex] = useState(0);
   const [isClicked, setIsClicked] = useState({
     kakao: 0,
     tel: 0,
@@ -170,14 +171,18 @@ const Nav = () => {
     <nav className={globalNav}>
       <BottomNavigation
         showLabels
-        value={tabIndex}
-        onChange={(event, newValue) => {
-          setTabIndex(newValue);
-        }}
+        // value={tabIndex}
+        // onChange={(event, newValue) => {
+        //   setTabIndex(newValue);
+        // }}
       >
         <BottomNavigationAction
-          style={{ borderTop: `1px solid ${root.color.COLOR_05}` }}
+          style={{
+            borderTop: `1px solid ${root.color.COLOR_05}`,
+            background: root.color.COLOR_01,
+          }}
           label="상담 문의"
+          onClick={handleMailClick}
           icon={<IconCounsel />}
         />
         <BottomNavigationAction
