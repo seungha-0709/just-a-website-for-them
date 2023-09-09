@@ -3,7 +3,7 @@ import {
   TextField as MuiTextField,
   styled,
 } from "@mui/material";
-import { addMember } from "../../../lib/posts";
+import { addMember } from "../../../lib/admin";
 import Button from "./Button";
 import { useState } from "react";
 import { root } from "@/styles/root.css";
@@ -72,23 +72,24 @@ const CounselModal = ({ onClose, isOpen }) => {
   return (
     <Dialog onClose={onClose} open={isOpen}>
       <div>
-        <form onSubmit={handleSubmit}>
-          <TextField
-            value={form.email}
-            onChange={({ target }) => setForm({ ...form, email: target.value })}
-          ></TextField>
-          <TextField
-            value={form.name}
-            onChange={({ target }) => setForm({ ...form, name: target.value })}
-          ></TextField>
-          <TextField
-            value={form.content}
-            onChange={({ target }) =>
-              setForm({ ...form, content: target.value })
-            }
-          ></TextField>
-          <Button type="submit">접수</Button>
-        </form>
+        {/* <form data-members-form onSubmit={handleSubmit}>
+          <input data-members-email type="email" required="true" />
+          <input data-members-label type="label" required="true" />
+          <input data-members-name type="name" required="true" /> */}
+        <TextField
+          value={form.email}
+          onChange={({ target }) => setForm({ ...form, email: target.value })}
+        ></TextField>
+        <TextField
+          value={form.name}
+          onChange={({ target }) => setForm({ ...form, name: target.value })}
+        ></TextField>
+        <TextField
+          value={form.content}
+          onChange={({ target }) => setForm({ ...form, content: target.value })}
+        ></TextField>
+        <Button onClick={handleSubmit}>접수</Button>
+        {/* </form> */}
       </div>
     </Dialog>
   );
