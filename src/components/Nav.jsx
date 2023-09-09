@@ -12,6 +12,7 @@ import {
 } from "@mui/material";
 import { BottomNavigationAction as MuiBottomNavigationAction } from "@mui/material";
 import { useState, useEffect } from "react";
+import CounselModal from "./ui/CounselModal";
 
 const BottomNavigation = styled(MuiBottomNavigation)(() => ({
   "&.MuiBottomNavigation-root": {
@@ -71,6 +72,8 @@ const Nav = () => {
     place: 0,
     mail: 0,
   });
+
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     if (window) {
@@ -149,7 +152,7 @@ const Nav = () => {
       ...isClicked,
       kakao: isClicked.mail++,
     });
-    // window.open("https://pf.kakao.com/_TsAxdG");
+    setIsOpen(true);
   };
 
   const handleTelClick = () => {
@@ -168,43 +171,46 @@ const Nav = () => {
   };
 
   return (
-    <nav className={globalNav}>
-      <BottomNavigation
-        showLabels
-        // value={tabIndex}
-        // onChange={(event, newValue) => {
-        //   setTabIndex(newValue);
-        // }}
-      >
-        <BottomNavigationAction
-          style={{
-            borderTop: `1px solid ${root.color.COLOR_05}`,
-            background: root.color.COLOR_01,
-          }}
-          label="상담 문의"
-          onClick={handleMailClick}
-          icon={<IconCounsel />}
-        />
-        <BottomNavigationAction
-          style={{ background: root.color.POINT_01 }}
-          onClick={handleKakaoClick}
-          label="카톡 문의"
-          icon={<IconKakaotalk />}
-        />
-        <BottomNavigationAction
-          style={{ background: root.color.POINT_04 }}
-          onClick={handlePlaceClick}
-          label="오시는 길"
-          icon={<IconPlace />}
-        />
-        <BottomNavigationAction
-          onClick={handleTelClick}
-          style={{ background: root.color.BLACK }}
-          label="대표 전화"
-          icon={<IconPhone />}
-        />
-      </BottomNavigation>
-    </nav>
+    <>
+      <nav className={globalNav}>
+        <BottomNavigation
+          showLabels
+          // value={tabIndex}
+          // onChange={(event, newValue) => {
+          //   setTabIndex(newValue);
+          // }}
+        >
+          <BottomNavigationAction
+            style={{
+              borderTop: `1px solid ${root.color.COLOR_05}`,
+              background: root.color.COLOR_01,
+            }}
+            label="상담 문의"
+            onClick={handleMailClick}
+            icon={<IconCounsel />}
+          />
+          <BottomNavigationAction
+            style={{ background: root.color.POINT_01 }}
+            onClick={handleKakaoClick}
+            label="카톡 문의"
+            icon={<IconKakaotalk />}
+          />
+          <BottomNavigationAction
+            style={{ background: root.color.POINT_04 }}
+            onClick={handlePlaceClick}
+            label="오시는 길"
+            icon={<IconPlace />}
+          />
+          <BottomNavigationAction
+            onClick={handleTelClick}
+            style={{ background: root.color.BLACK }}
+            label="대표 전화"
+            icon={<IconPhone />}
+          />
+        </BottomNavigation>
+      </nav>
+      <CounselModal isOpen={isOpen} onClose={() => setIsOpen(false)} />
+    </>
   );
 };
 
