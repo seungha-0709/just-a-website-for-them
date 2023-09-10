@@ -9,9 +9,16 @@ import {
 } from "@/styles/mobileStyle.css.ts";
 import Image from "next/image";
 
-const Main = (props) => {
-  const { toNext } = props;
+const WORDS_LIST = [
+  "형사",
+  "교통사고",
+  "손해배상",
+  "스타트업",
+  "공공조달",
+  "외국인",
+];
 
+const Main = (props) => {
   return (
     <section id="main" className={mainSection}>
       <Image
@@ -34,6 +41,11 @@ const Main = (props) => {
           <br />
           최적의 방법으로 당신만을 위해 싸우겠습니다.
         </p>
+      </div>
+      <div>
+        {WORDS_LIST.map((word) => {
+          return <div key={word}>{word}</div>;
+        })}
       </div>
     </section>
   );

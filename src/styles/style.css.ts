@@ -422,3 +422,40 @@ export const desktop_container = style({
   borderLeft: `1px solid ${root.color.COLOR_05}`,
   borderRight: `1px solid ${root.color.COLOR_05}`,
 });
+
+export const send_email_form = style({
+  display: "flex",
+  flexDirection: "column",
+  width: 500,
+  gap: 20,
+});
+
+export const main_words_list_container = style({
+  width: "100%",
+  maxWidth: 1000,
+  height: 200,
+  display: "flex",
+  margin: "0 auto",
+  position: "absolute",
+  bottom: 0,
+  left: "50%",
+  transform: "translate(-50%, 0)",
+  zIndex: 5,
+  alignItems: "flex-start",
+  justifyContent: "space-between",
+});
+
+export const main_words_list_item = style({
+  width: 120,
+  height: 120,
+  borderRadius: 100,
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  fontSize: 22,
+  fontWeight: 500,
+  color: root.color.COLOR_09,
+  border: `10px solid ${root.color.POINT_03}`,
+  background:
+    "linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0))",
+});

@@ -5,8 +5,9 @@ import {
 } from "@mui/material";
 import { addMember } from "../../../lib/admin";
 import Button from "./Button";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { root } from "@/styles/root.css";
+import { send_email_form } from "@/styles/style.css";
 
 const Dialog = styled(MuiDialog)(() => ({
   display: "flex",
@@ -15,8 +16,8 @@ const Dialog = styled(MuiDialog)(() => ({
   overflow: "hidden",
   width: "100%",
   "& .MuiPaper-root": {
-    background: root.color.COLOR_02,
-    color: root.color.WHITE,
+    background: root.color.COLOR_09,
+    color: root.color.COLOR_01,
     maxWidth: "100%",
     height: "fit-contents",
     borderRadius: 4,
@@ -26,7 +27,7 @@ const Dialog = styled(MuiDialog)(() => ({
   },
   "& .MuiDialog-container": {
     background: "transparent",
-    color: root.color.WHITE,
+    color: root.color.COLOR_01,
     width: 900,
   },
   "& .content-title": {
@@ -56,27 +57,50 @@ const Dialog = styled(MuiDialog)(() => ({
 
 const TextField = styled(MuiTextField)(() => ({
   background: "transparent",
+  color: root.color.WHITE,
+  "&:active": {
+    border: "none",
+  },
 }));
 
 const CounselModal = ({ onClose, isOpen }) => {
-  const [form, setForm] = useState({
-    email: "",
-    name: "",
-    content: "",
-  });
+  const form = useRef();
 
-  const handleSubmit = () => {
-    addMember(form.email, form.name, form.content);
+  const sendEmail = (e) => {
+    e.preventDefault();
+
+    emailjs
+      .sendForm(
+        "YOUR_SERVICE_ID",
+        "YOUR_TEMPLATE_ID",
+        form.current,
+        "YOUR_PUBLIC_KEY"
+      )
+      .then(
+        (result) => {
+          console.log(result.text);
+        },
+        (error) => {
+          console.log(error.text);
+        }
+      );
   };
+  // const [form, setForm] = useState({
+  //   user_email: "",
+  //   user_name: "",
+  //   message: "",
+  // });
+
+  //   const handleSubmit = () => {
+  //     addMember(form.email, form.name, form.content);
+  //   };
+
+  console.log(form.current);
 
   return (
     <Dialog onClose={onClose} open={isOpen}>
       <div>
-        {/* <form data-members-form onSubmit={handleSubmit}>
-          <input data-members-email type="email" required="true" />
-          <input data-members-label type="label" required="true" />
-          <input data-members-name type="name" required="true" /> */}
-        <TextField
+        {/* <TextField
           value={form.email}
           onChange={({ target }) => setForm({ ...form, email: target.value })}
         ></TextField>
@@ -88,8 +112,26 @@ const CounselModal = ({ onClose, isOpen }) => {
           value={form.content}
           onChange={({ target }) => setForm({ ...form, content: target.value })}
         ></TextField>
-        <Button onClick={handleSubmit}>접수</Button>
-        {/* </form> */}
+        <Button onClick={handleSubmit}>접수</Button> */}
+        <form ref={form} onSubmit={sendEmail} className={send_email_form}>
+          <label>이름</label>
+          <TextField autoFocus type="text" name="user_name" />
+          {/* <input type="text" name="user_name" /> */}
+          <label>이메일</label>
+          {/* <input type="email" name="user_email" /> */}
+          <TextField type="email" name="user_email" />
+          <label>문의 내용</label>
+          {/* <textarea name="message" style={{ height: 300 }} /> */}
+          <TextField
+            multiline
+            minRows={10}
+            type="text"
+            name="message"
+            style={{ height: 300 }}
+          />
+          <Button type="submit">문의하기</Button>
+          {/* <input type="submit" value="문의하기" /> */}
+        </form>
       </div>
     </Dialog>
   );
