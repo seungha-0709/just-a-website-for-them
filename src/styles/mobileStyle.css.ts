@@ -260,10 +260,12 @@ export const blog_list_brief_content = style({
   lineClamp: 2,
   height: 24,
   padding: "8px 8px 20px 8px",
-  borderBottom: `1px solid ${root.color.COLOR_03}`,
+  // borderBottom: `1px solid ${root.color.COLOR_03}`,
   overflow: "hidden",
   fontSize: 14,
   fontWeight: 200,
+  background:
+    "linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(255, 255, 255, 1))",
 });
 
 export const successBackgroundStyle = style({

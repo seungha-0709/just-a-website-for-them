@@ -71,10 +71,10 @@ const CounselModal = ({ onClose, isOpen }) => {
 
     emailjs
       .sendForm(
-        "YOUR_SERVICE_ID",
-        "YOUR_TEMPLATE_ID",
+        "service_rmtlcpa",
+        "template_8y3h9qh",
         form.current,
-        "YOUR_PUBLIC_KEY"
+        "kN_K_gdIppMdJChHt"
       )
       .then(
         (result) => {

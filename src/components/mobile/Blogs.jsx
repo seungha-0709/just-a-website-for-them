@@ -90,10 +90,10 @@ const Blogs = ({ blogPosts: posts, featuredPosts }) => {
               return (
                 <li key={index}>
                   <h4 className={blog_list_title}>{post.title}</h4>
-                  <div
+                  {/* <div
                     className={blog_list_brief_content}
                     dangerouslySetInnerHTML={{ __html: post.html }}
-                  />
+                  /> */}
                 </li>
               );
             })}

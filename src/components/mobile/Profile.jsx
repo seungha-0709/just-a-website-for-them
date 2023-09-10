@@ -38,7 +38,7 @@ const Profile = () => {
             <span style={{ marginTop: 28 }} className={li_span}>
               경력
             </span>
-            <strong className={li_strong}>前) 국방부 실무 수습</strong>
+            <strong className={li_strong}>국방부 실무 수습</strong>
           </li>
           <li>
             <strong className={li_strong}>前) 법무법인 해랑</strong>
@@ -56,6 +56,11 @@ const Profile = () => {
           <li>
             <strong className={li_strong}>
               現) 서울 관악경찰서 선도심사위원
+            </strong>
+          </li>
+          <li>
+            <strong className={li_strong}>
+              現) 서울 관악경찰서 안보자문협의회 회원
             </strong>
           </li>
           <li>

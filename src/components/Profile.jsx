@@ -47,7 +47,7 @@ const Profile = () => {
               <span style={{ marginTop: 28 }} className={li_span}>
                 경력
               </span>
-              <strong className={li_strong}>前) 국방부 실무 수습</strong>
+              <strong className={li_strong}>국방부 실무 수습</strong>
             </li>
             <li>
               <strong className={li_strong}>前) 법무법인 해랑</strong>
@@ -69,12 +69,12 @@ const Profile = () => {
             </li>
             <li>
               <strong className={li_strong}>
-                EBS &apos;직업탐구, 별별입니다&apos; 출연
+                現) 서울 관악경찰서 안보자문협의회 회원
               </strong>
             </li>
             <li>
               <strong className={li_strong}>
-                서울 관악경찰서 안보자문협의회 회원
+                EBS &apos;직업탐구, 별일입니다&apos; 출연
               </strong>
             </li>
           </ul>
