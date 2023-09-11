@@ -65,7 +65,7 @@ const Profile = () => {
           </li>
           <li>
             <strong className={li_strong}>
-              EBS &apos;직업탐구, 별별입니다&apos; 출연
+              EBS &apos;직업탐구, 별일입니다&apos; 출연
             </strong>
           </li>
         </ul>

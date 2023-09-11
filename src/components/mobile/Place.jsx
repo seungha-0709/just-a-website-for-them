@@ -1,6 +1,12 @@
 import Image from "next/image";
-import { place_backgroundStyle, place_section } from "@/styles/mobileStyle.css";
+import {
+  place_backgroundStyle,
+  place_section,
+  success_content_area,
+  success_title,
+} from "@/styles/mobileStyle.css";
 import { Map, MapMarker } from "react-kakao-maps-sdk";
+import { root } from "@/styles/root.css";
 
 const Place = () => {
   return (
@@ -13,15 +19,22 @@ const Place = () => {
         loading="lazy"
         className={place_backgroundStyle}
       />
-
-      <Map
-        center={{ lat: 37.517413, lng: 127.028738 }}
-        style={{ width: 260, height: 200 }}
-      >
-        <MapMarker position={{ lat: 37.517413, lng: 127.028738 }}>
-          <div style={{ color: "#000" }}>법무법인 소울</div>
-        </MapMarker>
-      </Map>
+      <div className={success_content_area}>
+        <h2
+          style={{ color: root.color.COLOR_01, marginTop: 50 }}
+          className={success_title}
+        >
+          오시는 길
+        </h2>
+        <Map
+          center={{ lat: 37.517413, lng: 127.028738 }}
+          style={{ width: 300, height: 250 }}
+        >
+          <MapMarker position={{ lat: 37.517413, lng: 127.028738 }}>
+            <div style={{ color: "#000" }}>법무법인 소울</div>
+          </MapMarker>
+        </Map>
+      </div>
     </section>
   );
 };

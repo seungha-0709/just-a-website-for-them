@@ -72,8 +72,16 @@ const Blogs = ({ blogPosts: posts, featuredPosts }) => {
           법률 정보를 확인해보세요
         </h2>
         <div style={{ marginTop: 40, marginBottom: 40 }}>
-          <StyledButton>공지연 변호사 블로그</StyledButton>
-          <StyledButton>정진권 변호사 블로그</StyledButton>
+          <StyledButton
+            onClick={() => window.open("https://m.blog.naver.com/lawyer-kong")}
+          >
+            공지연 변호사 블로그
+          </StyledButton>
+          <StyledButton
+            onClick={() => window.open("https://blog.naver.com/attorney_j2k")}
+          >
+            정진권 변호사 블로그
+          </StyledButton>
         </div>
         <p className={blog_featured_title}>{featuredPost.title}</p>
         <div className={blog_featured_content}>

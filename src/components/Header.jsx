@@ -77,9 +77,9 @@ const Header = () => {
             </NavButton>
           </li>
         </ul>
-        <div>
+        {/* <div>
           <StyledButton>블로그</StyledButton>
-        </div>
+        </div> */}
       </nav>
     </header>
   );
