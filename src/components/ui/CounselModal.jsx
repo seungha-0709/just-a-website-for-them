@@ -8,6 +8,7 @@ import Button from "./Button";
 import { useState, useRef } from "react";
 import { root } from "@/styles/root.css";
 import { send_email_form } from "@/styles/style.css";
+import emailjs from "@emailjs/browser";
 
 const Dialog = styled(MuiDialog)(() => ({
   display: "flex",
