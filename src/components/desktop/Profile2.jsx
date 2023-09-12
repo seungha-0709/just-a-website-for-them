@@ -13,6 +13,7 @@ const Profile2 = () => {
   return (
     <>
       <div
+        id="profile"
         style={{ width: "100%", height: 600, background: root.color.COLOR_03 }}
       >
         <div
