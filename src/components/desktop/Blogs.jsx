@@ -53,6 +53,18 @@ const Blogs = ({ blogPosts: posts, featuredPosts }) => {
 
   return (
     <section id="blogs" className={blogSection}>
+      <Image
+        src="https://just-a-website-for-theme.s3.ap-northeast-2.amazonaws.com/blog_bg.png"
+        alt="법무법인 소울 - 공지연 & 정진권 변호사"
+        width={1000}
+        height={600}
+        quality={100}
+        style={{
+          zIndex: 0,
+          right: -52,
+        }}
+        className={blog_backgroundStyle}
+      />
       <div
         style={{
           width: 1200,
@@ -64,17 +76,6 @@ const Blogs = ({ blogPosts: posts, featuredPosts }) => {
           position: "relative",
         }}
       >
-        <Image
-          src="https://just-a-website-for-theme.s3.ap-northeast-2.amazonaws.com/blog_bg.png"
-          alt="법무법인 소울 - 공지연 & 정진권 변호사"
-          width={1000}
-          height={600}
-          quality={100}
-          style={{
-            zIndex: 0,
-          }}
-          className={blog_backgroundStyle}
-        />
         <div className={blog_contents_container}>
           <h2 className={blog_section_title}>
             블로그를 통해 더 많은
@@ -102,6 +103,8 @@ const Blogs = ({ blogPosts: posts, featuredPosts }) => {
           <ul className={blog_list_ul}>
             <Slider {...sliderSettings}>
               {posts.map((post, index) => {
+                const regex = /<[^>]*>|<\/[^>]*>|&[^;]*;/g;
+                const contentText = post.html.replace(regex, "");
                 console.log(posts);
                 return (
                   <li key={index}>
@@ -109,9 +112,8 @@ const Blogs = ({ blogPosts: posts, featuredPosts }) => {
                     <div
                       id="blog_list_brief"
                       className={blog_list_brief_content}
-                      // dangerouslySetInnerHTML={{ __html: post.html }}
                     >
-                      {post.excerpt}
+                      {contentText}
                     </div>
                   </li>
                 );

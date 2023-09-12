@@ -263,7 +263,7 @@ export const blog_list_ul = style({
 
 export const blog_list_title = style({
   margin: "0 0 8px 0",
-  paddingLeft: 8,
+  paddingLeft: 0,
   paddingTop: 16,
 });
 
@@ -292,9 +292,9 @@ export const successBackgroundStyle = style({
   objectPosition: "50%, 0%",
 });
 export const successSection = style({
-  width: 1200,
+  width: "100%",
   margin: "0 auto",
-  height: "100svh",
+  height: 700,
   position: "relative",
   display: "flex",
   justifyContent: "center",
@@ -308,9 +308,9 @@ export const place_backgroundStyle = style({
   zIndex: 0,
 });
 export const placeSection = style({
-  width: 1200,
+  width: "100%",
   margin: "0 auto",
-  height: "100svh",
+  height: 800,
   position: "relative",
   display: "flex",
   justifyContent: "center",
@@ -424,8 +424,8 @@ export const desktop_container = style({
   position: "relative",
   overflow: "hidden",
   margin: "0 auto",
-  borderLeft: `1px solid ${root.color.COLOR_05}`,
-  borderRight: `1px solid ${root.color.COLOR_05}`,
+  // borderLeft: `1px solid ${root.color.COLOR_05}`,
+  // borderRight: `1px solid ${root.color.COLOR_05}`,
 });
 
 export const send_email_form = style({

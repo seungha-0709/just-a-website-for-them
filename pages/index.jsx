@@ -49,6 +49,8 @@ const MainPage = (props) => {
 
   const [width, setWidth] = useState(0);
 
+  const [isDOMRendered, setIsDOMRendered] = useState();
+
   const [isDesktopView, setIsDesktopView] = useState();
 
   useEffect(() => {
