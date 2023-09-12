@@ -23,17 +23,25 @@ const WORDS_LIST = [
 const Main = (props) => {
   return (
     <section id="main" className={mainSection}>
-      <Image
-        src={
-          "https://just-a-website-for-theme.s3.ap-northeast-2.amazonaws.com/main_image.png"
-        }
-        alt="법무법인 소울 - 공지연 & 정진권 변호사"
-        fill
-        quality={100}
-        priority
-        className={mainBackgroundStyle}
-      />
-      <div className={main_title_area}>
+      <div style={{ width: "100%", height: 500, position: "relative" }}>
+        <Image
+          src={
+            "https://just-a-website-for-theme.s3.ap-northeast-2.amazonaws.com/main_bg_horizontal.png"
+          }
+          alt="법무법인 소울 - 공지연 & 정진권 변호사"
+          fill
+          quality={100}
+          priority
+          className={mainBackgroundStyle}
+          style={{
+            filter: "grayscale(20%)",
+          }}
+        />
+      </div>
+      <div
+        style={{ position: "absolute", left: "20%" }}
+        className={main_title_area}
+      >
         <p className={main_title_text}>
           <em className={main_title_em}>공.정.</em>
           <span className={main_title_main_text}>한 변호사</span>

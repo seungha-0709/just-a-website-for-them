@@ -11,7 +11,7 @@ import Image from "next/image";
 import { Dialog as MuiDialog, styled } from "@mui/material";
 import { useState } from "react";
 import { root } from "@/styles/root.css";
-import Button from "./ui/Button";
+import Button from "@/components/ui/Button";
 import CloseIcon from "@mui/icons-material/Close";
 
 const Dialog = styled(MuiDialog)(() => ({
