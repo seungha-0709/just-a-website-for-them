@@ -45,8 +45,8 @@ const Blogs = ({ blogPosts: posts, featuredPosts }) => {
   const sliderSettings = {
     autoplay: true,
     vertical: true,
-    slidesToScroll: 2,
-    slidesToShow: 2,
+    slidesToScroll: posts.length > 1 ? 2 : 1,
+    slidesToShow: posts.length > 1 ? 2 : 1,
     arrows: false,
     infinite: true,
     dots: false,
@@ -78,7 +78,7 @@ const Blogs = ({ blogPosts: posts, featuredPosts }) => {
             공지연 변호사 블로그
           </StyledButton>
           <StyledButton
-            onClick={() => window.open("https://blog.naver.com/attorney_j2k")}
+            onClick={() => window.open("https://m.blog.naver.com/attorney_j2k")}
           >
             정진권 변호사 블로그
           </StyledButton>
