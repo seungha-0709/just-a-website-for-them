@@ -92,7 +92,7 @@ p {
 }
 
 .react-horizontal-scrolling-menu--inner-wrapper {
-  overflow-y: scroll !important;
+  /* overflow-y: scroll !important; */
 }
 
 #blogs h3 {
