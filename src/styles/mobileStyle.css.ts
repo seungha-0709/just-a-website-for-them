@@ -170,7 +170,7 @@ export const main_title_area = style({
   width: "100%",
   position: "absolute",
   zIndex: 3,
-  bottom: 0,
+  bottom: 60,
 });
 
 export const main_title_text = style({
@@ -183,7 +183,7 @@ export const main_title_text = style({
 
 export const main_content_text = style({
   fontSize: 14,
-  background: root.color.COLOR_02,
+  background: "rgba(0,0,0,0.6)",
   color: root.color.COLOR_09,
   fontWeight: 300,
   margin: "20px 0 0",
@@ -407,4 +407,34 @@ export const desktop_container = style({
   margin: "0 auto",
   borderLeft: `1px solid ${root.color.COLOR_05}`,
   borderRight: `1px solid ${root.color.COLOR_05}`,
+});
+
+export const main_words_list_container = style({
+  width: "100%",
+  height: 100,
+  display: "flex",
+  margin: "0 auto",
+  position: "absolute",
+  bottom: -58,
+  left: "50%",
+  transform: "translate(-50%, 0)",
+  zIndex: 5,
+  alignItems: "flex-start",
+  justifyContent: "space-evenly",
+  gap: 2,
+});
+
+export const main_words_list_item = style({
+  width: 80,
+  height: 40,
+  // borderRadius: 100,
+  display: "flex",
+  justifyContent: "center",
+  alignItems: "center",
+  fontSize: 12,
+  fontWeight: 500,
+  color: root.color.COLOR_09,
+  border: `1px solid ${root.color.POINT_03}`,
+  background: root.color.COLOR_01,
+  // "linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0))",
 });
