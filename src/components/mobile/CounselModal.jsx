@@ -20,7 +20,7 @@ const Dialog = styled(MuiDialog)(() => ({
   "& .MuiPaper-root": {
     background: root.color.COLOR_08,
     color: root.color.COLOR_01,
-    maxWidth: "100%",
+    // maxWidth: 400,
     height: 600,
     borderRadius: 4,
     fontSize: 16,
@@ -64,6 +64,9 @@ const TextField = styled(MuiTextField)(() => ({
   background: "transparent",
   color: root.color.WHITE,
   width: "100%",
+  "& input": {
+    width: "100%",
+  },
   "&:active": {
     border: "none",
   },
@@ -115,12 +118,12 @@ const CounselModal = ({ onClose, isOpen }) => {
   return (
     <>
       <Dialog onClose={onClose} open={isOpen}>
-        <div>
+        <div style={{ width: "100%" }}>
           <form
             ref={form}
             onSubmit={sendEmail}
             className={send_email_form}
-            style={{ width: 300 }}
+            style={{ width: "100%" }}
           >
             <label>이름</label>
             <TextField
@@ -130,7 +133,6 @@ const CounselModal = ({ onClose, isOpen }) => {
               autoFocus
               type="text"
               name="user_name"
-              style={{ width: 248 }}
             />
 
             <label>이메일</label>
@@ -141,7 +143,6 @@ const CounselModal = ({ onClose, isOpen }) => {
               }
               type="email"
               name="user_email"
-              style={{ width: 248 }}
             />
             <label>문의 내용</label>
 
@@ -150,9 +151,9 @@ const CounselModal = ({ onClose, isOpen }) => {
               minRows={8}
               type="text"
               name="message"
-              style={{ height: 240, width: 248 }}
+              style={{ height: 240 }}
             />
-            <Button type="submit" id="mail_submit" style={{ width: 248 }}>
+            <Button type="submit" id="mail_submit">
               문의하기
             </Button>
           </form>
@@ -161,11 +162,12 @@ const CounselModal = ({ onClose, isOpen }) => {
       <Snackbar
         anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
         open={isSnackbarOpen}
+        // open={true}
         autoHideDuration={3000}
-        style={{ width: 320 }}
+        style={{ width: "100%" }}
         onClose={() => setIsSnackbarOpen(false)}
       >
-        <Alert severity="success" sx={{ width: "100%" }}>
+        <Alert severity="success" sx={{ width: "90%" }}>
           상담 문의 메일이 성공적으로 전송되었습니다.
         </Alert>
       </Snackbar>

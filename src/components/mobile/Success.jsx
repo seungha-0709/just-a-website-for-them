@@ -165,7 +165,7 @@ const Success = ({ examples }) => {
           <br />
           당신만을 위해 싸운 결과입니다.
         </h3>
-        <div className={success_example_container}>
+        <div>
           <ScrollMenu>
             {examples.map((item, index) => {
               return (

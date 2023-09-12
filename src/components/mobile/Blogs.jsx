@@ -67,9 +67,9 @@ const Blogs = ({ blogPosts: posts, featuredPosts }) => {
       />
       <div className={blog_contents_container}>
         <h2 className={blog_section_title}>
-          블로그를 통해 더 많은
+          블로그를 통해 <br />더 많은 법률 정보를
           <br />
-          법률 정보를 확인해보세요
+          확인해보세요
         </h2>
         <div style={{ marginTop: 40, marginBottom: 40 }}>
           <StyledButton
@@ -91,7 +91,7 @@ const Blogs = ({ blogPosts: posts, featuredPosts }) => {
           />
         </div>
       </div>
-      <div className={blog_list_container}>
+      <div className={blog_list_container} style={{ height: 100 }}>
         <ul className={blog_list_ul}>
           <Slider {...sliderSettings}>
             {posts.map((post, index) => {
