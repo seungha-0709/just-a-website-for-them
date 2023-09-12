@@ -100,3 +100,12 @@ p {
   font-size: 17px;
   font-weight: 400;
 }
+
+#blog_list_brief {
+  font-weight: 300 !important;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}

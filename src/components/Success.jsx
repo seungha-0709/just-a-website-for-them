@@ -1,22 +1,18 @@
 import {
-  main_title_main_text,
   successSection,
-  success_backgroundStyle,
-  success_section,
-  main_title_area,
   success_content_area,
   success_title,
   success_example_container,
   success_example_item,
   successBackgroundStyle,
-  success_example_item_image,
   success_subtitle,
 } from "@/styles/style.css";
 import Image from "next/image";
-import { mainBackgroundStyle } from "@/styles/style.css";
 import { Dialog as MuiDialog, styled } from "@mui/material";
 import { useState } from "react";
 import { root } from "@/styles/root.css";
+import Button from "./ui/Button";
+import CloseIcon from "@mui/icons-material/Close";
 
 const Dialog = styled(MuiDialog)(() => ({
   display: "flex",
@@ -28,6 +24,7 @@ const Dialog = styled(MuiDialog)(() => ({
     background: root.color.COLOR_02,
     color: root.color.WHITE,
     maxWidth: "100%",
+    maxHeight: 500,
     height: "fit-contents",
     borderRadius: 4,
     fontSize: 16,
@@ -44,8 +41,17 @@ const Dialog = styled(MuiDialog)(() => ({
     letterSpacing: 1.4,
     fontWeight: 500,
     lineHeight: 1.6,
+    display: "flex",
+    justifyContent: "space-between",
+    alignItems: "center",
     padding: "0 0 20px",
+    width: "100%",
     borderBottom: `1px solid ${root.color.WHITE}`,
+    "& > div": {
+      display: "flex",
+      alignItems: "center",
+      gap: 12,
+    },
   },
   "& .content": {
     fontSize: 14,
@@ -64,14 +70,28 @@ const Dialog = styled(MuiDialog)(() => ({
   },
 }));
 
-const SuccessExampleDialog = ({ onClose, isOpen, examples, index }) => {
+const SuccessExampleDialog = ({ onClose, isOpen, examples, index, url }) => {
   console.log(index);
   console.log(examples);
+  // const blogUrl = examples[index].url.split("/").pop();
   return (
     <Dialog onClose={onClose} open={isOpen}>
       {Number(index) >= 0 && (
         <>
-          <div className="content-title">{examples[index].title}</div>
+          <div className="content-title">
+            {examples[index].title}
+            <div>
+              <Button
+                style={{ height: 32, fontSize: 14, width: 160, padding: 0 }}
+                onClick={() =>
+                  window.open(`https://blog.naver.com/lawyer-kong/${url}`)
+                }
+              >
+                자세히 보러가기
+              </Button>
+              <CloseIcon style={{ cursor: "pointer" }} onClick={onClose} />
+            </div>
+          </div>
           <div
             className="content"
             dangerouslySetInnerHTML={{ __html: examples[index].html }}
@@ -84,7 +104,7 @@ const SuccessExampleDialog = ({ onClose, isOpen, examples, index }) => {
 
 const Success = ({ examples }) => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const [selectedValue, setSelectedValue] = useState();
+  const [selectedValue, setSelectedValue] = useState(0);
 
   const handleItemClick = (index) => {
     setSelectedValue(index);
@@ -96,6 +116,7 @@ const Success = ({ examples }) => {
   };
 
   console.log(examples);
+  console.log(examples[selectedValue].url.split("/").slice(-2)[0]);
 
   return (
     <section id="success" className={successSection}>
@@ -131,6 +152,7 @@ const Success = ({ examples }) => {
       <SuccessExampleDialog
         index={selectedValue}
         examples={examples}
+        url={examples[selectedValue].url.split("/").slice(-2)[0]}
         isOpen={isDialogOpen}
         onClose={handleDialogClose}
       />

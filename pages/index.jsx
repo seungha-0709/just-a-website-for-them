@@ -67,10 +67,6 @@ const MainPage = (props) => {
     setIsDesktopView(true);
   }, [width]);
 
-  // if (!width) {
-  //   return <div ref={bodyRef}></div>;
-  // }
-
   return (
     <>
       <NextSeo

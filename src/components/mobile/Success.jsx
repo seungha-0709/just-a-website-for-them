@@ -47,6 +47,8 @@ const Dialog = styled(MuiDialog)(() => ({
     fontSize: 18,
     letterSpacing: 1.4,
     fontWeight: 500,
+    display: "flex",
+    justifyContent: "space-between",
     lineHeight: 1.6,
     padding: "0 0 20px",
     borderBottom: `1px solid ${root.color.WHITE}`,

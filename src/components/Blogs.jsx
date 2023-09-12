@@ -42,8 +42,8 @@ const Blogs = ({ blogPosts: posts, featuredPosts }) => {
   const sliderSettings = {
     autoplay: true,
     vertical: true,
-    slidesToScroll: 2,
-    slidesToShow: 2,
+    slidesToScroll: posts.length > 1 ? 2 : 1,
+    slidesToShow: posts.length > 1 ? 2 : 1,
     arrows: false,
     infinite: true,
     dots: false,
@@ -88,13 +88,17 @@ const Blogs = ({ blogPosts: posts, featuredPosts }) => {
         <ul className={blog_list_ul}>
           <Slider {...sliderSettings}>
             {posts.map((post, index) => {
+              console.log(posts);
               return (
                 <li key={index}>
                   <h4 className={blog_list_title}>{post.title}</h4>
                   <div
+                    id="blog_list_brief"
                     className={blog_list_brief_content}
-                    dangerouslySetInnerHTML={{ __html: post.html }}
-                  />
+                    // dangerouslySetInnerHTML={{ __html: post.html }}
+                  >
+                    {post.excerpt}
+                  </div>
                 </li>
               );
             })}

@@ -273,12 +273,12 @@ export const blog_list_container = style({
 });
 
 export const blog_list_brief_content = style({
-  textOverflow: "ellipsis",
-  lineClamp: 2,
-  height: 48,
-  padding: 8,
-  borderBottom: `1px solid ${root.color.COLOR_03}`,
-  overflow: "hidden",
+  // textOverflow: "ellipsis",
+  // lineClamp: 2,
+  // height: 48,
+  // padding: 8,
+  // borderBottom: `1px solid ${root.color.COLOR_03}`,
+  // overflow: "hidden",
 });
 
 export const successBackgroundStyle = style({
