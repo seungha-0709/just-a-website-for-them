@@ -13,6 +13,7 @@ import IconKakaotalk from "@/assets/icons/IconKakaotalk";
 import IconPlace from "@/assets/icons/IconPlace";
 import IconPhone from "@/assets/icons/IconPhone";
 import Place from "./Place";
+import CounselModal from "./CounselModal";
 
 const BottomNavigation = styled(MuiBottomNavigation)(() => ({
   background: root.color.COLOR_01,
@@ -58,6 +59,7 @@ const Mobile = ({ posts, success, featuredPosts, isRender }) => {
     place: 0,
     mail: 0,
   });
+  const [isMailModalOpen, setIsMailModalOpen] = useState(false);
 
   useEffect(() => {
     if (window) {
@@ -136,7 +138,7 @@ const Mobile = ({ posts, success, featuredPosts, isRender }) => {
       ...isClicked,
       kakao: isClicked.mail++,
     });
-    // window.open("https://pf.kakao.com/_TsAxdG");
+    setIsMailModalOpen(true);
   };
 
   const handleTelClick = () => {
@@ -219,6 +221,10 @@ const Mobile = ({ posts, success, featuredPosts, isRender }) => {
           icon={<IconPhone />}
         />
       </BottomNavigation>
+      <CounselModal
+        isOpen={isMailModalOpen}
+        onClose={() => setIsMailModalOpen(false)}
+      />
     </div>
   );
 };
