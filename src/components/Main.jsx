@@ -13,10 +13,10 @@ import Image from "next/image";
 
 const WORDS_LIST = [
   "형사",
+  "상속",
   "교통사고",
   "손해배상",
   "스타트업",
-  "공공조달",
   "외국인",
 ];
 
