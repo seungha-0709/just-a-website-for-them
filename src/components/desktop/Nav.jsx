@@ -12,7 +12,7 @@ import {
 } from "@mui/material";
 import { BottomNavigationAction as MuiBottomNavigationAction } from "@mui/material";
 import { useState, useEffect } from "react";
-import CounselModal from "./ui/CounselModal";
+import CounselModal from "@/components/ui/CounselModal";
 
 const BottomNavigation = styled(MuiBottomNavigation)(() => ({
   "&.MuiBottomNavigation-root": {

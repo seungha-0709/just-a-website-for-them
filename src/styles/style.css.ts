@@ -18,16 +18,17 @@ export const mainBackgroundStyle = style({
   width: "100%",
   height: "100%",
   objectFit: "cover",
-  objectPosition: "80% 0",
+  // objectPosition: "40% 0",
 });
 
 export const mainSection = style({
-  width: 1200,
-  height: "100svh",
+  width: "100svw",
+  height: "fit-content",
   position: "relative",
   display: "flex",
   alignItems: "center",
-  paddingLeft: 80,
+  paddingTop: 77,
+  // paddingLeft: 80,
 });
 
 export const contents = style({
@@ -98,12 +99,12 @@ export const blog_backgroundStyle = style({
 export const blogSection = style({
   background: root.color.WHITE,
   width: "100%",
-  height: "100svh",
+  height: 900,
   display: "flex",
   position: "relative",
   flexDirection: "column",
   justifyContent: "center",
-  borderLeft: `60px solid ${root.color.COLOR_06}`,
+  // borderLeft: `60px solid ${root.color.COLOR_06}`,
 });
 
 export const titleText = style({
@@ -143,7 +144,8 @@ export const profile_title_text = style({
   fontSize: 20,
   fontWeight: 400,
   marginTop: 0,
-  marginBottom: 20,
+  marginBottom: 40,
+  color: root.color.COLOR_08,
   selectors: {
     ["em &"]: {
       fontSize: 28,
@@ -170,7 +172,7 @@ export const ul = style({
   margin: 0,
   fontWeight: 200,
   fontSize: 15,
-  height: 600,
+  height: "fit-content",
   width: "100%",
 });
 
@@ -185,6 +187,7 @@ export const li_strong = style({
   fontWeight: 200,
   marginBottom: 6,
   display: "block",
+  color: root.color.COLOR_08,
 });
 
 export const main_title_area = style({
@@ -202,7 +205,7 @@ export const main_title_text = style({
 });
 
 export const main_content_text = style({
-  fontSize: 28,
+  fontSize: 20,
   color: root.color.COLOR_09,
   fontWeight: 500,
   margin: "50px 0",
@@ -289,7 +292,8 @@ export const successBackgroundStyle = style({
   objectPosition: "50%, 0%",
 });
 export const successSection = style({
-  width: "100%",
+  width: 1200,
+  margin: "0 auto",
   height: "100svh",
   position: "relative",
   display: "flex",
@@ -304,7 +308,8 @@ export const place_backgroundStyle = style({
   zIndex: 0,
 });
 export const placeSection = style({
-  width: "100%",
+  width: 1200,
+  margin: "0 auto",
   height: "100svh",
   position: "relative",
   display: "flex",
@@ -349,7 +354,7 @@ export const globalNav_button = style({
 });
 
 export const main_title_em = style({
-  fontSize: 120,
+  fontSize: 80,
 });
 
 export const main_title_name = style({
@@ -357,7 +362,7 @@ export const main_title_name = style({
 });
 
 export const main_title_main_text = style({
-  fontSize: 48,
+  fontSize: 40,
 });
 
 export const success_content_area = style({
@@ -415,7 +420,7 @@ export const success_example_item = style({
 });
 
 export const desktop_container = style({
-  width: 1200,
+  width: "100%",
   position: "relative",
   overflow: "hidden",
   margin: "0 auto",
@@ -433,11 +438,11 @@ export const send_email_form = style({
 export const main_words_list_container = style({
   width: "100%",
   maxWidth: 1000,
-  height: 200,
+  height: 100,
   display: "flex",
   margin: "0 auto",
   position: "absolute",
-  bottom: 0,
+  bottom: -60,
   left: "50%",
   transform: "translate(-50%, 0)",
   zIndex: 5,
@@ -446,16 +451,16 @@ export const main_words_list_container = style({
 });
 
 export const main_words_list_item = style({
-  width: 120,
-  height: 120,
-  borderRadius: 100,
+  width: 140,
+  height: 100,
+  // borderRadius: 100,
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
   fontSize: 22,
   fontWeight: 500,
   color: root.color.COLOR_09,
-  border: `10px solid ${root.color.POINT_03}`,
-  background:
-    "linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0))",
+  border: `1px solid ${root.color.POINT_03}`,
+  background: root.color.COLOR_01,
+  // "linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0))",
 });

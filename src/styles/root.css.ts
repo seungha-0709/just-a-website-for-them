@@ -5,7 +5,7 @@ export const root = createGlobalTheme(":root", {
     BLACK: "#000000",
     COLOR_01: "#15130F",
     COLOR_02: "#22201E",
-    COLOR_03: "#241019",
+    COLOR_03: "#23201C",
     COLOR_04: "#25211A",
     COLOR_05: "#4A4133",
     COLOR_06: "#D7B98C",

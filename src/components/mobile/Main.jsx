@@ -6,15 +6,17 @@ import {
   mainBackgroundStyle,
   main_title_em,
   main_title_main_text,
+  main_words_list_container,
+  main_words_list_item,
 } from "@/styles/mobileStyle.css.ts";
 import Image from "next/image";
 
 const WORDS_LIST = [
   "형사",
+  "상속",
   "교통사고",
   "손해배상",
   "스타트업",
-  "공공조달",
   "외국인",
 ];
 
@@ -42,9 +44,13 @@ const Main = (props) => {
           최적의 방법으로 당신만을 위해 싸우겠습니다.
         </p>
       </div>
-      <div>
+      <div className={main_words_list_container}>
         {WORDS_LIST.map((word) => {
-          return <div key={word}>{word}</div>;
+          return (
+            <div className={main_words_list_item} key={word}>
+              {word}
+            </div>
+          );
         })}
       </div>
     </section>
