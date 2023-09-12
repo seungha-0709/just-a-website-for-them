@@ -4,6 +4,9 @@ import {
   styled,
   Snackbar,
   Alert,
+  Accordion,
+  AccordionSummary,
+  AccordionDetails,
 } from "@mui/material";
 import Button from "@/components/ui/Button";
 import { useState, useRef, useEffect } from "react";
@@ -42,6 +45,11 @@ const Dialog = styled(MuiDialog)(() => ({
     lineHeight: 1.6,
     padding: "0 0 20px",
     borderBottom: `1px solid ${root.color.WHITE}`,
+  },
+  "& .agreement": {
+    fontSize: 12,
+    margin: 0,
+    color: root.color.COLOR_05,
   },
   "& .content": {
     fontSize: 14,
@@ -148,11 +156,31 @@ const CounselModal = ({ onClose, isOpen }) => {
 
             <TextField
               multiline
+              placeholder="연락처를 함께 기재해 주시기 바랍니다."
               minRows={8}
               type="text"
               name="message"
-              style={{ height: 240 }}
+              style={{ height: 220 }}
             />
+
+            <div className="agreement">
+              <p>
+                개인정보보호를 위한 이용자 동의 사항 <br />
+                <br />
+                1. 개인정보의 수집 및 이용 목적 <br /> {"  "}가. 문의에 대한
+                답변
+                <br />
+                {"  "}나. 민원사무 처리 <br />
+                {"  "}다. 재화 또는 서비스 제공
+                <br />
+                {"  "}라. 마케팅 활용 및 광고물 제공 <br />
+                <br />
+                2. 수집항목 : 이름, 연락처, 이메일 등<br />
+                <br /> 3. 개인정보의 보유 및 이용기간 : 이용목적이 달성된 때까지
+                보유합니다.
+              </p>
+            </div>
+
             <Button type="submit" id="mail_submit">
               문의하기
             </Button>
