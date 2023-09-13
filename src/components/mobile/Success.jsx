@@ -11,10 +11,6 @@ import Image from "next/image";
 import { Dialog as MuiDialog, styled } from "@mui/material";
 import { useState } from "react";
 import { root } from "@/styles/root.css";
-
-import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
-import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
-import usePreventBodyScroll from "@/hooks/usePrevent";
 import HorizontalScroll from "react-scroll-horizontal";
 
 const Dialog = styled(MuiDialog)(() => ({
