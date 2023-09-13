@@ -13,11 +13,7 @@ import {
   blog_list_ul,
   blog_section_title,
 } from "@/styles/mobileStyle.css";
-import {
-  Button as MuiButton,
-  getCardActionAreaUtilityClass,
-  styled,
-} from "@mui/material";
+import { Button as MuiButton, styled } from "@mui/material";
 import Slider from "react-slick";
 import Image from "next/image";
 

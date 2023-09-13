@@ -11,7 +11,10 @@ import Image from "next/image";
 import { Dialog as MuiDialog, styled } from "@mui/material";
 import { useState } from "react";
 import { root } from "@/styles/root.css";
+import "react-horizontal-scrolling-menu/dist/styles.css";
 import HorizontalScroll from "react-scroll-horizontal";
+
+import { ScrollMenu } from "react-horizontal-scrolling-menu";
 
 const Dialog = styled(MuiDialog)(() => ({
   display: "flex",
@@ -130,8 +133,15 @@ const Success = ({ examples }) => {
           <br />
           당신만을 위해 싸운 결과입니다.
         </h3>
-        <div style={{ width: 280, height: 150 }}>
-          <HorizontalScroll>
+        <div
+          style={{
+            width: "90%",
+            height: 150,
+            display: "flex",
+            flexWrap: "nowrap",
+          }}
+        >
+          <ScrollMenu>
             {examples.map((item, index) => {
               return (
                 <SuccessItem
@@ -143,7 +153,7 @@ const Success = ({ examples }) => {
                 />
               );
             })}
-          </HorizontalScroll>
+          </ScrollMenu>
         </div>
       </div>
       <SuccessExampleDialog
