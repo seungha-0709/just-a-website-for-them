@@ -95,13 +95,12 @@ const Blogs = ({ blogPosts: posts, featuredPosts }) => {
         <ul className={blog_list_ul}>
           <Slider {...sliderSettings}>
             {posts.map((post, index) => {
+              const regex = /<[^>]*>|<\/[^>]*>|&[^;]*;/g;
+              const contentText = post.html.replace(regex, "");
               return (
                 <li key={index}>
                   <h4 className={blog_list_title}>{post.title}</h4>
-                  {/* <div
-                    className={blog_list_brief_content}
-                    dangerouslySetInnerHTML={{ __html: post.html }}
-                  /> */}
+                  <div className={blog_list_brief_content}>{contentText}</div>
                 </li>
               );
             })}
