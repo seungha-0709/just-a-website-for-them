@@ -19,6 +19,7 @@ import {
 } from "@mui/material";
 import Slider from "react-slick";
 import Image from "next/image";
+import { JEONG_BLOG_URL, KONG_BLOG_URL } from "@/data/contants";
 
 const StyledButton = styled(MuiButton)(() => ({
   background: root.color.POINT_02,
@@ -84,13 +85,11 @@ const Blogs = ({ blogPosts: posts, featuredPosts }) => {
           </h2>
           <StyledButton
             style={{ marginRight: 12 }}
-            onClick={() => window.open("https://m.blog.naver.com/lawyer-kong")}
+            onClick={() => window.open(KONG_BLOG_URL)}
           >
             공지연 변호사 블로그
           </StyledButton>
-          <StyledButton
-            onClick={() => window.open("https://blog.naver.com/attorney_j2k")}
-          >
+          <StyledButton onClick={() => window.open(JEONG_BLOG_URL)}>
             정진권 변호사 블로그
           </StyledButton>
           <p className={blog_featured_title}>{featuredPost.title}</p>

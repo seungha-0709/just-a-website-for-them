@@ -143,7 +143,7 @@ const Success = ({ examples }) => {
           ref={imageContainerRef}
           {...events}
           style={{
-            width: "100%",
+            width: "80%",
             height: 150,
             overflowX: "scroll",
           }}
