@@ -87,6 +87,7 @@ const CounselModal = ({ onClose, isOpen }) => {
   const [userInfo, setUserInfo] = useState({
     email: "",
     name: "",
+    content: "",
   });
 
   const sendEmail = (e) => {
@@ -141,6 +142,7 @@ const CounselModal = ({ onClose, isOpen }) => {
               autoFocus
               type="text"
               name="user_name"
+              required
             />
 
             <label>이메일</label>
@@ -151,11 +153,16 @@ const CounselModal = ({ onClose, isOpen }) => {
               }
               type="email"
               name="user_email"
+              required
             />
             <label>문의 내용</label>
 
             <TextField
               multiline
+              required
+              onChange={({ target }) =>
+                setUserInfo({ ...userInfo, content: target.value })
+              }
               placeholder="연락처를 함께 기재해 주시기 바랍니다."
               minRows={8}
               type="text"
@@ -181,7 +188,11 @@ const CounselModal = ({ onClose, isOpen }) => {
               </p>
             </div>
 
-            <Button type="submit" id="mail_submit">
+            <Button
+              type="submit"
+              id="mail_submit"
+              disabled={!userInfo.content || !userInfo.email || !userInfo.name}
+            >
               문의하기
             </Button>
           </form>

@@ -78,6 +78,7 @@ const CounselModal = ({ onClose, isOpen }) => {
   const [userInfo, setUserInfo] = useState({
     email: "",
     name: "",
+    content: "",
   });
 
   const sendEmail = (e) => {
@@ -121,6 +122,7 @@ const CounselModal = ({ onClose, isOpen }) => {
           <form ref={form} onSubmit={sendEmail} className={send_email_form}>
             <label>이름</label>
             <TextField
+              required
               onChange={({ target }) =>
                 setUserInfo({ ...userInfo, name: target.value })
               }
@@ -132,6 +134,7 @@ const CounselModal = ({ onClose, isOpen }) => {
             <label>이메일</label>
 
             <TextField
+              required
               onChange={({ target }) =>
                 setUserInfo({ ...userInfo, email: target.value })
               }
@@ -142,6 +145,10 @@ const CounselModal = ({ onClose, isOpen }) => {
 
             <TextField
               multiline
+              onChange={({ target }) =>
+                setUserInfo({ ...userInfo, content: target.value })
+              }
+              required
               placeholder="연락처를 함께 기재해 주시기 바랍니다."
               minRows={10}
               type="text"
@@ -166,7 +173,11 @@ const CounselModal = ({ onClose, isOpen }) => {
                 보유합니다.
               </p>
             </div>
-            <Button type="submit" id="mail_submit">
+            <Button
+              type="submit"
+              id="mail_submit"
+              disabled={!userInfo.content || !userInfo.email || !userInfo.name}
+            >
               문의하기
             </Button>
             {/* <input type="submit" value="문의하기" /> */}
