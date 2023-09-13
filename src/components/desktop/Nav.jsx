@@ -75,21 +75,21 @@ const Nav = () => {
 
   const [isOpen, setIsOpen] = useState(false);
 
-  useEffect(() => {
-    if (window) {
-      window.CallMtm =
-        window.CallMtm ||
-        function () {
-          (window.CallMtm.q = window.CallMtm.q || []).push(arguments);
-        };
+  // useEffect(() => {
+  //   if (window) {
+  //     window.CallMtm =
+  //       window.CallMtm ||
+  //       function () {
+  //         (window.CallMtm.q = window.CallMtm.q || []).push(arguments);
+  //       };
 
-      CallMtm({
-        productName: "mail_pc", //광고주 측에서 설정하고 싶은 값(default convType)
-        convType: "mail_pc", //etc, join, login
-        click: "#mail_pc", //click으로 전환 잡을 경우 css selector 값
-      });
-    }
-  }, [isClicked.mail]);
+  //     CallMtm({
+  //       productName: "mail_pc", //광고주 측에서 설정하고 싶은 값(default convType)
+  //       convType: "mail_pc", //etc, join, login
+  //       click: "#mail_pc", //click으로 전환 잡을 경우 css selector 값
+  //     });
+  //   }
+  // }, [isClicked.mail]);
 
   useEffect(() => {
     if (window) {
@@ -148,10 +148,10 @@ const Nav = () => {
   };
 
   const handleMailClick = () => {
-    setIsClicked({
-      ...isClicked,
-      kakao: isClicked.mail++,
-    });
+    // setIsClicked({
+    //   ...isClicked,
+    //   kakao: isClicked.mail++,
+    // });
     setIsOpen(true);
   };
 
