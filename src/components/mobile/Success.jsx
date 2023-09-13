@@ -1,26 +1,21 @@
 import {
-  main_title_main_text,
   successSection,
-  success_backgroundStyle,
-  success_section,
-  main_title_area,
   success_content_area,
   success_title,
-  success_example_container,
   success_example_item,
   successBackgroundStyle,
-  success_example_item_image,
   success_subtitle,
 } from "@/styles/mobileStyle.css";
 import Image from "next/image";
-import { mainBackgroundStyle } from "@/styles/style.css";
+
 import { Dialog as MuiDialog, styled } from "@mui/material";
-import { useState, useContext, Fragment } from "react";
+import { useState } from "react";
 import { root } from "@/styles/root.css";
-import { ScrollMenu, VisibilityContext } from "react-horizontal-scrolling-menu";
-import "react-horizontal-scrolling-menu/dist/styles.css";
+
 import ArrowBackIosIcon from "@mui/icons-material/ArrowBackIos";
 import ArrowForwardIosIcon from "@mui/icons-material/ArrowForwardIos";
+import usePreventBodyScroll from "@/hooks/usePrevent";
+import HorizontalScroll from "react-scroll-horizontal";
 
 const Dialog = styled(MuiDialog)(() => ({
   display: "flex",
@@ -70,34 +65,10 @@ const Dialog = styled(MuiDialog)(() => ({
   },
 }));
 
-const LeftArrow = () => {
-  const { isFirstItemVisible, scrollPrev } = useContext(VisibilityContext);
-
-  return (
-    <ArrowBackIosIcon
-      disabled={isFirstItemVisible}
-      onClick={() => scrollPrev()}
-    />
-  );
-};
-
-const RightArrow = () => {
-  const { isFirstItemVisible, scrollNext } = useContext(VisibilityContext);
-
-  return (
-    <ArrowForwardIosIcon
-      disabled={isFirstItemVisible}
-      onClick={() => scrollNext()}
-    />
-  );
-};
-
 const SuccessItem = ({ onClick, selected, itemId, item }) => {
-  const visibility = useContext(VisibilityContext);
-
   return (
     <button
-      onClick={() => onClick(visibility)}
+      onClick={() => onClick(item, itemId)}
       className={success_example_item}
     >
       <Image src={item.feature_image} alt={item.title} fill />
@@ -133,19 +104,17 @@ const Success = ({ examples }) => {
     setIsDialogOpen(false);
   };
 
-  const handleClick =
-    (item, index) =>
-    ({ getItemById, scrollToItem }) => {
-      const itemSelected = isItemSelected(index);
+  const handleClick = (item, index) => {
+    const itemSelected = isItemSelected(index);
 
-      setSelected((currentSelected) =>
-        itemSelected
-          ? currentSelected.filter((el) => el !== index)
-          : currentSelected.concat(index)
-      );
-      setSelectedValue(index);
-      setIsDialogOpen(true);
-    };
+    setSelected((currentSelected) =>
+      itemSelected
+        ? currentSelected.filter((el) => el !== index)
+        : currentSelected.concat(index)
+    );
+    setSelectedValue(index);
+    setIsDialogOpen(true);
+  };
 
   return (
     <section id="success" className={successSection}>
@@ -165,41 +134,20 @@ const Success = ({ examples }) => {
           <br />
           당신만을 위해 싸운 결과입니다.
         </h3>
-        <div
-          style={{
-            width: "fit-content",
-            height: "100%",
-            display: "flex",
-            flexWrap: "wrap",
-            margin: "0 auto",
-            justifyContent: "center",
-          }}
-        >
-          {examples.map((item, index) => {
-            return (
-              <SuccessItem
-                onClick={handleClick(item, index)}
-                key={index}
-                itemID={index}
-                item={item}
-                selected={isItemSelected(index)}
-              />
-            );
-          })}
-
-          {/* <ScrollMenu>
+        <div style={{ width: 280, height: 150 }}>
+          <HorizontalScroll>
             {examples.map((item, index) => {
               return (
                 <SuccessItem
-                  onClick={handleClick(item, index)}
+                  onClick={() => handleClick(item, index)}
                   key={index}
-                  itemID={index}
+                  itemId={index}
                   item={item}
                   selected={isItemSelected(index)}
                 />
               );
             })}
-          </ScrollMenu> */}
+          </HorizontalScroll>
         </div>
       </div>
       <SuccessExampleDialog

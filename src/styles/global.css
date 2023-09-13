@@ -81,20 +81,6 @@ p {
   margin: 0;
 }
 
-.react-horizontal-scrolling-menu--wrapper {
-  display: flex;
-  flex-direction: row !important;
-}
-
-.react-horizontal-scrolling-menu--footer,
-.react-horizontal-scrolling-menu--header {
-  display: none;
-}
-
-.react-horizontal-scrolling-menu--inner-wrapper {
-  /* overflow-y: scroll !important; */
-}
-
 #blogs h3 {
   margin: 0;
   font-size: 17px;

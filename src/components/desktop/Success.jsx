@@ -13,6 +13,8 @@ import { useState } from "react";
 import { root } from "@/styles/root.css";
 import Button from "@/components/ui/Button";
 import CloseIcon from "@mui/icons-material/Close";
+import { JEONG_BLOG_URL, KONG_BLOG_URL } from "@/data/contants";
+import HorizontalScroll from "react-scroll-horizontal";
 
 const Dialog = styled(MuiDialog)(() => ({
   display: "flex",
@@ -71,9 +73,14 @@ const Dialog = styled(MuiDialog)(() => ({
 }));
 
 const SuccessExampleDialog = ({ onClose, isOpen, examples, index, url }) => {
-  console.log(index);
-  console.log(examples);
-  // const blogUrl = examples[index].url.split("/").pop();
+  console.log("ex", examples);
+  const getBlogUrl = () => {
+    if (examples[index].authors[0].slug === "jiyeon") {
+      return `${KONG_BLOG_URL}/${url}`;
+    }
+    return `${JEONG_BLOG_URL}/${url}`;
+  };
+
   return (
     <Dialog onClose={onClose} open={isOpen}>
       {Number(index) >= 0 && (
@@ -83,9 +90,7 @@ const SuccessExampleDialog = ({ onClose, isOpen, examples, index, url }) => {
             <div>
               <Button
                 style={{ height: 32, fontSize: 14, width: 160, padding: 0 }}
-                onClick={() =>
-                  window.open(`https://blog.naver.com/lawyer-kong/${url}`)
-                }
+                onClick={() => window.open(getBlogUrl())}
               >
                 자세히 보러가기
               </Button>
@@ -115,9 +120,6 @@ const Success = ({ examples }) => {
     setIsDialogOpen(false);
   };
 
-  console.log(examples);
-  console.log(examples[selectedValue].url.split("/").slice(-2)[0]);
-
   return (
     <section id="success" className={successSection}>
       <Image
@@ -135,18 +137,28 @@ const Success = ({ examples }) => {
           <br />
           최적의 방법으로 당신만을 위해 싸운 결과입니다.
         </h3>
-        <div className={success_example_container}>
-          {examples.map((item, index) => {
-            return (
-              <button
-                className={success_example_item}
-                onClick={() => handleItemClick(index)}
-                key={index}
-              >
-                <Image src={item.feature_image} alt={item.title} fill />
-              </button>
-            );
-          })}
+        <div
+          className={success_example_container}
+          style={{ width: "80%", height: 150 }}
+        >
+          <HorizontalScroll>
+            {examples.map((item, index) => {
+              return (
+                <button
+                  className={success_example_item}
+                  onClick={() => handleItemClick(index)}
+                  key={index}
+                >
+                  <Image
+                    src={item.feature_image}
+                    alt={item.title}
+                    fill
+                    objectFit="cover"
+                  />
+                </button>
+              );
+            })}
+          </HorizontalScroll>
         </div>
       </div>
       <SuccessExampleDialog

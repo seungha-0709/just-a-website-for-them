@@ -100,7 +100,9 @@ const Blogs = ({ blogPosts: posts, featuredPosts }) => {
               return (
                 <li key={index}>
                   <h4 className={blog_list_title}>{post.title}</h4>
-                  <div className={blog_list_brief_content}>{contentText}</div>
+                  <div id="blog_list_brief" className={blog_list_brief_content}>
+                    {contentText}
+                  </div>
                 </li>
               );
             })}

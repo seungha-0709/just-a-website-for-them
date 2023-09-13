@@ -242,7 +242,7 @@ export const blog_list_ul = style({
 
 export const blog_list_title = style({
   margin: "0 0 8px 0",
-  paddingLeft: 8,
+  // paddingLeft: 8,
   paddingTop: 14,
   fontWeight: 500,
 });
@@ -258,8 +258,8 @@ export const blog_list_brief_content = style({
   width: "100%",
   textOverflow: "ellipsis",
   lineClamp: 2,
-  height: 24,
-  padding: "8px 8px 20px 8px",
+  height: 34,
+  // padding: "8px 8px 20px 8px",
   // borderBottom: `1px solid ${root.color.COLOR_03}`,
   overflow: "hidden",
   fontSize: 14,
