@@ -8,13 +8,10 @@ import {
 } from "@/styles/mobileStyle.css";
 import Image from "next/image";
 
+import { useDraggable } from "react-use-draggable-scroll";
 import { Dialog as MuiDialog, styled } from "@mui/material";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { root } from "@/styles/root.css";
-import "react-horizontal-scrolling-menu/dist/styles.css";
-import HorizontalScroll from "react-scroll-horizontal";
-
-import { ScrollMenu } from "react-horizontal-scrolling-menu";
 
 const Dialog = styled(MuiDialog)(() => ({
   display: "flex",
@@ -103,6 +100,9 @@ const Success = ({ examples }) => {
     setIsDialogOpen(false);
   };
 
+  const imageContainerRef = useRef();
+  const { events } = useDraggable(imageContainerRef);
+
   const handleClick = (item, index) => {
     const itemSelected = isItemSelected(index);
 
@@ -134,18 +134,31 @@ const Success = ({ examples }) => {
           당신만을 위해 싸운 결과입니다.
         </h3>
         <div
+          ref={imageContainerRef}
+          {...events}
           style={{
-            width: "90%",
+            width: "100%",
             height: 150,
-            display: "flex",
-            flexWrap: "nowrap",
+            overflowX: "scroll",
           }}
         >
-          <ScrollMenu>
+          <div
+            style={{
+              width: "fit-content",
+              display: "flex",
+              flexWrap: "nowrap",
+              gap: 8,
+            }}
+          >
             {examples.map((item, index) => {
               return (
                 <SuccessItem
-                  onClick={() => handleClick(item, index)}
+                  onClick={(e) => {
+                    console.log(e);
+                    // e.stopPropagation();
+                    // e.preventDefault();
+                    handleClick(item, index);
+                  }}
                   key={index}
                   itemId={index}
                   item={item}
@@ -153,7 +166,7 @@ const Success = ({ examples }) => {
                 />
               );
             })}
-          </ScrollMenu>
+          </div>
         </div>
       </div>
       <SuccessExampleDialog

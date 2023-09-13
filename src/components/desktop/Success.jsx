@@ -2,19 +2,18 @@ import {
   successSection,
   success_content_area,
   success_title,
-  success_example_container,
   success_example_item,
   successBackgroundStyle,
   success_subtitle,
 } from "@/styles/style.css";
 import Image from "next/image";
 import { Dialog as MuiDialog, styled } from "@mui/material";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { root } from "@/styles/root.css";
 import Button from "@/components/ui/Button";
 import CloseIcon from "@mui/icons-material/Close";
 import { JEONG_BLOG_URL, KONG_BLOG_URL } from "@/data/contants";
-import HorizontalScroll from "react-scroll-horizontal";
+import { useDraggable } from "react-use-draggable-scroll";
 
 const Dialog = styled(MuiDialog)(() => ({
   display: "flex",
@@ -111,6 +110,9 @@ const Success = ({ examples }) => {
   const [isDialogOpen, setIsDialogOpen] = useState(false);
   const [selectedValue, setSelectedValue] = useState(0);
 
+  const imageContainerRef = useRef();
+  const { events } = useDraggable(imageContainerRef);
+
   const handleItemClick = (index) => {
     setSelectedValue(index);
     setIsDialogOpen(true);
@@ -138,10 +140,22 @@ const Success = ({ examples }) => {
           최적의 방법으로 당신만을 위해 싸운 결과입니다.
         </h3>
         <div
-          className={success_example_container}
-          style={{ width: "80%", height: 150 }}
+          ref={imageContainerRef}
+          {...events}
+          style={{
+            width: "100%",
+            height: 150,
+            overflowX: "scroll",
+          }}
         >
-          <HorizontalScroll>
+          <div
+            style={{
+              width: "fit-content",
+              display: "flex",
+              flexWrap: "nowrap",
+              gap: 8,
+            }}
+          >
             {examples.map((item, index) => {
               return (
                 <button
@@ -158,7 +172,7 @@ const Success = ({ examples }) => {
                 </button>
               );
             })}
-          </HorizontalScroll>
+          </div>
         </div>
       </div>
       <SuccessExampleDialog
