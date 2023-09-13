@@ -277,7 +277,8 @@ export const successBackgroundStyle = style({
 });
 export const successSection = style({
   width: "100%",
-  height: 500,
+  height: "fit-content",
+  padding: "40px 0",
   position: "relative",
   display: "flex",
   justifyContent: "center",

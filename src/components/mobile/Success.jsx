@@ -165,8 +165,29 @@ const Success = ({ examples }) => {
           <br />
           당신만을 위해 싸운 결과입니다.
         </h3>
-        <div>
-          <ScrollMenu>
+        <div
+          style={{
+            width: "fit-content",
+            height: "100%",
+            display: "flex",
+            flexWrap: "wrap",
+            margin: "0 auto",
+            justifyContent: "center",
+          }}
+        >
+          {examples.map((item, index) => {
+            return (
+              <SuccessItem
+                onClick={handleClick(item, index)}
+                key={index}
+                itemID={index}
+                item={item}
+                selected={isItemSelected(index)}
+              />
+            );
+          })}
+
+          {/* <ScrollMenu>
             {examples.map((item, index) => {
               return (
                 <SuccessItem
@@ -178,7 +199,7 @@ const Success = ({ examples }) => {
                 />
               );
             })}
-          </ScrollMenu>
+          </ScrollMenu> */}
         </div>
       </div>
       <SuccessExampleDialog
