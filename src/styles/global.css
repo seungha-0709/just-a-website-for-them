@@ -114,7 +114,7 @@ p {
 .success_card_content ul {
   padding-left: 10px;
   font-size: 14px !important;
-  height: 50px;
+  height: 52px;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
@@ -125,7 +125,7 @@ p {
 
 .success_card_content p:first-of-type,
 .success_card_content p:nth-of-type(2) {
-  height: 50px;
+  height: 52px;
   font-size: 14px !important;
   overflow: hidden;
   text-overflow: ellipsis;
