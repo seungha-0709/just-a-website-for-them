@@ -107,28 +107,32 @@ p {
 .success_card_content h2:first-of-type,
 .success_card_content h2:nth-of-type(2),
 .success_card_content p:first-of-type {
-  font-size: 14px;
+  font-size: 14px !important;
   display: block;
-  color: #000;
+  color: #000 !important;
 }
 
 .success_card_content ul {
   padding-left: 10px;
+  font-size: 14px !important;
   height: 46px;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-line-clamp: 3;
+  color: #000 !important;
   -webkit-box-orient: vertical;
 }
 
 .success_card_content p:first-of-type,
 .success_card_content p:nth-of-type(2) {
   height: 48px;
+  font-size: 14px !important;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-line-clamp: 3;
+  color: #000 !important;
   -webkit-box-orient: vertical;
 }
 
