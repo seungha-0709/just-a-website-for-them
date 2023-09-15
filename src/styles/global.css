@@ -109,11 +109,12 @@ p {
 .success_card_content p:first-of-type {
   font-size: 14px;
   display: block;
+  color: #000;
 }
 
 .success_card_content ul {
   padding-left: 10px;
-  height: 48px;
+  height: 46px;
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;

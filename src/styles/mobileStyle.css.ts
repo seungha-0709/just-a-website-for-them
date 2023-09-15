@@ -447,7 +447,6 @@ export const success_example_item = style({
   borderRadius: 16,
   textAlign: "left",
   padding: 32,
-  opacity: 0.7,
   display: "flex",
   alignItems: "flex-start",
   boxShadow: "8px 8px 10px rgba(7, 3, 0, 0.5)",
