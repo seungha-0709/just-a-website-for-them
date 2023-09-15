@@ -76,7 +76,9 @@ const SuccessItem = ({ onClick, selected, itemId, item }) => {
         style={{ opacity: 0.3 }}
       />
       <div>
-        <p style={{ fontWeight: 600, fontSize: 18 }}>{item.title}</p>
+        <p style={{ fontWeight: 600, fontSize: 18, color: "#000" }}>
+          {item.title}
+        </p>
         <div
           className="success_card_content"
           dangerouslySetInnerHTML={{ __html: item.html }}
