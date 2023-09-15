@@ -189,12 +189,10 @@ const Mobile = ({ posts, success, featuredPosts, isRender }) => {
       <BottomNavigation
         style={{
           height: 100,
+          zIndex: 100,
         }}
         showLabels
         value={tabIndex}
-        // onChange={(event, newValue) => {
-        //   setTabIndex(newValue);
-        // }}
       >
         <BottomNavigationAction
           onClick={handleMailClick}

@@ -31,6 +31,22 @@ const nextConfig = {
       },
     ],
   },
+  module: {
+    rules: [
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/,
+        use: [
+          {
+            loader: "url-loader",
+            options: {
+              fallback: "file-loader",
+              name: "assets/fonts/[name].[ext]",
+            },
+          },
+        ],
+      },
+    ],
+  },
 };
 
 module.exports = withVanillaExtract(nextConfig);

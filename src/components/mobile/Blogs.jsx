@@ -3,6 +3,7 @@ import {
   blogSection,
   blog_backgroundStyle,
   blog_contents_container,
+  blog_feature_container,
   blog_featured_content,
   blog_featured_content_html,
   blog_featured_title,
@@ -16,6 +17,7 @@ import {
 import { Button as MuiButton, styled } from "@mui/material";
 import Slider from "react-slick";
 import Image from "next/image";
+import { getBlogUrl } from "@/data/util";
 
 const StyledButton = styled(MuiButton)(() => ({
   background: root.color.POINT_02,
@@ -23,12 +25,15 @@ const StyledButton = styled(MuiButton)(() => ({
   height: 40,
   width: "fit-content",
   borderRadius: 20,
-  fontWeight: 600,
+  fontWeight: 400,
   fontSize: 14,
+  width: "50%",
+  letterSpacing: -0.5,
   display: "block",
   transition: "all 0.5s",
   margin: "12px 0",
   padding: "0px 16px",
+  boxShadow: "4px 4px 10px rgba(37, 33, 26, 0.4)",
   "&:hover": {
     background: root.color.COLOR_01,
   },
@@ -63,11 +68,21 @@ const Blogs = ({ blogPosts: posts, featuredPosts }) => {
       />
       <div className={blog_contents_container}>
         <h2 className={blog_section_title}>
-          블로그를 통해 <br />더 많은 법률 정보를
+          블로그를 통해 <br />더 많은
+          <br />
+          법률 정보를
           <br />
           확인해보세요
         </h2>
-        <div style={{ marginTop: 40, marginBottom: 40 }}>
+        <div
+          style={{
+            marginTop: 80,
+            marginBottom: 40,
+            display: "flex",
+            justifyContent: "center",
+            gap: 20,
+          }}
+        >
           <StyledButton
             onClick={() => window.open("https://m.blog.naver.com/lawyer-kong")}
           >
@@ -79,31 +94,40 @@ const Blogs = ({ blogPosts: posts, featuredPosts }) => {
             정진권 변호사 블로그
           </StyledButton>
         </div>
-        <p className={blog_featured_title}>{featuredPost.title}</p>
-        <div className={blog_featured_content}>
+        <div className={blog_feature_container}>
+          <p className={blog_featured_title}>{featuredPost.title}</p>
           <div
-            className={blog_featured_content_html}
-            dangerouslySetInnerHTML={{ __html: featuredPost.html }}
-          />
+            className={blog_featured_content}
+            onClick={() => window.open(getBlogUrl(featuredPost))}
+          >
+            <div
+              className={blog_featured_content_html}
+              dangerouslySetInnerHTML={{ __html: featuredPost.html }}
+            />
+          </div>
         </div>
-      </div>
-      <div className={blog_list_container} style={{ height: 100 }}>
-        <ul className={blog_list_ul}>
-          <Slider {...sliderSettings}>
-            {posts.map((post, index) => {
-              const regex = /<[^>]*>|<\/[^>]*>|&[^;]*;/g;
-              const contentText = post.html.replace(regex, "");
-              return (
-                <li key={index}>
-                  <h4 className={blog_list_title}>{post.title}</h4>
-                  <div id="blog_list_brief" className={blog_list_brief_content}>
-                    {contentText}
-                  </div>
-                </li>
-              );
-            })}
-          </Slider>
-        </ul>
+
+        <div className={blog_list_container} style={{ height: 100 }}>
+          <ul className={blog_list_ul}>
+            <Slider {...sliderSettings}>
+              {posts.map((post, index) => {
+                const regex = /<[^>]*>|<\/[^>]*>|&[^;]*;/g;
+                const contentText = post.html.replace(regex, "");
+                return (
+                  <li key={index} onClick={() => window.open(getBlogUrl(post))}>
+                    <h4 className={blog_list_title}>{post.title}</h4>
+                    <div
+                      id="blog_list_brief"
+                      className={blog_list_brief_content}
+                    >
+                      {contentText}
+                    </div>
+                  </li>
+                );
+              })}
+            </Slider>
+          </ul>
+        </div>
       </div>
     </section>
   );

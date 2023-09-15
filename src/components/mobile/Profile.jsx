@@ -17,6 +17,7 @@ import {
   profile_kong_backgroundStyle,
   profile_jeong_backgroundStyle,
 } from "@/styles/mobileStyle.css.ts";
+import { root } from "@/styles/root.css";
 
 import Image from "next/image";
 
@@ -53,11 +54,20 @@ const Profile = () => {
           })}
         </ul>
       </div>
-      <div style={{ position: "relative", display: "flex" }}>
+      <div
+        style={{
+          position: "relative",
+          display: "flex",
+          padding: "0 24px",
+          gap: 8,
+          zIndex: 30,
+          top: -90,
+        }}
+      >
         <div
           style={{
             width: "50%",
-            height: 200,
+            height: 180,
             position: "relative",
           }}
         >
@@ -68,7 +78,7 @@ const Profile = () => {
             className={profile_kong_backgroundStyle}
           />
         </div>
-        <div style={{ width: "50%", height: 200, position: "relative" }}>
+        <div style={{ width: "50%", height: 180, position: "relative" }}>
           <Image
             src="https://just-a-website-for-theme.s3.ap-northeast-2.amazonaws.com/mobile/profile_jeong.png"
             alt="법무법인 소울 - 공지연 & 정진권 변호사"

@@ -12,6 +12,8 @@ import { useDraggable } from "react-use-draggable-scroll";
 import { Dialog as MuiDialog, styled } from "@mui/material";
 import { useState, useRef } from "react";
 import { root } from "@/styles/root.css";
+import Button from "../ui/Button";
+import { getBlogUrl } from "@/data/util";
 
 const Dialog = styled(MuiDialog)(() => ({
   display: "flex",
@@ -64,10 +66,25 @@ const Dialog = styled(MuiDialog)(() => ({
 const SuccessItem = ({ onClick, selected, itemId, item }) => {
   return (
     <button
-      onClick={() => onClick(item, itemId)}
+      onClick={() => window.open(getBlogUrl(item))}
       className={success_example_item}
     >
-      <Image src={item.feature_image} alt={item.title} fill />
+      <Image
+        src={item.feature_image}
+        alt={item.title}
+        fill
+        style={{ opacity: 0.3 }}
+      />
+      <div>
+        <p style={{ fontWeight: 600, fontSize: 18 }}>{item.title}</p>
+        <div
+          className="success_card_content"
+          dangerouslySetInnerHTML={{ __html: item.html }}
+        ></div>
+      </div>
+      <Button style={{ position: "absolute", bottom: 20, height: 42 }}>
+        클릭하여 자세히 보기
+      </Button>
     </button>
   );
 };
@@ -138,7 +155,8 @@ const Success = ({ examples }) => {
           {...events}
           style={{
             width: "100%",
-            height: 150,
+            height: 400,
+            marginTop: 40,
             overflowX: "scroll",
           }}
         >
@@ -147,16 +165,14 @@ const Success = ({ examples }) => {
               width: "fit-content",
               display: "flex",
               flexWrap: "nowrap",
-              gap: 8,
+              gap: 32,
+              padding: "0 32px",
             }}
           >
             {examples.map((item, index) => {
               return (
                 <SuccessItem
                   onClick={(e) => {
-                    console.log(e);
-                    // e.stopPropagation();
-                    // e.preventDefault();
                     handleClick(item, index);
                   }}
                   key={index}

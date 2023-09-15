@@ -26,6 +26,18 @@ const Place = () => {
         >
           오시는 길
         </h2>
+        <p
+          style={{
+            textAlign: "center",
+            color: root.color.COLOR_04,
+            fontWeight: 400,
+            margin: "40px 0",
+          }}
+        >
+          서울 서초구 강남대로 623 우일빌딩 10층
+          <br />
+          법무법인 소울
+        </p>
         <Map
           zoomable={true}
           draggable={true}

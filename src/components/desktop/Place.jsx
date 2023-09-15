@@ -29,8 +29,8 @@ const Place = () => {
         <p
           style={{
             textAlign: "center",
-            color: root.color.COLOR_05,
-            fontWeight: 500,
+            color: root.color.COLOR_04,
+            fontWeight: 400,
             marginBottom: 40,
           }}
         >

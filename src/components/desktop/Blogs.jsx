@@ -20,6 +20,7 @@ import {
 import Slider from "react-slick";
 import Image from "next/image";
 import { JEONG_BLOG_URL, KONG_BLOG_URL } from "@/data/contants";
+import { getBlogUrl } from "@/data/util";
 
 const StyledButton = styled(MuiButton)(() => ({
   background: root.color.POINT_02,
@@ -92,34 +93,34 @@ const Blogs = ({ blogPosts: posts, featuredPosts }) => {
           <StyledButton onClick={() => window.open(JEONG_BLOG_URL)}>
             정진권 변호사 블로그
           </StyledButton>
-          <p className={blog_featured_title}>{featuredPost.title}</p>
-          <div
-            className={blog_featured_content}
-            dangerouslySetInnerHTML={{ __html: featuredPost.html }}
-          />
+          <div onClick={() => window.open(getBlogUrl(featuredPost))}>
+            <p className={blog_featured_title}>{featuredPost.title}</p>
+            <div
+              className={blog_featured_content}
+              dangerouslySetInnerHTML={{ __html: featuredPost.html }}
+            />
+          </div>
         </div>
-        <div className={blog_list_container}>
-          <ul className={blog_list_ul}>
-            <Slider {...sliderSettings}>
-              {posts.map((post, index) => {
-                const regex = /<[^>]*>|<\/[^>]*>|&[^;]*;/g;
-                const contentText = post.html.replace(regex, "");
-                console.log(posts);
-                return (
-                  <li key={index}>
-                    <h4 className={blog_list_title}>{post.title}</h4>
-                    <div
-                      id="blog_list_brief"
-                      className={blog_list_brief_content}
-                    >
-                      {contentText}
-                    </div>
-                  </li>
-                );
-              })}
-            </Slider>
-          </ul>
-        </div>
+      </div>
+      <div className={blog_list_container}>
+        <ul className={blog_list_ul}>
+          <Slider {...sliderSettings}>
+            {posts.map((post, index) => {
+              const regex = /<[^>]*>|<\/[^>]*>|&[^;]*;/g;
+              const contentText = post.html.replace(regex, "");
+              const blogUrl = getBlogUrl(post);
+
+              return (
+                <li key={index} onClick={() => window.open(blogUrl)}>
+                  <h4 className={blog_list_title}>{post.title}</h4>
+                  <div id="blog_list_brief" className={blog_list_brief_content}>
+                    {contentText}
+                  </div>
+                </li>
+              );
+            })}
+          </Slider>
+        </ul>
       </div>
     </section>
   );
