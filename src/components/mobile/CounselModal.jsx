@@ -80,7 +80,7 @@ const TextField = styled(MuiTextField)(() => ({
   },
 }));
 
-const CounselModal = ({ onClose, isOpen, isRender }) => {
+const CounselModal = ({ onClose, isRender }) => {
   const form = useRef();
   const [isSubmitComplete, setIsSubmitComplete] = useState(0);
   const [isSnackbarOpen, setIsSnackbarOpen] = useState(false);
@@ -126,78 +126,77 @@ const CounselModal = ({ onClose, isOpen, isRender }) => {
 
   return (
     <>
-      <Dialog onClose={onClose} open={isOpen}>
-        <div style={{ width: "100%" }}>
-          <form
-            ref={form}
-            onSubmit={sendEmail}
-            className={send_email_form}
-            style={{ width: "100%" }}
+      {/* <Dialog onClose={onClose} open={isOpen}> */}
+      <div style={{ padding: 20 }}>
+        <form
+          ref={form}
+          onSubmit={sendEmail}
+          className={send_email_form}
+          style={{ width: "100%" }}
+        >
+          <label>이름</label>
+          <TextField
+            onChange={({ target }) =>
+              setUserInfo({ ...userInfo, name: target.value })
+            }
+            autoFocus
+            type="text"
+            name="user_name"
+            required
+          />
+
+          <label>이메일</label>
+
+          <TextField
+            onChange={({ target }) =>
+              setUserInfo({ ...userInfo, email: target.value })
+            }
+            type="email"
+            name="user_email"
+            required
+          />
+          <label>문의 내용</label>
+
+          <TextField
+            multiline
+            required
+            onChange={({ target }) =>
+              setUserInfo({ ...userInfo, content: target.value })
+            }
+            placeholder="연락처를 함께 기재해 주시기 바랍니다."
+            minRows={8}
+            type="text"
+            name="message"
+            style={{ height: 220 }}
+          />
+
+          <div className="agreement">
+            <p>
+              개인정보보호를 위한 이용자 동의 사항 <br />
+              <br />
+              1. 개인정보의 수집 및 이용 목적 <br /> {"  "}가. 문의에 대한 답변
+              <br />
+              {"  "}나. 민원사무 처리 <br />
+              {"  "}다. 재화 또는 서비스 제공
+              <br />
+              {"  "}라. 마케팅 활용 및 광고물 제공 <br />
+              <br />
+              2. 수집항목 : 이름, 연락처, 이메일 등<br />
+              <br /> 3. 개인정보의 보유 및 이용기간 : 이용목적이 달성된 때까지
+              보유합니다.
+            </p>
+          </div>
+
+          <Button
+            type="submit"
+            id="mail_submit"
+            disabled={!userInfo.content || !userInfo.email || !userInfo.name}
           >
-            <label>이름</label>
-            <TextField
-              onChange={({ target }) =>
-                setUserInfo({ ...userInfo, name: target.value })
-              }
-              autoFocus
-              type="text"
-              name="user_name"
-              required
-            />
-
-            <label>이메일</label>
-
-            <TextField
-              onChange={({ target }) =>
-                setUserInfo({ ...userInfo, email: target.value })
-              }
-              type="email"
-              name="user_email"
-              required
-            />
-            <label>문의 내용</label>
-
-            <TextField
-              multiline
-              required
-              onChange={({ target }) =>
-                setUserInfo({ ...userInfo, content: target.value })
-              }
-              placeholder="연락처를 함께 기재해 주시기 바랍니다."
-              minRows={8}
-              type="text"
-              name="message"
-              style={{ height: 220 }}
-            />
-
-            <div className="agreement">
-              <p>
-                개인정보보호를 위한 이용자 동의 사항 <br />
-                <br />
-                1. 개인정보의 수집 및 이용 목적 <br /> {"  "}가. 문의에 대한
-                답변
-                <br />
-                {"  "}나. 민원사무 처리 <br />
-                {"  "}다. 재화 또는 서비스 제공
-                <br />
-                {"  "}라. 마케팅 활용 및 광고물 제공 <br />
-                <br />
-                2. 수집항목 : 이름, 연락처, 이메일 등<br />
-                <br /> 3. 개인정보의 보유 및 이용기간 : 이용목적이 달성된 때까지
-                보유합니다.
-              </p>
-            </div>
-
-            <Button
-              type="submit"
-              id="mail_submit"
-              disabled={!userInfo.content || !userInfo.email || !userInfo.name}
-            >
-              문의하기
-            </Button>
-          </form>
-        </div>
-      </Dialog>
+            문의하기
+          </Button>
+        </form>
+      </div>
+      {/* </Dialog> */}
       <Snackbar
         anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
         open={isSnackbarOpen}

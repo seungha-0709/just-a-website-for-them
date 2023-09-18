@@ -190,7 +190,9 @@ const Nav = ({ isRender }) => {
           keepMounted: true,
         }}
       >
-        <div className={mail_bottom_sheet_container}></div>
+        <div className={mail_bottom_sheet_container}>
+          <CounselModal isRender={isRender} onClose={toggleDrawer(false)} />
+        </div>
       </SwipeableDrawer>
     </>
   );
