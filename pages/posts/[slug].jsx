@@ -1,7 +1,6 @@
 import { getSinglePost, getPosts } from "../../lib/posts";
 
 const PostPage = (props) => {
-  console.log(props);
   return (
     <div>
       <h1>{props.post.title}</h1>

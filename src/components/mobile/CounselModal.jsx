@@ -81,6 +81,7 @@ const TextField = styled(MuiTextField)(() => ({
 }));
 
 const CounselModal = ({ onClose, isRender }) => {
+  console.log("mobile", isRender);
   const form = useRef();
   const [isSubmitComplete, setIsSubmitComplete] = useState(0);
   const [isSnackbarOpen, setIsSnackbarOpen] = useState(false);
@@ -116,9 +117,9 @@ const CounselModal = ({ onClose, isRender }) => {
         };
 
       CallMtm({
-        productName: "mail_submit", //광고주 측에서 설정하고 싶은 값(default convType)
+        productName: "mail_submit_mobile", //광고주 측에서 설정하고 싶은 값(default convType)
         convType: "mail_submit_mobile", //etc, join, login
-        click: "#mail_submit", //click으로 전환 잡을 경우 css selector 값
+        click: "#mail_submit_mobile", //click으로 전환 잡을 경우 css selector 값
       });
     }
   }, [isSubmitComplete, isRender]);
@@ -188,7 +189,7 @@ const CounselModal = ({ onClose, isRender }) => {
 
           <Button
             type="submit"
-            id="mail_submit"
+            id="mail_submit_mobile"
             disabled={!userInfo.content || !userInfo.email || !userInfo.name}
           >
             문의하기
