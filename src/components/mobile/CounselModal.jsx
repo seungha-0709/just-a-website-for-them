@@ -101,7 +101,6 @@ const CounselModal = ({ onClose, isRender }) => {
         "kN_K_gdIppMdJChHt"
       )
       .then((res) => {
-        console.log(res);
         setIsSubmitComplete(isSubmitComplete + 1);
         onClose();
         setIsSnackbarOpen(true);
@@ -122,7 +121,7 @@ const CounselModal = ({ onClose, isRender }) => {
         click: "#mail_submit", //click으로 전환 잡을 경우 css selector 값
       });
     }
-  }, [isSubmitComplete]);
+  }, [isSubmitComplete, isRender]);
 
   return (
     <>

@@ -72,7 +72,6 @@ const Dialog = styled(MuiDialog)(() => ({
 }));
 
 const SuccessExampleDialog = ({ onClose, isOpen, examples, index, url }) => {
-  console.log("ex", examples);
   const getBlogUrl = () => {
     if (examples[index].authors[0].slug === "jiyeon") {
       return `${KONG_BLOG_URL}/${url}`;
