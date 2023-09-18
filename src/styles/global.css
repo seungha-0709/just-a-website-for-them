@@ -108,7 +108,9 @@ p {
 .success_card_content h2:nth-of-type(2) {
   font-size: 14px !important;
   display: block;
-  color: #000 !important;
+  color: rgba(255, 255, 255, 0.7) !important;
+  position: relative;
+  z-index: 40;
 }
 
 .success_card_content ul {
@@ -119,7 +121,7 @@ p {
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-line-clamp: 3;
-  color: #000 !important;
+  color: rgba(255, 255, 255, 0.7) !important;
   -webkit-box-orient: vertical;
 }
 
@@ -131,8 +133,10 @@ p {
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-line-clamp: 3;
-  color: #000 !important;
+  color: rgba(255, 255, 255, 0.7) !important;
   -webkit-box-orient: vertical;
+  position: relative;
+  z-index: 40;
 }
 
 .success_card_content h2,

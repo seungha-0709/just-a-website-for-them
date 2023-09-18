@@ -446,6 +446,7 @@ export const success_example_item = style({
   height: 360,
   borderRadius: 16,
   textAlign: "left",
+  color: root.color.WHITE,
   padding: 32,
   display: "flex",
   alignItems: "flex-start",
@@ -455,6 +456,7 @@ export const success_example_item = style({
   position: "relative",
   border: "none",
   flexDirection: "column",
+  background: "rgba(0, 0, 0, 0.5)",
   // border: `1px solid ${root.color.COLOR_05}`,
 
   "::after": {
@@ -522,4 +524,11 @@ export const main_words_list_item = style({
   borderRadius: 16,
   background: "rgba(31, 18, 0, 0.8)",
   boxShadow: "4px 4px 10px rgba(37, 33, 26, 0.9)",
+});
+
+export const mail_bottom_sheet_container = style({
+  background: root.color.WHITE,
+  height: "90svh",
+  width: "100%",
+  borderRadius: "24px 24px 0 0",
 });

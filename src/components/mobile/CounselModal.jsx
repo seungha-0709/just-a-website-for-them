@@ -80,7 +80,7 @@ const TextField = styled(MuiTextField)(() => ({
   },
 }));
 
-const CounselModal = ({ onClose, isOpen }) => {
+const CounselModal = ({ onClose, isOpen, isRender }) => {
   const form = useRef();
   const [isSubmitComplete, setIsSubmitComplete] = useState(0);
   const [isSnackbarOpen, setIsSnackbarOpen] = useState(false);
@@ -109,7 +109,7 @@ const CounselModal = ({ onClose, isOpen }) => {
   };
 
   useEffect(() => {
-    if (window) {
+    if (window && isRender) {
       window.CallMtm =
         window.CallMtm ||
         function () {

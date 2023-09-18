@@ -27,7 +27,7 @@ const Desktop = ({ posts, success, featuredPosts, isRender }) => {
   return (
     <div style={{ display: `${isRender ? "block" : "none"}` }}>
       <Header />
-      <Nav />
+      <Nav isRender={isRender} />
       <div className={desktop_container}>
         <div>
           <Main toNext={mainCarouselRef.current.slickNext} />

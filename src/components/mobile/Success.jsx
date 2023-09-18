@@ -73,10 +73,18 @@ const SuccessItem = ({ onClick, selected, itemId, item }) => {
         src={item.feature_image}
         alt={item.title}
         fill
-        style={{ opacity: 0.3 }}
+        style={{ opacity: 0.5 }}
       />
       <div>
-        <p style={{ fontWeight: 600, fontSize: 18, color: "#000" }}>
+        <p
+          style={{
+            fontWeight: 600,
+            fontSize: 18,
+            color: "rgba(255, 255, 255, 0.7)",
+            position: "relative",
+            zIndex: 40,
+          }}
+        >
           {item.title}
         </p>
         <div
@@ -84,7 +92,19 @@ const SuccessItem = ({ onClick, selected, itemId, item }) => {
           dangerouslySetInnerHTML={{ __html: item.html }}
         ></div>
       </div>
-      <Button style={{ position: "absolute", bottom: 20, height: 42 }}>
+      <Button
+        style={{
+          position: "absolute",
+          bottom: 20,
+          height: 42,
+          background: "rgba(7, 3, 0, 0.5)",
+          color: "rgba(255, 255, 255, 0.9)",
+          border: `1px solid rgba(255, 255, 255, 0.4)`,
+          fontWeight: 200,
+          zIndex: 40,
+          bottom: 30,
+        }}
+      >
         클릭하여 자세히 보기
       </Button>
     </button>

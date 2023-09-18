@@ -64,8 +64,7 @@ const BottomNavigationAction = styled(MuiBottomNavigationAction)(() => ({
   },
 }));
 
-const Nav = () => {
-  const [tabIndex, setTabIndex] = useState(0);
+const Nav = ({ isRender }) => {
   const [isClicked, setIsClicked] = useState({
     kakao: 0,
     tel: 0,
@@ -75,24 +74,8 @@ const Nav = () => {
 
   const [isOpen, setIsOpen] = useState(false);
 
-  // useEffect(() => {
-  //   if (window) {
-  //     window.CallMtm =
-  //       window.CallMtm ||
-  //       function () {
-  //         (window.CallMtm.q = window.CallMtm.q || []).push(arguments);
-  //       };
-
-  //     CallMtm({
-  //       productName: "mail_pc", //광고주 측에서 설정하고 싶은 값(default convType)
-  //       convType: "mail_pc", //etc, join, login
-  //       click: "#mail_pc", //click으로 전환 잡을 경우 css selector 값
-  //     });
-  //   }
-  // }, [isClicked.mail]);
-
   useEffect(() => {
-    if (window) {
+    if (window && isRender) {
       window.CallMtm =
         window.CallMtm ||
         function () {
@@ -108,7 +91,7 @@ const Nav = () => {
   }, [isClicked.kakao]);
 
   useEffect(() => {
-    if (window) {
+    if (window && isRender) {
       window.CallMtm =
         window.CallMtm ||
         function () {
@@ -124,7 +107,7 @@ const Nav = () => {
   }, [isClicked.tel]);
 
   useEffect(() => {
-    if (window) {
+    if (window && isRender) {
       window.CallMtm =
         window.CallMtm ||
         function () {
@@ -148,10 +131,6 @@ const Nav = () => {
   };
 
   const handleMailClick = () => {
-    // setIsClicked({
-    //   ...isClicked,
-    //   kakao: isClicked.mail++,
-    // });
     setIsOpen(true);
   };
 
@@ -173,13 +152,7 @@ const Nav = () => {
   return (
     <>
       <nav className={globalNav}>
-        <BottomNavigation
-          showLabels
-          // value={tabIndex}
-          // onChange={(event, newValue) => {
-          //   setTabIndex(newValue);
-          // }}
-        >
+        <BottomNavigation showLabels>
           <BottomNavigationAction
             style={{
               borderTop: `1px solid ${root.color.COLOR_05}`,
@@ -209,7 +182,11 @@ const Nav = () => {
           />
         </BottomNavigation>
       </nav>
-      <CounselModal isOpen={isOpen} onClose={() => setIsOpen(false)} />
+      <CounselModal
+        isRender={isRender}
+        isOpen={isOpen}
+        onClose={() => setIsOpen(false)}
+      />
     </>
   );
 };
