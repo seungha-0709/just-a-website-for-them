@@ -7,8 +7,10 @@ import {
 } from "@/styles/style.css";
 import { Map, MapMarker, StaticMap } from "react-kakao-maps-sdk";
 import { root } from "@/styles/root.css";
+import useKakaoLoader from "@/hooks/useKakaoLoader";
 
 const Place = () => {
+  useKakaoLoader();
   return (
     <section id="place" className={placeSection}>
       <Image
@@ -38,13 +40,19 @@ const Place = () => {
           <br />
           법무법인 소울
         </p>
-        <StaticMap
+        <Map
+          id="map"
+          zoomable={false}
+          draggable={false}
+          level={3}
           onClick={() => window.open("https://kko.to/5gtm6q2CpD")}
           center={{ lat: 37.517341, lng: 127.018772 }}
-          marker={{ lat: 37.517341, lng: 127.018772 }}
           style={{ width: 800, height: 400 }}
-          level={3}
-        />
+        >
+          <MapMarker position={{ lat: 37.517341, lng: 127.019772 }}>
+            <div style={{ color: "#000" }}>법무법인 소울</div>
+          </MapMarker>
+        </Map>
       </div>
     </section>
   );
