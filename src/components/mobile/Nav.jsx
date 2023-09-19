@@ -1,6 +1,12 @@
 import SwipeableDrawer from "@mui/material/SwipeableDrawer";
-import { BottomNavigation as MuiBottomNavigation, styled } from "@mui/material";
-import { BottomNavigationAction as MuiBottomNavigationAction } from "@mui/material";
+import {
+  BottomNavigation as MuiBottomNavigation,
+  BottomNavigationAction as MuiBottomNavigationAction,
+  styled,
+  Snackbar,
+  Alert,
+} from "@mui/material";
+
 import IconCounsel from "@/assets/icons/IconCounsel";
 import IconKakaotalk from "@/assets/icons/IconKakaotalk";
 import IconPlace from "@/assets/icons/IconPlace";
@@ -51,6 +57,7 @@ const BottomNavigationAction = styled(MuiBottomNavigationAction)(() => ({
 
 const Nav = ({ isRender }) => {
   const [isMailModalOpen, setIsMailModalOpen] = useState(false);
+  const [isSnackbarOpen, setIsSnackbarOpen] = useState(false);
   const [open, setOpen] = useState(false);
   const toggleDrawer = (newOpen) => () => {
     setOpen(newOpen);
@@ -77,7 +84,7 @@ const Nav = ({ isRender }) => {
         click: "#kakao_mobile",
       });
     }
-  }, [isClicked.kakao]);
+  }, [isClicked.kakao, isRender]);
 
   useEffect(() => {
     if (window) {
@@ -109,7 +116,7 @@ const Nav = ({ isRender }) => {
         click: "#place_mobile",
       });
     }
-  }, [isClicked.place]);
+  }, [isClicked.place, isRender]);
 
   const handleKakaoClick = () => {
     setIsClicked({
@@ -183,7 +190,6 @@ const Nav = ({ isRender }) => {
         anchor="bottom"
         open={open}
         onClose={toggleDrawer(false)}
-        onOpen={toggleDrawer(true)}
         swipeAreaWidth={drawerBleeding}
         disableSwipeToOpen={false}
         ModalProps={{
@@ -191,9 +197,22 @@ const Nav = ({ isRender }) => {
         }}
       >
         <div className={mail_bottom_sheet_container}>
-          <CounselModal isRender={isRender} onClose={toggleDrawer(false)} />
+          <CounselModal
+            onOpenSnackbar={() => setIsSnackbarOpen(true)}
+            isRender={isRender}
+            onClose={toggleDrawer(false)}
+          />
         </div>
       </SwipeableDrawer>
+      <Snackbar
+        anchorOrigin={{ vertical: "top", horizontal: "center" }}
+        open={isSnackbarOpen}
+        autoHideDuration={3000}
+      >
+        <Alert severity="success" sx={{ width: "90%" }}>
+          상담 문의 메일이 성공적으로 전송되었습니다.
+        </Alert>
+      </Snackbar>
     </>
   );
 };

@@ -2,11 +2,6 @@ import {
   Dialog as MuiDialog,
   TextField as MuiTextField,
   styled,
-  Snackbar,
-  Alert,
-  Accordion,
-  AccordionSummary,
-  AccordionDetails,
 } from "@mui/material";
 import Button from "@/components/ui/Button";
 import { useState, useRef, useEffect } from "react";
@@ -80,11 +75,10 @@ const TextField = styled(MuiTextField)(() => ({
   },
 }));
 
-const CounselModal = ({ onClose, isRender }) => {
+const CounselModal = ({ onClose, isRender, onOpenSnackbar }) => {
   console.log("mobile", isRender);
   const form = useRef();
   const [isSubmitComplete, setIsSubmitComplete] = useState(0);
-  const [isSnackbarOpen, setIsSnackbarOpen] = useState(false);
   const [userInfo, setUserInfo] = useState({
     email: "",
     name: "",
@@ -104,7 +98,7 @@ const CounselModal = ({ onClose, isRender }) => {
       .then((res) => {
         setIsSubmitComplete(isSubmitComplete + 1);
         onClose();
-        setIsSnackbarOpen(true);
+        onOpenSnackbar(true);
       });
   };
 
@@ -126,8 +120,7 @@ const CounselModal = ({ onClose, isRender }) => {
 
   return (
     <>
-      {/* <Dialog onClose={onClose} open={isOpen}> */}
-      <div style={{ padding: 20 }}>
+      <div style={{ padding: "40px 20px" }}>
         <form
           ref={form}
           onSubmit={sendEmail}
@@ -196,19 +189,6 @@ const CounselModal = ({ onClose, isRender }) => {
           </Button>
         </form>
       </div>
-      {/* </Dialog> */}
-      <Snackbar
-        anchorOrigin={{ vertical: "bottom", horizontal: "center" }}
-        open={isSnackbarOpen}
-        // open={true}
-        autoHideDuration={3000}
-        style={{ width: "100%" }}
-        onClose={() => setIsSnackbarOpen(false)}
-      >
-        <Alert severity="success" sx={{ width: "90%" }}>
-          상담 문의 메일이 성공적으로 전송되었습니다.
-        </Alert>
-      </Snackbar>
     </>
   );
 };
