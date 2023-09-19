@@ -18,6 +18,10 @@ import PublicIcon from "@mui/icons-material/Public";
 import ReceiptLongIcon from "@mui/icons-material/ReceiptLong";
 import GavelIcon from "@mui/icons-material/Gavel";
 import { ParallaxBanner, ParallaxBannerLayer } from "react-scroll-parallax";
+import MainSvg from "@/assets/svgs/MainSvg.svg";
+import { TextField as MuiTextField, styled } from "@mui/material";
+import { root } from "@/styles/root.css";
+import Button from "../ui/Button";
 
 const WORDS_LIST = [
   {
@@ -46,41 +50,60 @@ const WORDS_LIST = [
   },
 ];
 
+const TextField = styled(MuiTextField)(() => ({
+  background: root.color.WHITE,
+  color: root.color.COLOR_03,
+  display: "absolute",
+  top: 20,
+  width: "85%",
+  margin: "0 auto",
+  display: "block",
+  "& .MuiInputBase-root": {
+    borderRadius: 60,
+    width: "100%",
+  },
+  "& input": {
+    width: "100%",
+    display: "block",
+    padding: "16px 24px",
+  },
+  "&:active": {
+    border: "none",
+  },
+}));
+
 const Main = (props) => {
   return (
     <>
       <section id="main" className={mainSection}>
-        <Image
-          src="https://just-a-website-for-theme.s3.ap-northeast-2.amazonaws.com/law_1.png"
-          alt="법무법인 소울 - 공지연 & 정진권 변호사"
-          fill
-          priority
-          quality={100}
-          className={mainBackgroundStyle}
-        />
-        <div className={main_title_area}>
-          <p className={main_title_text}>
-            <em className={main_title_em}>공.정.</em>
-            <span className={main_title_main_text}>한 변호사</span>
-            <br />
-            Only for Client&apos;s Justice
-          </p>
-          <p className={main_content_text}>
-            &quot;당신의 정의, 당신만을 위한 공정&quot;
-            <br />
-            최적의 방법으로 당신만을 위해 싸우겠습니다.
-          </p>
+        <div
+          style={{
+            width: "100%",
+            height: 500,
+            display: "flex",
+            flexDirection: "row-reverse",
+            flexWrap: "nowrap",
+            justifyContent: "space-around",
+          }}
+        >
+          <MainSvg style={{ position: "absolute", top: 220, height: 400 }} />
+          <div className={main_title_area}>
+            <p className={main_title_text}>
+              <em className={main_title_em}>공.정.</em>
+              <span className={main_title_main_text}>한 변호사</span>
+              <br />
+              Only for Client&apos;s Justice
+            </p>
+            <TextField placeholder="무료로 법률 상담을 신청해보세요." />
+            <p className={main_content_text}>
+              &quot;당신의 정의, 당신만을 위한 공정&quot;
+              <br />
+              최적의 방법으로 당신만을 위해 싸우겠습니다.
+            </p>
+          </div>
         </div>
       </section>
       <div className={main_words_list_container}>
-        <Image
-          src="https://just-a-website-for-theme.s3.ap-northeast-2.amazonaws.com/mobile/mobile_bg_0.png"
-          alt="법무법인 소울 - 공지연 & 정진권 변호사"
-          fill
-          priority
-          quality={100}
-          className={main_words_list_bg}
-        />
         {WORDS_LIST.map((word) => {
           return (
             <div className={main_words_list_item} key={word.label}>
@@ -89,6 +112,26 @@ const Main = (props) => {
             </div>
           );
         })}
+      </div>
+      <div
+        style={{
+          position: "absolute",
+          bottom: 60,
+          left: "50%",
+          transform: "translateX(-50%)",
+          width: "100%",
+          display: "flex",
+          gap: 20,
+          justifyContent: "center",
+          flexDirection: "column",
+        }}
+      >
+        <Button style={{ display: "block", margin: "0 30px" }}>
+          무료 전화 상담
+        </Button>
+        <Button style={{ display: "block", margin: "0 30px" }}>
+          무료 카카오톡 상담
+        </Button>
       </div>
     </>
   );

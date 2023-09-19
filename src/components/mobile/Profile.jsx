@@ -25,9 +25,34 @@ const Profile = () => {
   return (
     <section id="profile" className={profileSection}>
       <div className={profile_kong}>
-        <h2 className={profile_title_text}>
+        <div className={profile_title_text}>
           변호사 <em className={name}>공 지 연</em>
-        </h2>
+          <div
+            style={{
+              width: 160,
+              height: 160,
+              background: root.color.COLOR_08,
+              borderRadius: 90,
+              overflow: "hidden",
+              display: "flex",
+              justifyContent: "center",
+              paddingLeft: 20,
+              paddingTop: 10,
+              boxSizing: "border-box",
+              position: "absolute",
+              top: 30,
+              right: 30,
+            }}
+          >
+            <Image
+              src="https://just-a-website-for-theme.s3.ap-northeast-2.amazonaws.com/profile_kong_solo.png"
+              width={120}
+              height={180}
+              objectFit="contain"
+              alt="공지연 변호사"
+            />
+          </div>
+        </div>
         <ul className={ul}>
           <li>
             <span className={li_span}>{kongJiYeon.education.name}</span>
@@ -54,7 +79,7 @@ const Profile = () => {
           })}
         </ul>
       </div>
-      <div
+      {/* <div
         style={{
           position: "relative",
           display: "flex",
@@ -63,8 +88,8 @@ const Profile = () => {
           zIndex: 30,
           top: -90,
         }}
-      >
-        <div
+      > */}
+      {/* <div
           style={{
             width: "50%",
             height: 180,
@@ -87,11 +112,35 @@ const Profile = () => {
             className={profile_jeong_backgroundStyle}
           />
         </div>
-      </div>
+      </div> */}
       <div className={profile_jeong}>
-        <h2 className={profile_title_text}>
+        <div className={profile_title_text}>
           변호사 <em className={name}>정 진 권</em>
-        </h2>
+          <div
+            style={{
+              width: 160,
+              height: 160,
+              background: root.color.COLOR_08,
+              borderRadius: 90,
+              overflow: "hidden",
+              display: "flex",
+              justifyContent: "center",
+              paddingTop: 10,
+              boxSizing: "border-box",
+              position: "absolute",
+              top: 30,
+              right: 30,
+            }}
+          >
+            <Image
+              src="https://just-a-website-for-theme.s3.ap-northeast-2.amazonaws.com/profile_jeong_solo.png"
+              width={120}
+              height={180}
+              objectFit="contain"
+              alt="정진권 변호사"
+            />
+          </div>
+        </div>
         <ul className={ul}>
           <li>
             <span className={li_span}>{jeongJinKwon.education.name}</span>

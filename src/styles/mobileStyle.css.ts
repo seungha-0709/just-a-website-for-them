@@ -25,13 +25,12 @@ export const mainBackgroundStyle = style({
 });
 
 export const mainSection = style({
-  width: "100%",
   height: 500,
-  // position: "absolute",
   position: "sticky",
   top: 0,
   display: "flex",
   alignItems: "center",
+  padding: 20,
 });
 
 export const contents = style({
@@ -58,12 +57,12 @@ export const profileSection = style({
   height: "fit-content",
   // position: "absolute",
   position: "absolute",
-  top: 790,
+  top: 1000,
   display: "flex",
   gap: 0,
   // top: -48,
   zIndex: 30,
-  borderRadius: "24px 24px 0 0",
+  // borderRadius: "24px 24px 0 0",
   overflow: "hidden",
   flexDirection: "column",
   // background: root.color.COLOR_04,
@@ -73,12 +72,14 @@ export const profileSection = style({
 });
 
 export const profile_kong = style({
-  padding: "50px 30px 150px 30px",
+  padding: "50px 30px 50px 30px",
   position: "relative",
   display: "flex",
   flexDirection: "column",
   zIndex: 30,
-  background: root.color.COLOR_01,
+  borderRadius: 12,
+  margin: 20,
+  background: root.color2.BLUE_01,
 });
 
 export const profile_jeong_backgroundStyle = style({
@@ -95,12 +96,13 @@ export const profile_jeong_backgroundStyle = style({
 });
 
 export const profile_jeong = style({
-  background: root.color.COLOR_03,
-  width: "100%",
-  padding: "140px 30px 120px",
+  background: root.color2.COLOR_01,
+  padding: "50px 30px",
   position: "relative",
-  top: -180,
+  top: -20,
   zIndex: 0,
+  borderRadius: 12,
+  margin: 20,
   boxSizing: "border-box",
 });
 
@@ -193,31 +195,28 @@ export const li_strong = style({
 export const main_title_area = style({
   width: "100%",
   position: "absolute",
-  zIndex: 3,
-  top: 240,
+  top: 0,
   zIndex: 40,
 });
 
 export const main_title_text = style({
   fontSize: 24,
-  color: root.color.COLOR_07,
-  fontWeight: 600,
+  color: root.color2.COLOR_01,
+  fontWeight: 700,
   margin: 0,
-  paddingLeft: 20,
+  width: "100%",
+  padding: "20px 32px",
+  boxSizing: "border-box",
 });
 
 export const main_content_text = style({
   fontSize: 14,
-  background: "rgba(0,0,0,0.6)",
-  color: root.color.COLOR_09,
-  fontWeight: 300,
-  margin: "20px 0 0",
+  color: root.color2.COLOR_05,
+  fontWeight: 400,
+  margin: "40px 0 0",
   width: "100%",
-  padding: 12,
   height: "auto",
-  paddingLeft: 26,
-  // letterSpacing: 1,
-  // lineHeight: 1.6,
+  padding: "12px 32px",
 });
 
 export const blog_contents_container = style({
@@ -483,19 +482,18 @@ export const desktop_container = style({
 export const main_words_list_container = style({
   width: "100%",
   height: 324,
-  // background: "#000",
   zIndex: 10,
-  // top: -24,
   display: "flex",
   // margin: "0 auto",
   position: "absolute",
-  top: 500,
+  top: 540,
   flexWrap: "wrap",
   alignContent: "center",
   padding: "20px 24px 52px",
   boxSizing: "border-box",
   justifyContent: "center",
   gap: 12,
+  background: "transparent",
   // backgroundSize: "cover",
   // background:
   //   "url(https://just-a-website-for-theme.s3.ap-northeast-2.amazonaws.com/mobile/mobile_bg_2.png)",
@@ -521,9 +519,9 @@ export const main_words_list_item = style({
   fontSize: 14,
   fontWeight: 400,
   color: root.color.COLOR_09,
-  borderRadius: 16,
-  background: "rgba(31, 18, 0, 0.8)",
-  boxShadow: "4px 4px 10px rgba(37, 33, 26, 0.9)",
+  borderRadius: 12,
+  background: "rgba(80, 18, 0, 0.7)",
+  boxShadow: "4px 4px 10px rgba(30, 10, 10, 0.8)",
 });
 
 export const mail_bottom_sheet_container = style({

@@ -92,7 +92,7 @@ const MainPage = (props) => {
       <div
         ref={bodyRef}
         style={{
-          background: root.color.COLOR_01,
+          background: root.color.WHITE,
           width: "100%",
           minHeight: "100svh",
         }}
@@ -112,7 +112,6 @@ const MainPage = (props) => {
                 width: "50%",
                 height: 30,
                 display: "flex",
-
                 alignItems: "center",
               }}
             >

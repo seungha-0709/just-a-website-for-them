@@ -181,11 +181,6 @@ const Nav = ({ isRender }) => {
           icon={<IconPhone />}
         />
       </BottomNavigation>
-      <CounselModal
-        isRender={isRender}
-        isOpen={isMailModalOpen}
-        onClose={() => setIsMailModalOpen(false)}
-      />
       <SwipeableDrawer
         anchor="bottom"
         open={open}
@@ -196,13 +191,15 @@ const Nav = ({ isRender }) => {
           keepMounted: true,
         }}
       >
-        <div className={mail_bottom_sheet_container}>
-          <CounselModal
-            onOpenSnackbar={() => setIsSnackbarOpen(true)}
-            isRender={isRender}
-            onClose={toggleDrawer(false)}
-          />
-        </div>
+        {open && (
+          <div className={mail_bottom_sheet_container}>
+            <CounselModal
+              onOpenSnackbar={() => setIsSnackbarOpen(true)}
+              isRender={isRender}
+              onClose={toggleDrawer(false)}
+            />
+          </div>
+        )}
       </SwipeableDrawer>
       <Snackbar
         anchorOrigin={{ vertical: "top", horizontal: "center" }}

@@ -18,4 +18,15 @@ export const root = createGlobalTheme(":root", {
     POINT_03: "#9B7E51",
     POINT_04: "#422E11",
   },
+  color2: {
+    COLOR_01: "#6d342e",
+    COLOR_02: "#7f3d38",
+    COLOR_03: "#9b5c46",
+    COLOR_04: "#9b604e",
+    COLOR_05: "#d89c54",
+    BLUE_01: "#294863",
+    BLUE_02: "#3e6593",
+    BLUE_03: "#80aeff",
+    BLUE_04: "#bed0e5",
+  },
 });
