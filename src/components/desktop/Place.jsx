@@ -5,7 +5,7 @@ import {
   success_content_area,
   success_title,
 } from "@/styles/style.css";
-import { Map, MapMarker } from "react-kakao-maps-sdk";
+import { Map, MapMarker, StaticMap } from "react-kakao-maps-sdk";
 import { root } from "@/styles/root.css";
 
 const Place = () => {
@@ -34,27 +34,17 @@ const Place = () => {
             marginBottom: 40,
           }}
         >
-          서울 서초구 강남대로 623 우일빌딩 10층
+          서울 서초구 강남대로 620
           <br />
           법무법인 소울
         </p>
-        <Map
-          center={{ lat: 37.517413, lng: 127.028738 }}
+        <StaticMap
+          onClick={() => window.open("https://kko.to/5gtm6q2CpD")}
+          center={{ lat: 37.517109, lng: 127.019684 }}
+          marker={{ lat: 37.517109, lng: 127.019684 }}
           style={{ width: 800, height: 400 }}
-          scrollwheel={false}
-        >
-          <MapMarker position={{ lat: 37.517413, lng: 127.028738 }}>
-            <div
-              style={{
-                color: "#000",
-                textAlign: "center",
-                width: 150,
-              }}
-            >
-              법무법인 소울
-            </div>
-          </MapMarker>
-        </Map>
+          level={3}
+        />
       </div>
     </section>
   );

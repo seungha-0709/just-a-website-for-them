@@ -65,9 +65,13 @@ const Dialog = styled(MuiDialog)(() => ({
 
 const SuccessItem = ({ onClick, selected, itemId, item }) => {
   return (
-    <button
+    <div
       onClick={() => window.open(getBlogUrl(item))}
       className={success_example_item}
+      style={{
+        width: 200,
+        height: 320,
+      }}
     >
       <Image
         src={item.feature_image}
@@ -95,6 +99,9 @@ const SuccessItem = ({ onClick, selected, itemId, item }) => {
       <Button
         style={{
           position: "absolute",
+          left: "50%",
+          width: "90%",
+          transform: "translateX(-50%)",
           bottom: 20,
           height: 42,
           background: "rgba(7, 3, 0, 0.5)",
@@ -107,7 +114,7 @@ const SuccessItem = ({ onClick, selected, itemId, item }) => {
       >
         클릭하여 자세히 보기
       </Button>
-    </button>
+    </div>
   );
 };
 
