@@ -34,14 +34,14 @@ const Place = () => {
             marginBottom: 40,
           }}
         >
-          서울 서초구 강남대로 620
+          서울 서초구 강남대로 623
           <br />
           법무법인 소울
         </p>
         <StaticMap
           onClick={() => window.open("https://kko.to/5gtm6q2CpD")}
-          center={{ lat: 37.517109, lng: 127.019684 }}
-          marker={{ lat: 37.517109, lng: 127.019684 }}
+          center={{ lat: 37.517341, lng: 127.018772 }}
+          marker={{ lat: 37.517341, lng: 127.018772 }}
           style={{ width: 800, height: 400 }}
           level={3}
         />
