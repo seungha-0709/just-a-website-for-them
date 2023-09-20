@@ -294,7 +294,7 @@ export const successBackgroundStyle = style({
 export const successSection = style({
   width: "100%",
   margin: "0 auto",
-  height: 700,
+  height: 900,
   position: "relative",
   display: "flex",
   justifyContent: "center",
@@ -391,7 +391,7 @@ export const success_subtitle = style({
   marginTop: 0,
   lineHeight: 1.6,
   textAlign: "center",
-  marginBottom: 120,
+  marginBottom: 80,
 });
 
 export const success_example_container = style({
@@ -402,8 +402,12 @@ export const success_example_container = style({
 });
 
 export const success_example_item = style({
-  width: 150,
-  height: 150,
+  width: 240,
+  height: 360,
+  padding: 20,
+  borderRadius: 16,
+  overflow: "hidden",
+  boxSizing: "border-box",
   cursor: "pointer",
   position: "relative",
   border: `1px solid ${root.color.COLOR_05}`,

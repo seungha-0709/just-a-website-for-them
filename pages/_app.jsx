@@ -7,7 +7,7 @@ export default function MyApp({ Component, pageProps }) {
   return (
     <ThemeProvider theme={theme}>
       <ParallaxProvider>
-        <Component {...pageProps} />;
+        <Component {...pageProps} />
       </ParallaxProvider>
     </ThemeProvider>
   );

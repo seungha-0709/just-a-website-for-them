@@ -14,6 +14,7 @@ import Button from "@/components/ui/Button";
 import CloseIcon from "@mui/icons-material/Close";
 import { JEONG_BLOG_URL, KONG_BLOG_URL } from "@/data/contants";
 import { useDraggable } from "react-use-draggable-scroll";
+import { getBlogUrl } from "@/data/util";
 
 const Dialog = styled(MuiDialog)(() => ({
   display: "flex",
@@ -71,54 +72,73 @@ const Dialog = styled(MuiDialog)(() => ({
   },
 }));
 
-const SuccessExampleDialog = ({ onClose, isOpen, examples, index, url }) => {
-  const getBlogUrl = () => {
-    if (examples[index].authors[0].slug === "jiyeon") {
-      return `${KONG_BLOG_URL}/${url}`;
-    }
-    return `${JEONG_BLOG_URL}/${url}`;
-  };
-
+const SuccessItem = ({ onClick, selected, itemId, item }) => {
   return (
-    <Dialog onClose={onClose} open={isOpen}>
-      {Number(index) >= 0 && (
-        <>
-          <div className="content-title">
-            {examples[index].title}
-            <div>
-              <Button
-                style={{ height: 32, fontSize: 14, width: 160, padding: 0 }}
-                onClick={() => window.open(getBlogUrl())}
-              >
-                자세히 보러가기
-              </Button>
-              <CloseIcon style={{ cursor: "pointer" }} onClick={onClose} />
-            </div>
-          </div>
-          <div
-            className="content"
-            dangerouslySetInnerHTML={{ __html: examples[index].html }}
-          ></div>
-        </>
-      )}
-    </Dialog>
+    <div
+      onClick={() => window.open(getBlogUrl(item))}
+      className={success_example_item}
+    >
+      <Image
+        src={item.feature_image}
+        alt={item.title}
+        fill
+        style={{ opacity: 0.5 }}
+      />
+      <div>
+        <p
+          style={{
+            fontWeight: 600,
+            fontSize: 18,
+            color: "rgba(255, 255, 255, 0.7)",
+            position: "relative",
+            zIndex: 40,
+          }}
+        >
+          {item.title}
+        </p>
+        <div
+          className="success_card_content"
+          dangerouslySetInnerHTML={{ __html: item.html }}
+        ></div>
+      </div>
+      <Button
+        style={{
+          position: "absolute",
+          left: "50%",
+          width: "90%",
+          transform: "translateX(-50%)",
+          bottom: 20,
+          height: 42,
+          background: "rgba(7, 3, 0, 0.5)",
+          color: "rgba(255, 255, 255, 0.9)",
+          border: `1px solid rgba(255, 255, 255, 0.4)`,
+          fontWeight: 200,
+          zIndex: 40,
+          bottom: 30,
+        }}
+      >
+        자세히 보기
+      </Button>
+    </div>
   );
 };
 
 const Success = ({ examples }) => {
-  const [isDialogOpen, setIsDialogOpen] = useState(false);
-  const [selectedValue, setSelectedValue] = useState(0);
+  const [selected, setSelected] = useState([]);
+
+  const isItemSelected = (id) => !!selected.find((el) => el === id);
 
   const imageContainerRef = useRef();
   const { events } = useDraggable(imageContainerRef);
 
-  const handleItemClick = (index) => {
-    setSelectedValue(index);
-    setIsDialogOpen(true);
-  };
+  const handleClick = (item, index) => {
+    const itemSelected = isItemSelected(index);
 
-  const handleDialogClose = () => {
-    setIsDialogOpen(false);
+    setSelected((currentSelected) =>
+      itemSelected
+        ? currentSelected.filter((el) => el !== index)
+        : currentSelected.concat(index)
+    );
   };
 
   return (
@@ -142,8 +162,9 @@ const Success = ({ examples }) => {
           ref={imageContainerRef}
           {...events}
           style={{
-            width: "80%",
-            height: 150,
+            width: "70%",
+            height: 400,
+            marginTop: 40,
             overflowX: "scroll",
           }}
         >
@@ -152,35 +173,33 @@ const Success = ({ examples }) => {
               width: "fit-content",
               display: "flex",
               flexWrap: "nowrap",
-              gap: 8,
+              gap: 32,
+              padding: "0 32px",
             }}
           >
             {examples.map((item, index) => {
               return (
-                <button
-                  className={success_example_item}
-                  onClick={() => handleItemClick(index)}
+                <SuccessItem
+                  onClick={(e) => {
+                    handleClick(item, index);
+                  }}
                   key={index}
-                >
-                  <Image
-                    src={item.feature_image}
-                    alt={item.title}
-                    fill
-                    objectFit="cover"
-                  />
-                </button>
+                  itemId={index}
+                  item={item}
+                  selected={isItemSelected(index)}
+                />
               );
             })}
           </div>
         </div>
       </div>
-      <SuccessExampleDialog
+      {/* <SuccessExampleDialog
         index={selectedValue}
         examples={examples}
         url={examples[selectedValue].url.split("/").slice(-2)[0]}
         isOpen={isDialogOpen}
         onClose={handleDialogClose}
-      />
+      /> */}
     </section>
   );
 };

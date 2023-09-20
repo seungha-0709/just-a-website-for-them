@@ -32,19 +32,6 @@ const BorderLinearProgress = styled(LinearProgress)(() => ({
 
 const MainPage = (props) => {
   const { posts: blogPosts, success, featuredPosts } = props;
-  const carouselSettings = {
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    dots: false,
-    infinite: true,
-    arrows: false,
-    slide: "div",
-    vertical: true,
-    verticalSwiping: true,
-    swipeToSlide: true,
-    draggable: true,
-  };
-
   const bodyRef = useRef(null);
 
   const [width, setWidth] = useState(0);
@@ -112,7 +99,6 @@ const MainPage = (props) => {
                 width: "50%",
                 height: 30,
                 display: "flex",
-
                 alignItems: "center",
               }}
             >
