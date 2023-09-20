@@ -158,14 +158,26 @@ const Nav = ({ isRender }) => {
               borderTop: `1px solid ${root.color.COLOR_05}`,
               background: root.color.COLOR_01,
             }}
-            label="상담 문의"
+            label={
+              <span>
+                무료
+                <br />
+                상담 문의
+              </span>
+            }
             onClick={handleMailClick}
             icon={<IconCounsel />}
           />
           <BottomNavigationAction
             style={{ background: root.color.POINT_01 }}
             onClick={handleKakaoClick}
-            label="카톡 문의"
+            label={
+              <span>
+                무료
+                <br />
+                카톡문의
+              </span>
+            }
             icon={<IconKakaotalk />}
           />
           <BottomNavigationAction

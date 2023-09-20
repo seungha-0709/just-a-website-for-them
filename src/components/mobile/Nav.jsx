@@ -159,12 +159,24 @@ const Nav = ({ isRender }) => {
         <BottomNavigationAction
           onClick={handleMailClick}
           id="mail_mobile"
-          label="상담 문의"
+          label={
+            <span>
+              무료
+              <br />
+              상담 문의
+            </span>
+          }
           icon={<IconCounsel />}
         />
         <BottomNavigationAction
           onClick={handleKakaoClick}
-          label="카톡 문의"
+          label={
+            <span>
+              무료
+              <br />
+              카톡 문의
+            </span>
+          }
           id="kakao_mobile"
           icon={<IconKakaotalk />}
         />
