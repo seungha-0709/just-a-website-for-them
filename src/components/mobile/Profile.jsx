@@ -29,25 +29,25 @@ const Profile = () => {
           변호사 <em className={name}>공 지 연</em>
           <div
             style={{
-              width: 160,
-              height: 160,
+              width: 100,
+              height: 100,
               background: root.color.COLOR_08,
               borderRadius: 90,
               overflow: "hidden",
               display: "flex",
               justifyContent: "center",
               paddingLeft: 20,
-              paddingTop: 10,
+              paddingTop: 4,
               boxSizing: "border-box",
               position: "absolute",
-              top: 30,
-              right: 30,
+              top: 40,
+              right: 20,
             }}
           >
             <Image
               src="https://just-a-website-for-theme.s3.ap-northeast-2.amazonaws.com/profile_kong_solo.png"
-              width={120}
-              height={180}
+              width={100}
+              height={160}
               objectFit="contain"
               alt="공지연 변호사"
             />
@@ -118,18 +118,18 @@ const Profile = () => {
           변호사 <em className={name}>정 진 권</em>
           <div
             style={{
-              width: 160,
-              height: 160,
+              width: 100,
+              height: 100,
               background: root.color.COLOR_08,
               borderRadius: 90,
               overflow: "hidden",
               display: "flex",
               justifyContent: "center",
-              paddingTop: 10,
+              paddingTop: 4,
               boxSizing: "border-box",
               position: "absolute",
-              top: 30,
-              right: 30,
+              top: 40,
+              right: 20,
             }}
           >
             <Image

@@ -65,7 +65,7 @@ const Dialog = styled(MuiDialog)(() => ({
 
 const SuccessItem = ({ onClick, selected, itemId, item }) => {
   return (
-    <button
+    <div
       onClick={() => window.open(getBlogUrl(item))}
       className={success_example_item}
     >
@@ -107,7 +107,7 @@ const SuccessItem = ({ onClick, selected, itemId, item }) => {
       >
         클릭하여 자세히 보기
       </Button>
-    </button>
+    </div>
   );
 };
 
