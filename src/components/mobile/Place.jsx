@@ -7,8 +7,10 @@ import {
 } from "@/styles/mobileStyle.css";
 import { Map, MapMarker, StaticMap } from "react-kakao-maps-sdk";
 import { root } from "@/styles/root.css";
+import useKakaoLoader from "@/hooks/useKakaoLoader";
 
 const Place = () => {
+  useKakaoLoader();
   return (
     <section id="place" className={place_section}>
       <Image
@@ -41,6 +43,7 @@ const Place = () => {
         <Map
           zoomable={true}
           draggable={true}
+          level={3}
           onClick={() => window.open()}
           center={{ lat: 37.517413, lng: 127.028738 }}
           style={{ width: 300, height: 250 }}
