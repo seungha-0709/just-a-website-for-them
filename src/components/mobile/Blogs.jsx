@@ -18,6 +18,7 @@ import { Button as MuiButton, styled } from "@mui/material";
 import Slider from "react-slick";
 import Image from "next/image";
 import { getBlogUrl } from "@/data/util";
+import BlogSvg from "@/assets/svgs/blog.svg";
 
 const StyledButton = styled(MuiButton)(() => ({
   background: root.color.POINT_02,
@@ -33,7 +34,7 @@ const StyledButton = styled(MuiButton)(() => ({
   transition: "all 0.5s",
   margin: "12px 0",
   padding: "0px 16px",
-  boxShadow: "4px 4px 10px rgba(37, 33, 26, 0.4)",
+  // boxShadow: "4px 4px 10px rgba(37, 33, 26, 0.4)",
   "&:hover": {
     background: root.color.COLOR_01,
   },
@@ -57,14 +58,8 @@ const Blogs = ({ blogPosts: posts, featuredPosts }) => {
 
   return (
     <section id="blogs" className={blogSection}>
-      <Image
-        src="https://just-a-website-for-theme.s3.ap-northeast-2.amazonaws.com/mobile/mobile_blog_bg.png"
-        alt="법무법인 소울 - 공지연 & 정진권 변호사"
-        width={400}
-        height={200}
-        quality={100}
-        loading="lazy"
-        className={blog_backgroundStyle}
+      <BlogSvg
+        style={{ position: "absolute", top: 100, right: 20, height: 160 }}
       />
       <div className={blog_contents_container}>
         <h2 className={blog_section_title}>
@@ -76,11 +71,11 @@ const Blogs = ({ blogPosts: posts, featuredPosts }) => {
         </h2>
         <div
           style={{
-            marginTop: 80,
-            marginBottom: 40,
+            marginTop: 170,
+            marginBottom: 20,
             display: "flex",
             justifyContent: "center",
-            gap: 20,
+            gap: 16,
           }}
         >
           <StyledButton
@@ -107,7 +102,7 @@ const Blogs = ({ blogPosts: posts, featuredPosts }) => {
           </div>
         </div>
 
-        <div className={blog_list_container} style={{ height: 100 }}>
+        {/* <div className={blog_list_container} style={{ height: 100 }}>
           <ul className={blog_list_ul}>
             <Slider {...sliderSettings}>
               {posts.map((post, index) => {
@@ -127,7 +122,7 @@ const Blogs = ({ blogPosts: posts, featuredPosts }) => {
               })}
             </Slider>
           </ul>
-        </div>
+        </div> */}
       </div>
     </section>
   );

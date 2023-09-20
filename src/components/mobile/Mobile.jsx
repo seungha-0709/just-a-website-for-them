@@ -41,10 +41,10 @@ const Mobile = ({ posts, success, featuredPosts, isRender }) => {
         <div /> */}
       {/* </AppBar> */}
       <div style={{ paddingTop: 20 }}>
-        <Main />
+        <Main isRender={isRender} />
         <Profile />
-        <Blogs blogPosts={posts} featuredPosts={featuredPosts} />
         <Success examples={success} />
+        <Blogs blogPosts={posts} featuredPosts={featuredPosts} />
         <Place />
       </div>
       {/* <Nav isRender={isRender} /> */}

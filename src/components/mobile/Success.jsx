@@ -94,18 +94,19 @@ const SuccessItem = ({ onClick, selected, itemId, item }) => {
       </div>
       <Button
         style={{
-          position: "absolute",
-          bottom: 20,
+          // position: "relative",
           height: 42,
           background: "rgba(7, 3, 0, 0.5)",
           color: "rgba(255, 255, 255, 0.9)",
           border: `1px solid rgba(255, 255, 255, 0.4)`,
           fontWeight: 200,
           zIndex: 40,
-          bottom: 30,
+          // top: 80,
+          // right: 0,
+          width: "100%",
         }}
       >
-        클릭하여 자세히 보기
+        자세히 보기
       </Button>
     </div>
   );
@@ -156,13 +157,13 @@ const Success = ({ examples }) => {
 
   return (
     <section id="success" className={successSection}>
-      <Image
+      {/* <Image
         src="https://just-a-website-for-theme.s3.ap-northeast-2.amazonaws.com/mobile/mobile_bg_2.png"
         alt="법무법인 소울 - 공지연 & 정진권 변호사"
         fill
         quality={100}
         className={successBackgroundStyle}
-      />
+      /> */}
       <div className={success_content_area}>
         <h2 className={success_title}>변호 승소 & 성공 사례</h2>
         <h3 className={success_subtitle}>
@@ -178,7 +179,7 @@ const Success = ({ examples }) => {
           style={{
             width: "100%",
             height: 400,
-            marginTop: 40,
+            marginTop: 20,
             overflowX: "scroll",
           }}
         >
@@ -188,7 +189,7 @@ const Success = ({ examples }) => {
               display: "flex",
               flexWrap: "nowrap",
               gap: 32,
-              padding: "0 32px",
+              padding: "0px",
             }}
           >
             {examples.map((item, index) => {

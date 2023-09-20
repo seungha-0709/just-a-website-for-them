@@ -6,7 +6,7 @@ export const header = style({
   height: 76,
   position: "fixed",
   top: 0,
-  zIndex: 10,
+  zIndex: 0,
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
@@ -20,16 +20,16 @@ export const mainBackgroundStyle = style({
   objectFit: "cover",
   // objectPosition: "100px 0",
   position: "absolute",
-  zIndex: 10,
+  zIndex: 0,
   right: -100,
 });
 
 export const mainSection = style({
   height: 500,
-  position: "sticky",
+  width: "100%",
+  boxSizing: "border-box",
+  position: "absolute",
   top: 0,
-  display: "flex",
-  alignItems: "center",
   padding: 20,
 });
 
@@ -46,7 +46,7 @@ export const profile_kong_backgroundStyle = style({
   objectFit: "cover",
   objectPosition: "0% 65%",
   background: root.color.COLOR_01,
-  zIndex: 10,
+  zIndex: 0,
   borderRadius: "24px 0 0 24px",
   // boxShadow: "0px 0px 10px rgba(198, 185, 153, 0.4)",
   boxShadow: "4px 4px 20px rgba(0, 0, 0, 0.8)",
@@ -57,11 +57,11 @@ export const profileSection = style({
   height: "fit-content",
   // position: "absolute",
   position: "absolute",
-  top: 1000,
+  top: 900,
   display: "flex",
   gap: 0,
   // top: -48,
-  zIndex: 30,
+  zIndex: 0,
   // borderRadius: "24px 24px 0 0",
   overflow: "hidden",
   flexDirection: "column",
@@ -76,7 +76,7 @@ export const profile_kong = style({
   position: "relative",
   display: "flex",
   flexDirection: "column",
-  zIndex: 30,
+  zIndex: 0,
   borderRadius: 12,
   margin: 20,
   background: root.color2.BLUE_01,
@@ -88,7 +88,7 @@ export const profile_jeong_backgroundStyle = style({
   objectFit: "cover",
   objectPosition: "100% 25%",
   background: root.color.COLOR_01,
-  zIndex: 10,
+  zIndex: 0,
   left: 100,
   borderRadius: "0 24px 24px 0",
   // boxShadow: "0px 0px 10px rgba(198, 185, 153, 0.4)",
@@ -124,8 +124,8 @@ export const blogSection = style({
   overflow: "hidden",
   boxSizing: "border-box",
   position: "absolute",
-  top: 1890,
-  zIndex: 40,
+  top: 2520,
+  zIndex: 0,
   flexDirection: "column",
   justifyContent: "center",
   borderRadius: "24px 24px 0 0",
@@ -193,10 +193,9 @@ export const li_strong = style({
 });
 
 export const main_title_area = style({
-  width: "100%",
-  position: "absolute",
-  top: 0,
-  zIndex: 40,
+  position: "relative",
+  top: 20,
+  zIndex: 0,
 });
 
 export const main_title_text = style({
@@ -205,7 +204,7 @@ export const main_title_text = style({
   fontWeight: 700,
   margin: 0,
   width: "100%",
-  padding: "20px 32px",
+  padding: "20px 0 0",
   boxSizing: "border-box",
 });
 
@@ -213,22 +212,22 @@ export const main_content_text = style({
   fontSize: 14,
   color: root.color2.COLOR_05,
   fontWeight: 400,
-  margin: "40px 0 0",
+  margin: "40px 12px 0",
   width: "100%",
   height: "auto",
-  padding: "12px 32px",
+  // padding: "12px 32px",
 });
 
 export const blog_contents_container = style({
   position: "absolute",
-  top: 100,
-  zIndex: 3,
+  top: 0,
+  zIndex: 0,
   height: 800,
   margin: "0 28px",
 });
 
 export const blog_feature_container = style({
-  boxShadow: "4px 4px 10px rgba(37, 33, 26, 0.4)",
+  // boxShadow: "4px 4px 10px rgba(37, 33, 26, 0.4)",
   borderRadius: 12,
   width: "100%",
   height: 300,
@@ -239,7 +238,7 @@ export const blog_feature_container = style({
   flexDirection: "column",
   alignItems: "center",
   position: "relative",
-  background: root.color.COLOR_06,
+  background: root.color2.COLOR_08,
 });
 
 export const blog_section_title = style({
@@ -249,7 +248,7 @@ export const blog_section_title = style({
   left: 6,
   top: 30,
   margin: 0,
-  color: root.color.COLOR_03,
+  color: root.color2.COLOR_01,
 });
 
 export const blog_featured_title = style({
@@ -276,7 +275,7 @@ export const blog_featured_content = style({
     position: "absolute",
     bottom: 0,
     background:
-      "linear-gradient(to bottom, rgba(215, 185, 14, 0), rgba(215, 185, 140, 1))",
+      "linear-gradient(to bottom, rgba(239, 226, 194, 0), rgba(239, 226, 194, 1))",
   },
 });
 
@@ -326,11 +325,11 @@ export const successBackgroundStyle = style({
 });
 export const successSection = style({
   width: "100%",
-  height: 700,
-  padding: "40px 0",
+  height: 600,
+  padding: 20,
   position: "absolute",
-  top: 2830,
-  zIndex: 40,
+  top: 1880,
+  zIndex: 0,
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
@@ -346,11 +345,10 @@ export const place_backgroundStyle = style({
   borderRadius: "24px 24px 0 0",
 });
 export const place_section = style({
-  width: "100%",
   height: 500,
   position: "absolute",
-  top: 3550,
-  zIndex: 50,
+  top: 3250,
+  zIndex: 0,
 });
 
 export const header_ul = style({
@@ -378,7 +376,7 @@ export const globalNav = style({
   position: "fixed",
   top: "50%",
   right: 1,
-  zIndex: 10,
+  zIndex: 0,
   transform: "translate(0%, -50%)",
   width: 100,
   background: root.color.WHITE,
@@ -404,30 +402,33 @@ export const main_title_main_text = style({
 export const success_content_area = style({
   width: "100%",
   height: "fit-content",
-  position: "absolute",
-  zIndex: 5,
+  position: "relative",
+  zIndex: 0,
   display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
+  // justifyContent: "center",
+  // alignItems: "center",
   flexDirection: "column",
 });
 
 export const success_title = style({
   fontSize: 24,
   fontWeight: 500,
-  color: root.color.COLOR_08,
+  color: root.color.COLOR_03,
   marginTop: 0,
   marginBottom: 0,
+  textAlign: "left",
+  paddingLeft: 20,
 });
 
 export const success_subtitle = style({
   fontSize: 16,
   fontWeight: 400,
-  color: root.color.COLOR_06,
+  color: root.color2.COLOR_03,
   lineHeight: 1.6,
-  textAlign: "center",
-  marginBottom: 40,
+  marginBottom: 20,
   marginTop: 20,
+  textAlign: "left",
+  paddingLeft: 20,
 });
 
 export const success_example_container = style({
@@ -441,14 +442,14 @@ export const success_example_container = style({
 });
 
 export const success_example_item = style({
-  width: 300,
-  height: 360,
+  width: 200,
+  height: 320,
   borderRadius: 16,
   textAlign: "left",
   color: root.color.WHITE,
   padding: 32,
   display: "flex",
-  alignItems: "flex-start",
+  justifyContent: "space-between",
   boxShadow: "8px 8px 10px rgba(7, 3, 0, 0.5)",
   overflow: "hidden",
   cursor: "pointer",
@@ -461,7 +462,7 @@ export const success_example_item = style({
   "::after": {
     content: "",
     position: "absolute",
-    zIndex: 5,
+    zIndex: 0,
     top: 0,
     left: 0,
     width: "100%",
@@ -482,16 +483,16 @@ export const desktop_container = style({
 export const main_words_list_container = style({
   width: "100%",
   height: 324,
-  zIndex: 10,
+  zIndex: 0,
   display: "flex",
   // margin: "0 auto",
   position: "absolute",
-  top: 540,
+  top: 0,
   flexWrap: "wrap",
   alignContent: "center",
   padding: "20px 24px 52px",
   boxSizing: "border-box",
-  justifyContent: "center",
+  justifyContent: "flex-start",
   gap: 12,
   background: "transparent",
   // backgroundSize: "cover",
@@ -507,26 +508,39 @@ export const main_words_list_bg = style({
 });
 
 export const main_words_list_item = style({
-  width: 96,
-  height: 96,
+  // width: 120,
+  height: 32,
   position: "relative",
-  zIndex: 10,
-  display: "flex",
-  flexDirection: "column",
+  top: -60,
+  zIndex: 0,
+  display: "inline-flex",
+  flexDirection: "row",
   gap: 8,
-  justifyContent: "center",
+  justifyContent: "flex-start",
   alignItems: "center",
   fontSize: 14,
   fontWeight: 400,
-  color: root.color.COLOR_09,
+  color: root.color2.COLOR_01,
   borderRadius: 12,
-  background: "rgba(80, 18, 0, 0.7)",
-  boxShadow: "4px 4px 10px rgba(30, 10, 10, 0.8)",
+  // background: "rgba(80, 18, 0, 0.6)",
+  // boxShadow: "4px 4px 10px rgba(30, 10, 10, 0.8)",
 });
 
 export const mail_bottom_sheet_container = style({
-  background: root.color.WHITE,
-  height: "90svh",
+  background: "transparent",
+  height: "80svh",
   width: "100%",
   borderRadius: "24px 24px 0 0",
+});
+
+export const place_content_area = style({
+  padding: 20,
+  width: "100%",
+  height: "fit-content",
+  position: "relative",
+  zIndex: 0,
+  display: "flex",
+  // justifyContent: "center",
+  // alignItems: "center",
+  flexDirection: "column",
 });
