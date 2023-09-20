@@ -31,7 +31,6 @@ const Place = () => {
         </h2>
         <p
           style={{
-            // textAlign: "center",
             color: root.color.COLOR_04,
             fontWeight: 400,
             margin: "40px 0",
