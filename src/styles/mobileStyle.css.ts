@@ -57,7 +57,7 @@ export const profileSection = style({
   height: "fit-content",
   // position: "absolute",
   position: "absolute",
-  top: 900,
+  top: 940,
   display: "flex",
   gap: 0,
   // top: -48,
@@ -79,7 +79,7 @@ export const profile_kong = style({
   zIndex: 0,
   borderRadius: 12,
   margin: 20,
-  background: root.color2.BLUE_01,
+  background: root.color2.COLOR_01,
 });
 
 export const profile_jeong_backgroundStyle = style({
@@ -87,7 +87,7 @@ export const profile_jeong_backgroundStyle = style({
   height: "100%",
   objectFit: "cover",
   objectPosition: "100% 25%",
-  background: root.color.COLOR_01,
+  background: root.color.COLOR_02,
   zIndex: 0,
   left: 100,
   borderRadius: "0 24px 24px 0",
@@ -96,7 +96,7 @@ export const profile_jeong_backgroundStyle = style({
 });
 
 export const profile_jeong = style({
-  background: root.color2.COLOR_01,
+  background: root.color2.COLOR_00,
   padding: "50px 30px",
   position: "relative",
   top: -20,
@@ -490,7 +490,7 @@ export const main_words_list_container = style({
   top: 0,
   flexWrap: "wrap",
   alignContent: "center",
-  padding: "20px 24px 52px",
+  padding: "20px 0px 52px",
   boxSizing: "border-box",
   justifyContent: "flex-start",
   gap: 12,
@@ -520,15 +520,16 @@ export const main_words_list_item = style({
   alignItems: "center",
   fontSize: 14,
   fontWeight: 400,
-  color: root.color2.COLOR_01,
-  borderRadius: 12,
-  // background: "rgba(80, 18, 0, 0.6)",
+  color: root.color2.BLUE_01,
+  borderRadius: 8,
+  background: root.color2.BLUE_04,
+  padding: "8px 16px",
   // boxShadow: "4px 4px 10px rgba(30, 10, 10, 0.8)",
 });
 
 export const mail_bottom_sheet_container = style({
   background: "transparent",
-  height: "80svh",
+  height: 500,
   width: "100%",
   borderRadius: "24px 24px 0 0",
 });

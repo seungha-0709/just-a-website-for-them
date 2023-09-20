@@ -24,6 +24,8 @@ const Dialog = styled(MuiDialog)(() => ({
     fontSize: 16,
     padding: 32,
     margin: 0,
+    position: "relative",
+    width: "100%",
   },
   "& .MuiDialog-container": {
     background: "transparent",
@@ -69,6 +71,11 @@ const TextField = styled(MuiTextField)(() => ({
   width: "100%",
   "& input": {
     width: "100%",
+    fontSize: 14,
+  },
+  "& textarea": {
+    width: "100%",
+    fontSize: 14,
   },
   "&:active": {
     border: "none",
@@ -76,7 +83,6 @@ const TextField = styled(MuiTextField)(() => ({
 }));
 
 const CounselModal = ({ onClose, isRender, onOpenSnackbar }) => {
-  console.log("mobile", isRender);
   const form = useRef();
   const [isSubmitComplete, setIsSubmitComplete] = useState(0);
   const [userInfo, setUserInfo] = useState({
@@ -120,15 +126,18 @@ const CounselModal = ({ onClose, isRender, onOpenSnackbar }) => {
 
   return (
     <>
-      <div style={{ padding: "40px 20px" }}>
+      <div style={{ padding: "40px 20px", position: "relative" }}>
         <form
           ref={form}
           onSubmit={sendEmail}
           className={send_email_form}
           style={{ width: "100%" }}
         >
-          <label>이름</label>
           <TextField
+            label="이름"
+            style={{ fontSize: 12 }}
+            variant="standard"
+            helperText="자세한 상담을 위해 실명을 입력해 주세요"
             onChange={({ target }) =>
               setUserInfo({ ...userInfo, name: target.value })
             }
@@ -138,9 +147,11 @@ const CounselModal = ({ onClose, isRender, onOpenSnackbar }) => {
             required
           />
 
-          <label>이메일</label>
-
           <TextField
+            style={{ fontSize: 12 }}
+            label="이메일"
+            helperText="답변 받으실 이메일 주소를 정확히 입력해 주세요"
+            variant="standard"
             onChange={({ target }) =>
               setUserInfo({ ...userInfo, email: target.value })
             }
@@ -148,23 +159,32 @@ const CounselModal = ({ onClose, isRender, onOpenSnackbar }) => {
             name="user_email"
             required
           />
-          <label>문의 내용</label>
 
           <TextField
+            label="문의 내용"
+            // variant="standard"
             multiline
             required
             onChange={({ target }) =>
               setUserInfo({ ...userInfo, content: target.value })
             }
             placeholder="연락처를 함께 기재해 주시기 바랍니다."
-            minRows={8}
+            minRows={4}
             type="text"
             name="message"
-            style={{ height: 220 }}
+            style={{ margin: "20px 0 8px" }}
           />
 
           <div className="agreement">
-            <p>
+            <p
+              style={{
+                margin: 0,
+                fontSize: 12,
+                color: root.color2.GRAY_01,
+                fontWeight: 300,
+                paddingBottom: 40,
+              }}
+            >
               개인정보보호를 위한 이용자 동의 사항 <br />
               <br />
               1. 개인정보의 수집 및 이용 목적 <br /> {"  "}가. 문의에 대한 답변
@@ -180,13 +200,28 @@ const CounselModal = ({ onClose, isRender, onOpenSnackbar }) => {
             </p>
           </div>
 
-          <Button
-            type="submit"
-            id="mail_submit_mobile"
-            disabled={!userInfo.content || !userInfo.email || !userInfo.name}
+          <div
+            style={{
+              position: "fixed",
+              bottom: 0,
+              width: "calc(100% - 40px)",
+              height: 80,
+              background: root.color.WHITE,
+            }}
           >
-            문의하기
-          </Button>
+            <Button
+              type="submit"
+              id="mail_submit_mobile"
+              style={{
+                position: "fixed",
+                bottom: 20,
+                width: "calc(100% - 40px)",
+              }}
+              disabled={!userInfo.content || !userInfo.email || !userInfo.name}
+            >
+              문의하기
+            </Button>
+          </div>
         </form>
       </div>
     </>

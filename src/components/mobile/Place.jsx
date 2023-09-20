@@ -50,13 +50,13 @@ const Place = () => {
         >
           <Map
             zoomable={false}
-            draggable={false}
+            draggable={true}
             level={3}
             onClick={() => window.open()}
-            center={{ lat: 37.517413, lng: 127.028738 }}
+            center={{ lat: 37.517341, lng: 127.019772 }}
             style={{ width: 300, height: 250 }}
           >
-            <MapMarker position={{ lat: 37.517413, lng: 127.028738 }}>
+            <MapMarker position={{ lat: 37.517341, lng: 127.019772 }}>
               <div style={{ color: "#000" }}>법무법인 소울</div>
             </MapMarker>
           </Map>

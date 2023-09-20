@@ -38,27 +38,27 @@ const drawerBleeding = 56;
 const WORDS_LIST = [
   {
     label: "형사",
-    icon: <LocalPoliceIcon style={{ fontSize: 32 }} />,
+    icon: <LocalPoliceIcon style={{ fontSize: 24, paddingTop: 3 }} />,
   },
   {
     label: "상속",
-    icon: <ReceiptLongIcon style={{ fontSize: 32 }} />,
+    icon: <ReceiptLongIcon style={{ fontSize: 24, paddingTop: 3 }} />,
   },
   {
     label: "교통사고",
-    icon: <CarCrashIcon style={{ fontSize: 32 }} />,
+    icon: <CarCrashIcon style={{ fontSize: 24, paddingTop: 3 }} />,
   },
   {
     label: "손해배상",
-    icon: <GavelIcon style={{ fontSize: 32 }} />,
+    icon: <GavelIcon style={{ fontSize: 24, paddingTop: 3 }} />,
   },
   {
     label: "스타트업",
-    icon: <BusinessIcon style={{ fontSize: 32 }} />,
+    icon: <BusinessIcon style={{ fontSize: 24, paddingTop: 3 }} />,
   },
   {
     label: "외국인 관련",
-    icon: <PublicIcon style={{ fontSize: 32 }} />,
+    icon: <PublicIcon style={{ fontSize: 24, paddingTop: 3 }} />,
   },
 ];
 
@@ -240,7 +240,7 @@ const Main = ({ isRender }) => {
               marginTop: 30,
               width: "fit-content",
               padding: "8px 24px",
-              background: root.color2.BLUE_02,
+              background: root.color.POINT_02,
               color: root.color.WHITE,
             }}
             onClick={handleMailClick}
@@ -257,7 +257,7 @@ const Main = ({ isRender }) => {
           top: 80,
           height: 170,
           borderRadius: 18,
-          background: "#EFE2C2",
+          // background: "#EFE2C2",
           // border: `2px solid ${root.color2.COLOR_02}`,
         }}
       >
@@ -296,9 +296,9 @@ const Main = ({ isRender }) => {
             padding: "0 16px",
             textAlign: "left",
             position: "relative",
-            color: root.color2.COLOR_01,
-            background: root.color.WHITE,
-            border: `2px solid ${root.color2.COLOR_04}`,
+            color: root.color.WHITE,
+            background: root.color2.BLACK,
+            // border: `2px solid ${root.color2.COLOR_04}`,
           }}
           onClick={handleTelClick}
         >
@@ -325,9 +325,9 @@ const Main = ({ isRender }) => {
             padding: "0px 16px",
             textAlign: "left",
             position: "relative",
-            color: root.color2.COLOR_01,
-            background: root.color.WHITE,
-            border: `2px solid ${root.color2.COLOR_04}`,
+            color: root.color.WHITE,
+            background: root.color2.BLACK,
+            // border: `2px solid ${root.color2.COLOR_04}`,
           }}
         >
           <div style={{ position: "absolute", top: 0, right: 8 }}>
