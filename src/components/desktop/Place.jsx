@@ -43,7 +43,7 @@ const Place = () => {
         <Map
           id="map"
           zoomable={false}
-          draggable={false}
+          draggable={true}
           level={3}
           onClick={() => window.open("https://kko.to/5gtm6q2CpD")}
           center={{ lat: 37.517341, lng: 127.018772 }}

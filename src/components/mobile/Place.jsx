@@ -41,6 +41,7 @@ const Place = () => {
           법무법인 소울
         </p>
         <Map
+          draggable
           id="map"
           level={3}
           onClick={() => window.open("https://kko.to/5gtm6q2CpD")}
