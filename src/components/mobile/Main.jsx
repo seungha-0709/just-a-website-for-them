@@ -21,6 +21,7 @@ import MainSvg from "@/assets/svgs/MainSvg.svg";
 import { TextField as MuiTextField, styled } from "@mui/material";
 import { root } from "@/styles/root.css";
 import Button from "../ui/Button";
+import SendRoundedIcon from "@mui/icons-material/SendRounded";
 import IconKakaotalk from "@/assets/icons/IconKakaotalk";
 import IconPhone from "@/assets/icons/IconPhone";
 import { useState, useEffect } from "react";
@@ -30,6 +31,7 @@ import {
   Alert,
 } from "@mui/material";
 import CounselModal from "./CounselModal";
+import MainText from "@/assets/svgs/mainText.svg";
 
 const drawerBleeding = 56;
 
@@ -189,30 +191,70 @@ const Main = ({ isRender }) => {
         }}
       >
         <div className={main_title_area}>
-          <p className={main_title_text}>
+          {/* <p className={main_title_text}>
             <em className={main_title_em}>공.정.</em>
             <span className={main_title_main_text}>한 변호사</span>
             <br />
             Only for Client&apos;s Justice
-          </p>
-          <TextField
-            placeholder="무료로 법률 상담을 신청해보세요."
-            onClick={handleMailClick}
+          </p> */}
+          <MainSvg
+            style={{
+              position: "absolute",
+              bottom: -280,
+              right: 0,
+              height: 250,
+              zIndex: 0,
+            }}
           />
-          <p className={main_content_text}>
-            &quot;당신의 정의, 당신만을 위한 공정&quot;
-            <br />
-            최적의 방법으로 당신만을 위해 싸우겠습니다.
+          <p
+            style={{
+              color: root.color2.COLOR_05,
+              fontWeight: 500,
+              fontSize: 14,
+              marginBottom: 16,
+            }}
+          >
+            최고의 전문가가 함께합니다
           </p>
+          <MainText />
+          <p
+            style={{
+              color: root.color2.GRAY_01,
+              fontWeight: 500,
+              fontSize: 16,
+              marginTop: 20,
+              lineHeight: 1.5,
+              position: "relative",
+              zIndex: 5,
+            }}
+          >
+            &quot;당신의 정의, 오직 당신을 위한 공정&quot;
+            <br />
+            최적의 방법으로 당신만을 위해 싸우겠습니다
+          </p>
+          <Button
+            style={{
+              fontSize: 14,
+              fontWeight: 400,
+              height: 42,
+              marginTop: 30,
+              width: "fit-content",
+              padding: "8px 24px",
+              background: root.color2.BLUE_02,
+              color: root.color.WHITE,
+            }}
+            onClick={handleMailClick}
+          >
+            지금 당장 무료로 법률 상담을 받아보세요
+            <SendRoundedIcon style={{ marginLeft: 8 }} />
+          </Button>
         </div>
       </div>
-      <MainSvg
-        style={{ position: "absolute", bottom: -40, right: 10, height: 280 }}
-      />
+
       <div
         style={{
           position: "relative",
-          top: 40,
+          top: 80,
           height: 170,
           borderRadius: 18,
           background: "#EFE2C2",
@@ -234,7 +276,7 @@ const Main = ({ isRender }) => {
       <div
         style={{
           position: "relative",
-          bottom: -60,
+          bottom: -100,
           left: "50%",
           transform: "translateX(-50%)",
           width: "100%",

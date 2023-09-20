@@ -7,8 +7,10 @@ import {
 } from "@/styles/style.css";
 import { Map, MapMarker } from "react-kakao-maps-sdk";
 import { root } from "@/styles/root.css";
+import useKakaoLoader from "@/hooks/useKakaoLoader";
 
 const Place = () => {
+  useKakaoLoader();
   return (
     <section id="place" className={placeSection}>
       <Image

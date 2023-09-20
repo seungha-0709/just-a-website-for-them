@@ -19,6 +19,8 @@ export const root = createGlobalTheme(":root", {
     POINT_04: "#422E11",
   },
   color2: {
+    BLACK: "#130401",
+    COLOR_00: "#401107",
     COLOR_01: "#6d342e",
     COLOR_02: "#7f3d38",
     COLOR_03: "#9b5c46",
@@ -27,6 +29,7 @@ export const root = createGlobalTheme(":root", {
     COLOR_06: "#f2cc70", // 242, 204, 112
     COLOR_07: "#ffe799",
     COLOR_08: "#EFE2C2",
+    GRAY_01: "#ACA8A7",
     BLUE_01: "#294863",
     BLUE_02: "#3e6593",
     BLUE_03: "#80aeff",
