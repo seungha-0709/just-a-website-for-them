@@ -229,7 +229,6 @@ export const blog_contents_container = style({
 export const blog_feature_container = style({
   // boxShadow: "4px 4px 10px rgba(37, 33, 26, 0.4)",
   borderRadius: 12,
-  width: "100%",
   height: 300,
   padding: 24,
   overflow: "hidden",
@@ -238,7 +237,9 @@ export const blog_feature_container = style({
   flexDirection: "column",
   alignItems: "center",
   position: "relative",
+  bottom: -40,
   background: root.color2.COLOR_08,
+  margin: 20,
 });
 
 export const blog_section_title = style({
@@ -248,6 +249,7 @@ export const blog_section_title = style({
   left: 6,
   top: 30,
   margin: 0,
+  textAlign: "left",
   color: root.color2.COLOR_01,
 });
 
@@ -269,7 +271,7 @@ export const blog_featured_content = style({
   textOverflow: "ellipsis",
   position: "absolute",
   "::after": {
-    width: 600,
+    width: "100%",
     height: 120,
     content: "",
     position: "absolute",

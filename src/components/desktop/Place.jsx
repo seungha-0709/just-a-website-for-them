@@ -41,11 +41,11 @@ const Place = () => {
           법무법인 소울
         </p>
         <Map
-          center={{ lat: 37.517341, lng: 127.019772 }}
+          center={{ lat: 37.517404, lng: 127.01876 }}
           style={{ width: 800, height: 400 }}
           scrollwheel={false}
         >
-          <MapMarker position={{ lat: 37.517341, lng: 127.019772 }}>
+          <MapMarker position={{ lat: 37.517404, lng: 127.01876 }}>
             <div
               style={{
                 color: "#000",

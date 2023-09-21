@@ -89,20 +89,21 @@ const Blogs = ({ blogPosts: posts, featuredPosts }) => {
             정진권 변호사 블로그
           </StyledButton>
         </div>
-        <div className={blog_feature_container}>
-          <p className={blog_featured_title}>{featuredPost.title}</p>
+      </div>
+      <div className={blog_feature_container}>
+        <p className={blog_featured_title}>{featuredPost.title}</p>
+        <div
+          className={blog_featured_content}
+          onClick={() => window.open(getBlogUrl(featuredPost))}
+        >
           <div
-            className={blog_featured_content}
-            onClick={() => window.open(getBlogUrl(featuredPost))}
-          >
-            <div
-              className={blog_featured_content_html}
-              dangerouslySetInnerHTML={{ __html: featuredPost.html }}
-            />
-          </div>
+            className={blog_featured_content_html}
+            dangerouslySetInnerHTML={{ __html: featuredPost.html }}
+          />
         </div>
+      </div>
 
-        {/* <div className={blog_list_container} style={{ height: 100 }}>
+      {/* <div className={blog_list_container} style={{ height: 100 }}>
           <ul className={blog_list_ul}>
             <Slider {...sliderSettings}>
               {posts.map((post, index) => {
@@ -123,7 +124,6 @@ const Blogs = ({ blogPosts: posts, featuredPosts }) => {
             </Slider>
           </ul>
         </div> */}
-      </div>
     </section>
   );
 };

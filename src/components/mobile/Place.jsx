@@ -53,10 +53,10 @@ const Place = () => {
             draggable={true}
             level={3}
             onClick={() => window.open()}
-            center={{ lat: 37.517341, lng: 127.019772 }}
+            center={{ lat: 37.517404, lng: 127.01876 }}
             style={{ width: 300, height: 250 }}
           >
-            <MapMarker position={{ lat: 37.517341, lng: 127.019772 }}>
+            <MapMarker position={{ lat: 37.517404, lng: 127.01876 }}>
               <div style={{ color: "#000" }}>법무법인 소울</div>
             </MapMarker>
           </Map>
