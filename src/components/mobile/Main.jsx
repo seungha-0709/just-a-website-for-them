@@ -9,7 +9,8 @@ import {
   main_words_list_item,
   mail_bottom_sheet_container,
 } from "@/styles/mobileStyle.css.ts";
-
+import Lottie from "react-lottie";
+import * as animationData from "@/assets/lottie/law.json";
 import LocalPoliceIcon from "@mui/icons-material/LocalPolice";
 import CarCrashIcon from "@mui/icons-material/CarCrash";
 import BusinessIcon from "@mui/icons-material/Business";
@@ -62,33 +63,18 @@ const WORDS_LIST = [
   },
 ];
 
+const defaultOptions = {
+  loop: true,
+  autoplay: true,
+  animationData: animationData,
+  rendererSettings: {
+    preserveAspectRatio: "xMidYMid slice",
+  },
+};
+
 const SwipeableDrawer = styled(MuiSwipeableDrawer)(() => ({
   "& .MuiPaper-root": {
     borderRadius: "20px 20px 0 0",
-  },
-}));
-
-const TextField = styled(MuiTextField)(() => ({
-  background: root.color.WHITE,
-  color: root.color.COLOR_03,
-  display: "absolute",
-  top: 20,
-  width: "90%",
-  margin: "0 auto",
-  display: "block",
-  "& .MuiInputBase-root": {
-    borderRadius: 60,
-    width: "100%",
-    border: "none",
-    boxShadow: `0px 0px 8px ${root.color2.COLOR_04}`,
-  },
-  "& input": {
-    width: "100%",
-    display: "block",
-    padding: "16px 24px",
-  },
-  "&:active": {
-    border: "none",
   },
 }));
 
@@ -176,13 +162,7 @@ const Main = ({ isRender }) => {
     });
     window.location.href = "tel:01079340883";
   };
-  const handlePlaceClick = () => {
-    setIsClicked({
-      ...isClicked,
-      place: isClicked.place++,
-    });
-    window.location.href = "#place";
-  };
+
   return (
     <section id="main" className={mainSection}>
       <div
@@ -191,16 +171,10 @@ const Main = ({ isRender }) => {
         }}
       >
         <div className={main_title_area}>
-          {/* <p className={main_title_text}>
-            <em className={main_title_em}>공.정.</em>
-            <span className={main_title_main_text}>한 변호사</span>
-            <br />
-            Only for Client&apos;s Justice
-          </p> */}
           <MainSvg
             style={{
               position: "absolute",
-              bottom: -280,
+              bottom: -460,
               right: 0,
               height: 250,
               zIndex: 0,
@@ -212,11 +186,19 @@ const Main = ({ isRender }) => {
               fontWeight: 500,
               fontSize: 14,
               marginBottom: 16,
+              position: "absolute",
+              right: 0,
             }}
           >
             최고의 전문가가 함께합니다
           </p>
-          <MainText />
+          <div style={{ position: "absolute", left: 0, top: -9 }}>
+            <Lottie options={defaultOptions} height={100} width={150} />
+          </div>
+          <div style={{ position: "absolute", right: 0, top: 30 }}>
+            <MainText />
+          </div>
+
           <p
             style={{
               color: root.color2.GRAY_01,
@@ -225,6 +207,9 @@ const Main = ({ isRender }) => {
               marginTop: 20,
               lineHeight: 1.5,
               position: "relative",
+              right: 0,
+              top: 125,
+              textAlign: "right",
               zIndex: 5,
             }}
           >
@@ -232,8 +217,12 @@ const Main = ({ isRender }) => {
             <br />
             최적의 방법으로 당신만을 위해 싸우겠습니다
           </p>
+
           <Button
             style={{
+              position: "absolute",
+              right: 0,
+              top: 160,
               fontSize: 14,
               fontWeight: 400,
               height: 42,
@@ -250,11 +239,10 @@ const Main = ({ isRender }) => {
           </Button>
         </div>
       </div>
-
       <div
         style={{
           position: "relative",
-          top: 80,
+          top: 0,
           height: 170,
           borderRadius: 18,
           // background: "#EFE2C2",
@@ -276,7 +264,7 @@ const Main = ({ isRender }) => {
       <div
         style={{
           position: "relative",
-          bottom: -100,
+          bottom: -20,
           left: "50%",
           transform: "translateX(-50%)",
           width: "100%",

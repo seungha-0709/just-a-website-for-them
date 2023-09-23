@@ -57,7 +57,7 @@ export const profileSection = style({
   height: "fit-content",
   // position: "absolute",
   position: "absolute",
-  top: 940,
+  top: 880,
   display: "flex",
   gap: 0,
   // top: -48,
