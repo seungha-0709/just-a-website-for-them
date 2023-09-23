@@ -99,7 +99,7 @@ export const blog_backgroundStyle = style({
 export const blogSection = style({
   background: root.color.WHITE,
   width: "100%",
-  height: 900,
+  height: 700,
   display: "flex",
   position: "relative",
   flexDirection: "column",

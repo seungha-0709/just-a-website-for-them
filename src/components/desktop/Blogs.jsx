@@ -102,7 +102,7 @@ const Blogs = ({ blogPosts: posts, featuredPosts }) => {
           </div>
         </div>
       </div>
-      <div className={blog_list_container}>
+      {/* <div className={blog_list_container}>
         <ul className={blog_list_ul}>
           <Slider {...sliderSettings}>
             {posts.map((post, index) => {
@@ -121,7 +121,7 @@ const Blogs = ({ blogPosts: posts, featuredPosts }) => {
             })}
           </Slider>
         </ul>
-      </div>
+      </div> */}
     </section>
   );
 };

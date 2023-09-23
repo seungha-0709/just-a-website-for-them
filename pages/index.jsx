@@ -36,24 +36,29 @@ const MainPage = (props) => {
 
   const [width, setWidth] = useState(0);
 
-  const [isDOMRendered, setIsDOMRendered] = useState();
+  const [isDOMRendered, setIsDOMRendered] = useState(false);
 
   const [isDesktopView, setIsDesktopView] = useState();
+  const [mapMounted, setMapMounted] = useState();
+
+  // useEffect(() => {
+  //   const resizeObserver = new ResizeObserver((entries) => {
+  //     setTimeout(() => {
+  //       setWidth(entries[0].contentRect.width);
+  //     }, 2000);
+  //   });
+
+  //   resizeObserver.observe(bodyRef.current);
+  // }, []);
 
   useEffect(() => {
-    const resizeObserver = new ResizeObserver((entries) => {
-      setTimeout(() => setWidth(entries[0].contentRect.width), 2000);
-    });
-
-    resizeObserver.observe(bodyRef.current);
-  }, []);
-
-  useEffect(() => {
-    if (width < 1200) {
+    if (window && window.innerWidth < 1200) {
       setIsDesktopView(false);
+      setMapMounted("mobile");
       return;
     }
     setIsDesktopView(true);
+    setMapMounted("desktop");
   }, [width]);
 
   return (
@@ -84,42 +89,16 @@ const MainPage = (props) => {
           minHeight: "100svh",
         }}
       >
-        {!width && (
-          <div
-            style={{
-              width: "100%",
-              height: "100svh",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            <div
-              style={{
-                width: "50%",
-                height: 30,
-                display: "flex",
-                alignItems: "center",
-              }}
-            >
-              <BorderLinearProgress style={{ width: "100%" }} color="inherit" />
-            </div>
-          </div>
-        )}
         <Suspense fallback={<p>loading</p>}>
           <Desktop
-            isRender={
-              !!width && typeof isDesktopView !== "undefined" && isDesktopView
-            }
+            isRender={isDesktopView}
             posts={blogPosts}
             success={success}
             featuredPosts={featuredPosts}
           />
 
           <Mobile
-            isRender={
-              !!width && typeof isDesktopView !== "undefined" && !isDesktopView
-            }
+            isRender={!isDesktopView}
             posts={blogPosts}
             success={success}
             featuredPosts={featuredPosts}

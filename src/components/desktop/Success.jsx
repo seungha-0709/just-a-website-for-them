@@ -16,62 +16,6 @@ import { JEONG_BLOG_URL, KONG_BLOG_URL } from "@/data/contants";
 import { useDraggable } from "react-use-draggable-scroll";
 import { getBlogUrl } from "@/data/util";
 
-const Dialog = styled(MuiDialog)(() => ({
-  display: "flex",
-  justifyContent: "center",
-  alignItems: "center",
-  overflow: "hidden",
-  width: "100%",
-  "& .MuiPaper-root": {
-    background: root.color.COLOR_02,
-    color: root.color.WHITE,
-    maxWidth: "100%",
-    maxHeight: 500,
-    height: "fit-contents",
-    borderRadius: 4,
-    fontSize: 16,
-    padding: 32,
-    margin: 0,
-  },
-  "& .MuiDialog-container": {
-    background: "transparent",
-    color: root.color.WHITE,
-    width: 900,
-  },
-  "& .content-title": {
-    fontSize: 18,
-    letterSpacing: 1.4,
-    fontWeight: 500,
-    lineHeight: 1.6,
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
-    padding: "0 0 20px",
-    width: "100%",
-    borderBottom: `1px solid ${root.color.WHITE}`,
-    "& > div": {
-      display: "flex",
-      alignItems: "center",
-      gap: 12,
-    },
-  },
-  "& .content": {
-    fontSize: 14,
-    letterSpacing: 1.4,
-    lineHeight: 1.6,
-    "& h2": {
-      fontWeight: 400,
-      fontSize: 18,
-      marginTop: 28,
-    },
-    "& p": {
-      fontWeight: 200,
-      fontSize: 14,
-      marginBottom: 20,
-    },
-  },
-}));
-
 const SuccessItem = ({ onClick, selected, itemId, item }) => {
   return (
     <div
@@ -193,13 +137,6 @@ const Success = ({ examples }) => {
           </div>
         </div>
       </div>
-      {/* <SuccessExampleDialog
-        index={selectedValue}
-        examples={examples}
-        url={examples[selectedValue].url.split("/").slice(-2)[0]}
-        isOpen={isDialogOpen}
-        onClose={handleDialogClose}
-      /> */}
     </section>
   );
 };

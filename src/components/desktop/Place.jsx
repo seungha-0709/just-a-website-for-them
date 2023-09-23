@@ -10,7 +10,6 @@ import { root } from "@/styles/root.css";
 import useKakaoLoader from "@/hooks/useKakaoLoader";
 
 const Place = () => {
-  useKakaoLoader();
   return (
     <section id="place" className={placeSection}>
       <Image
@@ -46,10 +45,10 @@ const Place = () => {
           draggable={true}
           level={3}
           onClick={() => window.open("https://kko.to/5gtm6q2CpD")}
-          center={{ lat: 37.517341, lng: 127.019772 }}
+          center={{ lat: 37.517404, lng: 127.01876 }}
           style={{ width: 800, height: 400 }}
         >
-          <MapMarker position={{ lat: 37.517341, lng: 127.019772 }}>
+          <MapMarker position={{ lat: 37.517404, lng: 127.01876 }}>
             <div style={{ color: "#000" }}>법무법인 소울</div>
           </MapMarker>
         </Map>
