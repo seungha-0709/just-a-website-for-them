@@ -1,65 +1,27 @@
 "use client";
 
-import { useMemo, useEffect, useRef, useState, Suspense } from "react";
+import { useEffect, useRef, useState, Suspense } from "react";
 import { getPosts } from "../lib/posts";
 
-import Slider from "react-slick";
-// import Desktop from "@/components/desktop/Desktop";
+import Desktop from "@/components/desktop/Desktop";
 import { root } from "@/styles/root.css";
-// import Mobile from "@/components/mobile/Mobile";
-import dynamic from "next/dynamic";
+import Mobile from "@/components/mobile/Mobile";
 import { NextSeo } from "next-seo";
-import { LinearProgress, styled } from "@mui/material";
-
-const Mobile = dynamic(() => import("@/components/mobile/Mobile"), {
-  loading: () => <p>loading...</p>,
-});
-const Desktop = dynamic(() => import("@/components/desktop/Desktop"), {
-  loading: () => <p>loading...</p>,
-});
-
-const BorderLinearProgress = styled(LinearProgress)(() => ({
-  height: 10,
-  borderRadius: 5,
-  [`& .MuiLinearProgress-root`]: {
-    backgroundColor: root.color.WHITE,
-  },
-  [`& .MuiLinearProgress-bar`]: {
-    borderRadius: 5,
-    backgroundColor: root.color.COLOR_05,
-  },
-}));
 
 const MainPage = (props) => {
   const { posts: blogPosts, success, featuredPosts } = props;
   const bodyRef = useRef(null);
 
-  const [width, setWidth] = useState(0);
-
-  const [isDOMRendered, setIsDOMRendered] = useState(false);
-
   const [isDesktopView, setIsDesktopView] = useState();
-  const [mapMounted, setMapMounted] = useState();
-
-  // useEffect(() => {
-  //   const resizeObserver = new ResizeObserver((entries) => {
-  //     setTimeout(() => {
-  //       setWidth(entries[0].contentRect.width);
-  //     }, 2000);
-  //   });
-
-  //   resizeObserver.observe(bodyRef.current);
-  // }, []);
 
   useEffect(() => {
-    if (window && window.innerWidth < 1200) {
+    const width = window && window.innerWidth;
+    if (width < 1200) {
       setIsDesktopView(false);
-      setMapMounted("mobile");
       return;
     }
     setIsDesktopView(true);
-    setMapMounted("desktop");
-  }, [width]);
+  }, []);
 
   return (
     <>
@@ -84,7 +46,7 @@ const MainPage = (props) => {
       <div
         ref={bodyRef}
         style={{
-          background: root.color.COLOR_01,
+          background: root.color.WHITE,
           width: "100%",
           minHeight: "100svh",
         }}

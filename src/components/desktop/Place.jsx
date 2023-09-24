@@ -5,9 +5,8 @@ import {
   success_content_area,
   success_title,
 } from "@/styles/style.css";
-import { Map, MapMarker, StaticMap } from "react-kakao-maps-sdk";
+import { Map, MapMarker } from "react-kakao-maps-sdk";
 import { root } from "@/styles/root.css";
-import useKakaoLoader from "@/hooks/useKakaoLoader";
 
 const Place = () => {
   return (

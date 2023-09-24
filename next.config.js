@@ -7,6 +7,22 @@ const nextConfig = {
   output: "standalone",
   webpack: (config) => {
     config.resolve.fallback = { fs: false };
+    config.module.rules.push({
+      test: /\.svg$/,
+      use: ["@svgr/webpack"],
+    });
+    config.module.rules.push({
+      test: /\.(woff|woff2|eot|ttf|otf)$/,
+      use: [
+        {
+          loader: "url-loader",
+          options: {
+            fallback: "file-loader",
+            name: "assets/fonts/[name].[ext]",
+          },
+        },
+      ],
+    });
 
     return config;
   },
@@ -28,22 +44,6 @@ const nextConfig = {
         hostname: "images.unsplash.com",
         port: "",
         pathname: "/**",
-      },
-    ],
-  },
-  module: {
-    rules: [
-      {
-        test: /\.(woff|woff2|eot|ttf|otf)$/,
-        use: [
-          {
-            loader: "url-loader",
-            options: {
-              fallback: "file-loader",
-              name: "assets/fonts/[name].[ext]",
-            },
-          },
-        ],
       },
     ],
   },

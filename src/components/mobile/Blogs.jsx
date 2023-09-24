@@ -7,17 +7,15 @@ import {
   blog_featured_content,
   blog_featured_content_html,
   blog_featured_title,
-  blog_list_brief_content,
-  blog_list_container,
-  blog_list_li,
-  blog_list_title,
-  blog_list_ul,
   blog_section_title,
 } from "@/styles/mobileStyle.css";
+import * as animationData from "@/assets/lottie/blog.json";
+import Lottie from "react-lottie";
 import { Button as MuiButton, styled } from "@mui/material";
 import Slider from "react-slick";
 import Image from "next/image";
 import { getBlogUrl } from "@/data/util";
+import BlogSvg from "@/assets/svgs/blog.svg";
 
 const StyledButton = styled(MuiButton)(() => ({
   background: root.color.POINT_02,
@@ -33,7 +31,7 @@ const StyledButton = styled(MuiButton)(() => ({
   transition: "all 0.5s",
   margin: "12px 0",
   padding: "0px 16px",
-  boxShadow: "4px 4px 10px rgba(37, 33, 26, 0.4)",
+  // boxShadow: "4px 4px 10px rgba(37, 33, 26, 0.4)",
   "&:hover": {
     background: root.color.COLOR_01,
   },
@@ -41,6 +39,15 @@ const StyledButton = styled(MuiButton)(() => ({
     background: root.color.COLOR_01,
   },
 }));
+
+const animationOptions = {
+  loop: true,
+  autoplay: true,
+  animationData: animationData,
+  rendererSettings: {
+    preserveAspectRatio: "xMidYMid slice",
+  },
+};
 
 const Blogs = ({ blogPosts: posts, featuredPosts }) => {
   const sliderSettings = {
@@ -56,16 +63,10 @@ const Blogs = ({ blogPosts: posts, featuredPosts }) => {
   const featuredPost = featuredPosts[0];
 
   return (
-    <section id="blogs" className={blogSection}>
-      <Image
-        src="https://just-a-website-for-theme.s3.ap-northeast-2.amazonaws.com/mobile/mobile_blog_bg.png"
-        alt="법무법인 소울 - 공지연 & 정진권 변호사"
-        width={400}
-        height={200}
-        quality={100}
-        loading="lazy"
-        className={blog_backgroundStyle}
-      />
+    <section id="blogs_mobile" className={blogSection}>
+      <div style={{ position: "absolute", right: 20, top: 90 }}>
+        <Lottie options={animationOptions} width={280} height={200} />
+      </div>
       <div className={blog_contents_container}>
         <h2 className={blog_section_title}>
           블로그를 통해 <br />더 많은
@@ -76,11 +77,11 @@ const Blogs = ({ blogPosts: posts, featuredPosts }) => {
         </h2>
         <div
           style={{
-            marginTop: 80,
-            marginBottom: 40,
+            marginTop: 170,
+            marginBottom: 20,
             display: "flex",
             justifyContent: "center",
-            gap: 20,
+            gap: 16,
           }}
         >
           <StyledButton
@@ -94,20 +95,32 @@ const Blogs = ({ blogPosts: posts, featuredPosts }) => {
             정진권 변호사 블로그
           </StyledButton>
         </div>
-        <div className={blog_feature_container}>
-          <p className={blog_featured_title}>{featuredPost.title}</p>
+      </div>
+      <div className={blog_feature_container}>
+        <p className={blog_featured_title}>{featuredPost.title}</p>
+        <div
+          className={blog_featured_content}
+          onClick={() => window.open(getBlogUrl(featuredPost))}
+        >
           <div
-            className={blog_featured_content}
-            onClick={() => window.open(getBlogUrl(featuredPost))}
-          >
-            <div
-              className={blog_featured_content_html}
-              dangerouslySetInnerHTML={{ __html: featuredPost.html }}
-            />
-          </div>
+            style={{ position: "absolute", zIndex: 10 }}
+            className={blog_featured_content_html}
+            dangerouslySetInnerHTML={{ __html: featuredPost.html }}
+          />
         </div>
+        <BlogSvg
+          style={{
+            position: "absolute",
+            zIndex: 0,
+            top: 40,
+            right: 20,
+            height: 120,
+            opacity: 0.3,
+          }}
+        />
+      </div>
 
-        {/* <div className={blog_list_container} style={{ height: 100 }}>
+      {/* <div className={blog_list_container} style={{ height: 100 }}>
           <ul className={blog_list_ul}>
             <Slider {...sliderSettings}>
               {posts.map((post, index) => {
@@ -128,7 +141,6 @@ const Blogs = ({ blogPosts: posts, featuredPosts }) => {
             </Slider>
           </ul>
         </div> */}
-      </div>
     </section>
   );
 };

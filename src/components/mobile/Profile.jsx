@@ -1,10 +1,6 @@
 import { jeongJinKwon, kongJiYeon } from "@/data/profile";
 import {
   profileSection,
-  profile_container,
-  profile_kong_container,
-  profile_pic_1,
-  profile_pic_2,
   profile_title_text,
   flex,
   name,
@@ -13,9 +9,6 @@ import {
   li_span,
   profile_kong,
   profile_jeong,
-  profile_jeong_container,
-  profile_kong_backgroundStyle,
-  profile_jeong_backgroundStyle,
 } from "@/styles/mobileStyle.css.ts";
 import { root } from "@/styles/root.css";
 
@@ -23,11 +16,36 @@ import Image from "next/image";
 
 const Profile = () => {
   return (
-    <section id="profile" className={profileSection}>
-      <div className={profile_kong}>
-        <h2 className={profile_title_text}>
+    <section className={profileSection}>
+      <div id="profile_mobile" className={profile_kong}>
+        <div className={profile_title_text}>
           변호사 <em className={name}>공 지 연</em>
-        </h2>
+          <div
+            style={{
+              width: 100,
+              height: 100,
+              background: root.color.COLOR_08,
+              borderRadius: 90,
+              overflow: "hidden",
+              display: "flex",
+              justifyContent: "center",
+              paddingLeft: 20,
+              paddingTop: 4,
+              boxSizing: "border-box",
+              position: "absolute",
+              top: 40,
+              right: 20,
+            }}
+          >
+            <Image
+              src="https://just-a-website-for-theme.s3.ap-northeast-2.amazonaws.com/profile_kong_solo.png"
+              width={100}
+              height={160}
+              objectFit="contain"
+              alt="공지연 변호사"
+            />
+          </div>
+        </div>
         <ul className={ul}>
           <li>
             <span className={li_span}>{kongJiYeon.education.name}</span>
@@ -54,44 +72,34 @@ const Profile = () => {
           })}
         </ul>
       </div>
-      <div
-        style={{
-          position: "relative",
-          display: "flex",
-          padding: "0 24px",
-          gap: 8,
-          zIndex: 30,
-          top: -90,
-        }}
-      >
-        <div
-          style={{
-            width: "50%",
-            height: 180,
-            position: "relative",
-          }}
-        >
-          <Image
-            src="https://just-a-website-for-theme.s3.ap-northeast-2.amazonaws.com/mobile/profile_kong.png"
-            alt="법무법인 소울 - 공지연 변호사"
-            fill
-            className={profile_kong_backgroundStyle}
-          />
-        </div>
-        <div style={{ width: "50%", height: 180, position: "relative" }}>
-          <Image
-            src="https://just-a-website-for-theme.s3.ap-northeast-2.amazonaws.com/mobile/profile_jeong.png"
-            alt="법무법인 소울 - 공지연 & 정진권 변호사"
-            fill
-            quality={100}
-            className={profile_jeong_backgroundStyle}
-          />
-        </div>
-      </div>
       <div className={profile_jeong}>
-        <h2 className={profile_title_text}>
+        <div className={profile_title_text}>
           변호사 <em className={name}>정 진 권</em>
-        </h2>
+          <div
+            style={{
+              width: 100,
+              height: 100,
+              background: root.color.COLOR_08,
+              borderRadius: 90,
+              overflow: "hidden",
+              display: "flex",
+              justifyContent: "center",
+              paddingTop: 4,
+              boxSizing: "border-box",
+              position: "absolute",
+              top: 40,
+              right: 20,
+            }}
+          >
+            <Image
+              src="https://just-a-website-for-theme.s3.ap-northeast-2.amazonaws.com/profile_jeong_solo.png"
+              width={120}
+              height={180}
+              objectFit="contain"
+              alt="정진권 변호사"
+            />
+          </div>
+        </div>
         <ul className={ul}>
           <li>
             <span className={li_span}>{jeongJinKwon.education.name}</span>

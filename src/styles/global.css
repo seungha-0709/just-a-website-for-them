@@ -58,13 +58,18 @@ body {
   box-sizing: border-box !important;
   -ms-overflow-style: none !important;
   scrollbar-width: none !important;
-
-  #profile {
-    scroll-margin: 76px;
-  }
 }
+
 ::-webkit-scrollbar {
   display: none !important;
+}
+
+#blogs_mobile,
+#profile_mobile {
+  scroll-margin: 100px;
+}
+#success_mobile {
+  scroll-margin: 80px;
 }
 
 em {
@@ -122,6 +127,14 @@ p {
   display: -webkit-box;
   -webkit-line-clamp: 3;
   color: rgba(255, 255, 255, 0.7) !important;
+  -webkit-box-orient: vertical;
+}
+
+.success_item_brief {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
   -webkit-box-orient: vertical;
 }
 
