@@ -7,11 +7,6 @@ import {
   blog_featured_content,
   blog_featured_content_html,
   blog_featured_title,
-  blog_list_brief_content,
-  blog_list_container,
-  blog_list_li,
-  blog_list_title,
-  blog_list_ul,
   blog_section_title,
 } from "@/styles/mobileStyle.css";
 import * as animationData from "@/assets/lottie/blog.json";

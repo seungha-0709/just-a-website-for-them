@@ -34,5 +34,6 @@ export const root = createGlobalTheme(":root", {
     BLUE_02: "#3e6593",
     BLUE_03: "#80aeff",
     BLUE_04: "#bed0e5",
+    RED_01: "#E12214",
   },
 });

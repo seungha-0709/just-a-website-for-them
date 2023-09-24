@@ -22,6 +22,7 @@
     "eslint-config-next": "13.4.16",
     "file-loader": "^6.2.0",
     "fs": "^0.0.1-security",
+    "html-to-json-parser": "^1.1.0",
     "next": "13.4.12",
     "next-seo": "^6.1.0",
     "react": "18.2.0",

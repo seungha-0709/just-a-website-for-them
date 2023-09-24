@@ -124,7 +124,7 @@ export const blogSection = style({
   overflow: "hidden",
   boxSizing: "border-box",
   position: "absolute",
-  top: 2520,
+  top: 2440,
   zIndex: 0,
   flexDirection: "column",
   justifyContent: "center",
@@ -250,7 +250,7 @@ export const blog_section_title = style({
   top: 30,
   margin: 0,
   textAlign: "left",
-  color: root.color2.COLOR_01,
+  color: root.color2.BLACK,
 });
 
 export const blog_featured_title = style({
@@ -331,7 +331,7 @@ export const successSection = style({
   height: 600,
   padding: 20,
   position: "absolute",
-  top: 1880,
+  top: 1920,
   zIndex: 0,
   display: "flex",
   justifyContent: "center",
@@ -350,8 +350,9 @@ export const place_backgroundStyle = style({
 export const place_section = style({
   height: 500,
   position: "absolute",
-  top: 3250,
+  top: 3160,
   zIndex: 0,
+  width: "100%",
 });
 
 export const header_ul = style({
@@ -447,31 +448,31 @@ export const success_example_container = style({
 export const success_example_item = style({
   width: 200,
   height: 320,
-  borderRadius: 16,
+  // borderRadius: 16,
   textAlign: "left",
   color: root.color.WHITE,
-  padding: 32,
+  // padding: 32,
   display: "flex",
-  justifyContent: "space-between",
-  boxShadow: "8px 8px 10px rgba(7, 3, 0, 0.5)",
+  justifyContent: "stretch",
+  // boxShadow: "8px 8px 10px rgba(7, 3, 0, 0.5)",
   overflow: "hidden",
   cursor: "pointer",
   position: "relative",
   border: "none",
   flexDirection: "column",
-  background: "rgba(0, 0, 0, 0.5)",
+  // background: "rgba(0, 0, 0, 0.5)",
   // border: `1px solid ${root.color.COLOR_05}`,
 
-  "::after": {
-    content: "",
-    position: "absolute",
-    zIndex: 0,
-    top: 0,
-    left: 0,
-    width: "100%",
-    height: "100%",
-    background: "rgba(0, 0, 0, 0.5)",
-  },
+  // "::after": {
+  //   content: "",
+  //   position: "absolute",
+  //   zIndex: 0,
+  //   top: 0,
+  //   left: 0,
+  //   width: "100%",
+  //   height: "100%",
+  //   background: "rgba(0, 0, 0, 0.5)",
+  // },
 });
 
 export const desktop_container = style({

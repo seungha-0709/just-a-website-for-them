@@ -3,7 +3,6 @@ import {
   success_content_area,
   success_title,
   success_example_item,
-  successBackgroundStyle,
   success_subtitle,
 } from "@/styles/mobileStyle.css";
 import Image from "next/image";
@@ -11,10 +10,11 @@ import Lottie from "react-lottie";
 import * as animationData from "@/assets/lottie/success.json";
 import { useDraggable } from "react-use-draggable-scroll";
 import { Dialog as MuiDialog, styled } from "@mui/material";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import { root } from "@/styles/root.css";
-import Button from "../ui/Button";
 import { getBlogUrl } from "@/data/util";
+import HTMLParser from "html-to-json-parser";
+import NavigateNextIcon from "@mui/icons-material/NavigateNext";
 
 const defaultOptions = {
   loop: true,
@@ -29,7 +29,6 @@ const Dialog = styled(MuiDialog)(() => ({
   display: "flex",
   justifyContent: "center",
   alignItems: "center",
-  //   overflow: "hidden",
   width: "100%",
   "& .MuiPaper-root": {
     background: root.color.COLOR_08,
@@ -74,55 +73,113 @@ const Dialog = styled(MuiDialog)(() => ({
 }));
 
 const SuccessItem = ({ onClick, selected, itemId, item }) => {
+  const [content, setContent] = useState({
+    tag: "",
+    title: "",
+    textObj: "",
+  });
+
+  const getContentObj = async () => {
+    const tagRegex = /\[([^\]]+)\]/;
+    const titleRegex = /\]\s*(.*)/;
+    const tag = tagRegex.exec(item.title)[1];
+
+    const title = titleRegex.exec(item.title)[1];
+    const result = await HTMLParser("<div>" + item.html + "</div>", false);
+    setContent({
+      tag: tag.trim(),
+      title: title.trim(),
+      textObj: result,
+    });
+  };
+
+  useEffect(() => {
+    getContentObj();
+  }, []);
+
   return (
-    <div
+    <button
       onClick={() => window.open(getBlogUrl(item))}
       className={success_example_item}
       style={{
         width: 200,
-        height: 320,
+        height: 300,
+        background: "transparent",
+        padding: 0,
+        border: "none",
       }}
     >
-      <Image
-        src={item.feature_image}
-        alt={item.title}
-        fill
-        style={{ opacity: 0.5 }}
-      />
-      <div>
+      <div
+        style={{
+          position: "relative",
+          width: "100%",
+          height: 120,
+          borderRadius: 8,
+          overflow: "hidden",
+        }}
+      >
+        <Image
+          src={item.feature_image}
+          alt={item.title}
+          fill
+          objectFit="cover"
+          style={{ opacity: 1 }}
+        />
+      </div>
+      <div style={{ height: 120, marginTop: 20 }}>
+        <p
+          style={{
+            fontSize: 14,
+            fontWeight: 600,
+            color: root.color2.RED_01,
+            marginBottom: 8,
+          }}
+        >
+          {content.tag}
+        </p>
         <p
           style={{
             fontWeight: 600,
-            fontSize: 18,
-            color: "rgba(255, 255, 255, 0.7)",
+            fontSize: 16,
+            color: root.color2.BLACK,
             position: "relative",
             zIndex: 40,
           }}
         >
-          {item.title}
+          {content.title}
         </p>
-        <div
-          className="success_card_content"
-          dangerouslySetInnerHTML={{ __html: item.html }}
-        ></div>
+        {content.textObj && (
+          <p
+            className="success_item_brief"
+            style={{
+              marginTop: 12,
+              color: root.color2.GRAY_01,
+              fontSize: 12,
+              fontWeight: 400,
+            }}
+          >
+            {content.textObj.content[1].content[0]}
+          </p>
+        )}
       </div>
-      <Button
+      <div
         style={{
-          // position: "relative",
-          height: 42,
-          background: "rgba(7, 3, 0, 0.5)",
-          color: "rgba(255, 255, 255, 0.9)",
-          border: `1px solid rgba(255, 255, 255, 0.4)`,
-          fontWeight: 200,
+          marginTop: 8,
+          background: "transparent",
+          color: root.color2.COLOR_04,
+          height: 20,
+          fontWeight: 400,
           zIndex: 40,
-          // top: 80,
-          // right: 0,
+          fontSize: 14,
           width: "100%",
+          display: "flex",
+          alignItems: "center",
+          flexDirection: "row-reverse",
         }}
       >
-        자세히 보기
-      </Button>
-    </div>
+        <NavigateNextIcon /> more
+      </div>
+    </button>
   );
 };
 
