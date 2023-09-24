@@ -14,6 +14,8 @@ import {
   blog_list_ul,
   blog_section_title,
 } from "@/styles/mobileStyle.css";
+import * as animationData from "@/assets/lottie/blog.json";
+import Lottie from "react-lottie";
 import { Button as MuiButton, styled } from "@mui/material";
 import Slider from "react-slick";
 import Image from "next/image";
@@ -43,6 +45,15 @@ const StyledButton = styled(MuiButton)(() => ({
   },
 }));
 
+const animationOptions = {
+  loop: true,
+  autoplay: true,
+  animationData: animationData,
+  rendererSettings: {
+    preserveAspectRatio: "xMidYMid slice",
+  },
+};
+
 const Blogs = ({ blogPosts: posts, featuredPosts }) => {
   const sliderSettings = {
     autoplay: true,
@@ -58,9 +69,9 @@ const Blogs = ({ blogPosts: posts, featuredPosts }) => {
 
   return (
     <section id="blogs" className={blogSection}>
-      <BlogSvg
-        style={{ position: "absolute", top: 100, right: 20, height: 160 }}
-      />
+      <div style={{ position: "absolute", right: 20, top: 90 }}>
+        <Lottie options={animationOptions} width={280} height={200} />
+      </div>
       <div className={blog_contents_container}>
         <h2 className={blog_section_title}>
           블로그를 통해 <br />더 많은
@@ -97,10 +108,21 @@ const Blogs = ({ blogPosts: posts, featuredPosts }) => {
           onClick={() => window.open(getBlogUrl(featuredPost))}
         >
           <div
+            style={{ position: "absolute", zIndex: 10 }}
             className={blog_featured_content_html}
             dangerouslySetInnerHTML={{ __html: featuredPost.html }}
           />
         </div>
+        <BlogSvg
+          style={{
+            position: "absolute",
+            zIndex: 0,
+            top: 40,
+            right: 20,
+            height: 120,
+            opacity: 0.3,
+          }}
+        />
       </div>
 
       {/* <div className={blog_list_container} style={{ height: 100 }}>

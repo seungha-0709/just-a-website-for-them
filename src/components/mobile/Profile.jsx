@@ -1,10 +1,6 @@
 import { jeongJinKwon, kongJiYeon } from "@/data/profile";
 import {
   profileSection,
-  profile_container,
-  profile_kong_container,
-  profile_pic_1,
-  profile_pic_2,
   profile_title_text,
   flex,
   name,
@@ -13,9 +9,6 @@ import {
   li_span,
   profile_kong,
   profile_jeong,
-  profile_jeong_container,
-  profile_kong_backgroundStyle,
-  profile_jeong_backgroundStyle,
 } from "@/styles/mobileStyle.css.ts";
 import { root } from "@/styles/root.css";
 
@@ -79,40 +72,6 @@ const Profile = () => {
           })}
         </ul>
       </div>
-      {/* <div
-        style={{
-          position: "relative",
-          display: "flex",
-          padding: "0 24px",
-          gap: 8,
-          zIndex: 30,
-          top: -90,
-        }}
-      > */}
-      {/* <div
-          style={{
-            width: "50%",
-            height: 180,
-            position: "relative",
-          }}
-        >
-          <Image
-            src="https://just-a-website-for-theme.s3.ap-northeast-2.amazonaws.com/mobile/profile_kong.png"
-            alt="법무법인 소울 - 공지연 변호사"
-            fill
-            className={profile_kong_backgroundStyle}
-          />
-        </div>
-        <div style={{ width: "50%", height: 180, position: "relative" }}>
-          <Image
-            src="https://just-a-website-for-theme.s3.ap-northeast-2.amazonaws.com/mobile/profile_jeong.png"
-            alt="법무법인 소울 - 공지연 & 정진권 변호사"
-            fill
-            quality={100}
-            className={profile_jeong_backgroundStyle}
-          />
-        </div>
-      </div> */}
       <div className={profile_jeong}>
         <div className={profile_title_text}>
           변호사 <em className={name}>정 진 권</em>

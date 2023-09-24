@@ -276,6 +276,7 @@ export const blog_featured_content = style({
     content: "",
     position: "absolute",
     bottom: 0,
+    zIndex: 30,
     background:
       "linear-gradient(to bottom, rgba(239, 226, 194, 0), rgba(239, 226, 194, 1))",
   },
