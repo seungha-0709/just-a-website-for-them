@@ -7,13 +7,23 @@ import {
   success_subtitle,
 } from "@/styles/mobileStyle.css";
 import Image from "next/image";
-
+import Lottie from "react-lottie";
+import * as animationData from "@/assets/lottie/success.json";
 import { useDraggable } from "react-use-draggable-scroll";
 import { Dialog as MuiDialog, styled } from "@mui/material";
 import { useState, useRef } from "react";
 import { root } from "@/styles/root.css";
 import Button from "../ui/Button";
 import { getBlogUrl } from "@/data/util";
+
+const defaultOptions = {
+  loop: true,
+  autoplay: true,
+  animationData: animationData,
+  rendererSettings: {
+    preserveAspectRatio: "xMidYMid slice",
+  },
+};
 
 const Dialog = styled(MuiDialog)(() => ({
   display: "flex",
@@ -157,13 +167,9 @@ const Success = ({ examples }) => {
 
   return (
     <section id="success" className={successSection}>
-      {/* <Image
-        src="https://just-a-website-for-theme.s3.ap-northeast-2.amazonaws.com/mobile/mobile_bg_2.png"
-        alt="법무법인 소울 - 공지연 & 정진권 변호사"
-        fill
-        quality={100}
-        className={successBackgroundStyle}
-      /> */}
+      <div style={{ position: "absolute", right: 80, top: -16 }}>
+        <Lottie options={defaultOptions} height={150} width={150} />
+      </div>
       <div className={success_content_area}>
         <h2 className={success_title}>변호 승소 & 성공 사례</h2>
         <h3 className={success_subtitle}>

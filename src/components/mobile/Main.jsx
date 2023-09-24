@@ -11,6 +11,8 @@ import {
 } from "@/styles/mobileStyle.css.ts";
 import Lottie from "react-lottie";
 import * as animationData from "@/assets/lottie/law.json";
+import * as clickAnimationData from "@/assets/lottie/click.json";
+import * as clickMainAnimationData from "@/assets/lottie/clickMain3.json";
 import LocalPoliceIcon from "@mui/icons-material/LocalPolice";
 import CarCrashIcon from "@mui/icons-material/CarCrash";
 import BusinessIcon from "@mui/icons-material/Business";
@@ -67,6 +69,24 @@ const defaultOptions = {
   loop: true,
   autoplay: true,
   animationData: animationData,
+  rendererSettings: {
+    preserveAspectRatio: "xMidYMid slice",
+  },
+};
+
+const clickOptions = {
+  loop: true,
+  autoplay: true,
+  animationData: clickAnimationData,
+  rendererSettings: {
+    preserveAspectRatio: "xMidYMid slice",
+  },
+};
+
+const clickMainOptions = {
+  loop: true,
+  autoplay: true,
+  animationData: clickMainAnimationData,
   rendererSettings: {
     preserveAspectRatio: "xMidYMid slice",
   },
@@ -174,9 +194,9 @@ const Main = ({ isRender }) => {
           <MainSvg
             style={{
               position: "absolute",
-              bottom: -460,
+              bottom: -500,
               right: 0,
-              height: 250,
+              maxHeight: 768,
               zIndex: 0,
             }}
           />
@@ -204,18 +224,20 @@ const Main = ({ isRender }) => {
               color: root.color2.GRAY_01,
               fontWeight: 500,
               fontSize: 16,
-              marginTop: 20,
+              marginTop: 28,
               lineHeight: 1.5,
               position: "relative",
               right: 0,
-              top: 125,
+              top: 130,
               textAlign: "right",
               zIndex: 5,
             }}
           >
-            &quot;당신의 정의, 오직 당신을 위한 공정&quot;
-            <br />
-            최적의 방법으로 당신만을 위해 싸우겠습니다
+            <span style={{ background: root.color.WHITE }}>
+              &quot;당신의 정의, 오직 당신을 위한 공정&quot;
+              <br />
+              최적의 방법으로 당신만을 위해 싸우겠습니다
+            </span>
           </p>
 
           <Button
@@ -228,14 +250,14 @@ const Main = ({ isRender }) => {
               height: 42,
               marginTop: 30,
               width: "fit-content",
-              padding: "8px 24px",
+              padding: "8px 22px",
               background: root.color.POINT_02,
               color: root.color.WHITE,
             }}
             onClick={handleMailClick}
           >
             지금 당장 무료로 법률 상담을 받아보세요
-            <SendRoundedIcon style={{ marginLeft: 8 }} />
+            <Lottie options={clickMainOptions} height={40} width={40} />
           </Button>
         </div>
       </div>
@@ -293,6 +315,10 @@ const Main = ({ isRender }) => {
           <div style={{ position: "absolute", top: 0, right: 0 }}>
             <IconPhone />
           </div>
+          <div style={{ position: "absolute", top: 80, right: 12 }}>
+            <Lottie options={clickOptions} height={60} width={38} />
+          </div>
+
           <br />
           <br />
           <br />
@@ -320,6 +346,9 @@ const Main = ({ isRender }) => {
         >
           <div style={{ position: "absolute", top: 0, right: 8 }}>
             <IconKakaotalk />
+          </div>
+          <div style={{ position: "absolute", top: 80, right: 12 }}>
+            <Lottie options={clickOptions} height={60} width={38} />
           </div>
           <br />
           <br />

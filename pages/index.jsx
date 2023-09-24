@@ -47,27 +47,26 @@ const MainPage = (props) => {
 
   const bodyRef = useRef(null);
 
-  const [width, setWidth] = useState(0);
-
   const [isDOMRendered, setIsDOMRendered] = useState();
 
   const [isDesktopView, setIsDesktopView] = useState();
 
-  useEffect(() => {
-    const resizeObserver = new ResizeObserver((entries) => {
-      setTimeout(() => setWidth(entries[0].contentRect.width), 2000);
-    });
+  // useEffect(() => {
+  //   const resizeObserver = new ResizeObserver((entries) => {
+  //     setTimeout(() => setWidth(entries[0].contentRect.width), 2000);
+  //   });
 
-    resizeObserver.observe(bodyRef.current);
-  }, []);
+  //   resizeObserver.observe(bodyRef.current);
+  // }, []);
 
   useEffect(() => {
+    const width = window.innerWidth;
     if (width < 1200) {
       setIsDesktopView(false);
       return;
     }
     setIsDesktopView(true);
-  }, [width]);
+  }, []);
 
   return (
     <>
@@ -97,42 +96,16 @@ const MainPage = (props) => {
           minHeight: "100svh",
         }}
       >
-        {!width && (
-          <div
-            style={{
-              width: "100%",
-              height: "100svh",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-            }}
-          >
-            <div
-              style={{
-                width: "50%",
-                height: 30,
-                display: "flex",
-                alignItems: "center",
-              }}
-            >
-              <BorderLinearProgress style={{ width: "100%" }} color="inherit" />
-            </div>
-          </div>
-        )}
         <Suspense fallback={<p>loading</p>}>
           <Desktop
-            isRender={
-              !!width && typeof isDesktopView !== "undefined" && isDesktopView
-            }
+            isRender={isDesktopView}
             posts={blogPosts}
             success={success}
             featuredPosts={featuredPosts}
           />
 
           <Mobile
-            isRender={
-              !!width && typeof isDesktopView !== "undefined" && !isDesktopView
-            }
+            isRender={!isDesktopView}
             posts={blogPosts}
             success={success}
             featuredPosts={featuredPosts}
