@@ -121,7 +121,8 @@ const SuccessItem = ({ onClick, selected, itemId, item }) => {
         <Image
           src={item.feature_image}
           alt={item.title}
-          fill
+          width={200}
+          height={120}
           objectFit="cover"
           style={{ opacity: 1 }}
         />
