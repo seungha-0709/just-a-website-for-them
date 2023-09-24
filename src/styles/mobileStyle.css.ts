@@ -554,5 +554,21 @@ export const hamburger_li = style({
   fontSize: 16,
   fontWeight: 500,
   color: root.color2.BLACK,
-  marginBottom: 8,
+  marginBottom: 12,
+  cursor: "pointer",
+});
+
+export const hamburger_button = style({
+  display: "flex",
+  alignItems: "center",
+  justifyContent: "center",
+  border: "none",
+  background: root.color.WHITE,
+  height: 40,
+  width: 40,
+  padding: 0,
+  borderRadius: 20,
+  ":hover": {
+    background: "#efefef",
+  },
 });

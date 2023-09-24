@@ -13,7 +13,11 @@ import Place from "./Place";
 import { SwipeableDrawer as MuiSwipeableDrawer, styled } from "@mui/material";
 import { addMember } from "../../../lib/admin";
 import Nav from "./Nav";
-import { hamburger_li } from "@/styles/mobileStyle.css";
+import Button from "../ui/Button";
+
+import IconKakaotalk from "@/assets/icons/IconKakaotalk";
+import IconPhone from "@/assets/icons/IconPhone";
+import { hamburger_button, hamburger_li } from "@/styles/mobileStyle.css";
 import { useRouter } from "next/router";
 
 const SwipeableDrawer = styled(MuiSwipeableDrawer)(() => ({
@@ -25,15 +29,117 @@ const SwipeableDrawer = styled(MuiSwipeableDrawer)(() => ({
 
 const Mobile = ({ posts, success, featuredPosts, mapMounted, isRender }) => {
   const router = useRouter();
+  const [isMailOpen, setIsMailOpen] = useState(false);
   const [open, setOpen] = useState(false);
   const toggleDrawer = (newOpen) => () => {
     setOpen(newOpen);
   };
   const handleLiMenuClick = (href) => () => {
-    console.log(href);
     router.push(href);
     setOpen(false);
   };
+
+  const [isClicked, setIsClicked] = useState({
+    kakao: 0,
+    tel: 0,
+    place: 0,
+    mail: 0,
+  });
+
+  const handleKakaoClick = () => {
+    setOpen(false);
+    setIsClicked({
+      ...isClicked,
+      kakao: isClicked.kakao++,
+    });
+    window.open("https://pf.kakao.com/_TsAxdG");
+  };
+
+  const handleMailClick = () => {
+    setOpen(false);
+    setIsMailOpen(true);
+  };
+
+  const handleTelClick = () => {
+    setOpen(false);
+    setIsClicked({
+      ...isClicked,
+      tel: isClicked.tel++,
+    });
+    window.location.href = "tel:01079340883";
+  };
+
+  const handleMailSubmitComplete = () => {
+    setIsSnackbarOpen(false);
+    setIsClicked({
+      ...isClicked,
+      mail: isClicked.mail++,
+    });
+  };
+
+  useEffect(() => {
+    if (window && isRender) {
+      window.CallMtm =
+        window.CallMtm ||
+        function () {
+          (window.CallMtm.q = window.CallMtm.q || []).push(arguments);
+        };
+
+      CallMtm({
+        productName: "mail_submit_mobile", //광고주 측에서 설정하고 싶은 값(default convType)
+        convType: "mail_submit_mobile", //etc, join, login
+        click: "#mail_submit_mobile", //click으로 전환 잡을 경우 css selector 값
+      });
+    }
+  }, [isClicked.mail, isRender]);
+
+  useEffect(() => {
+    if (window && isRender) {
+      window.CallMtm =
+        window.CallMtm ||
+        function () {
+          (window.CallMtm.q = window.CallMtm.q || []).push(arguments);
+        };
+
+      CallMtm({
+        productName: "kakao_mobile",
+        convType: "kakao_mobile",
+        click: "#kakao_mobile",
+      });
+    }
+  }, [isClicked.kakao, isRender]);
+
+  useEffect(() => {
+    if (window && isRender) {
+      window.CallMtm =
+        window.CallMtm ||
+        function () {
+          (window.CallMtm.q = window.CallMtm.q || []).push(arguments);
+        };
+
+      CallMtm({
+        productName: "tel_mobile",
+        convType: "tel_mobile",
+        click: "#tel_mobile",
+      });
+    }
+  }, [isClicked.tel, isRender]);
+
+  useEffect(() => {
+    if (window && isRender) {
+      window.CallMtm =
+        window.CallMtm ||
+        function () {
+          (window.CallMtm.q = window.CallMtm.q || []).push(arguments);
+        };
+
+      CallMtm({
+        productName: "place_mobile",
+        convType: "place_mobile",
+        click: "#place_mobile",
+      });
+    }
+  }, [isClicked.place, isRender]);
 
   return (
     <div style={{ display: `${isRender ? "block" : "none"}` }}>
@@ -51,20 +157,20 @@ const Mobile = ({ posts, success, featuredPosts, mapMounted, isRender }) => {
           borderBottom: `1px solid #e1e1e1`,
         }}
       >
-        <button
-          style={{
-            display: "flex",
-            alignItems: "center",
-            border: "none",
-            background: root.color.WHITE,
-          }}
-          onClick={toggleDrawer(true)}
-        >
-          <MenuIcon />
+        <button className={hamburger_button} onClick={toggleDrawer(true)}>
+          <MenuIcon style={{ color: root.color2.BLACK }} />
         </button>
       </header>
       <div style={{ position: "relative", top: 40 }}>
-        <Main isRender={isRender} />
+        <Main
+          isRender={isRender}
+          isMailOpen={isMailOpen}
+          onMailClose={() => setIsMailOpen(false)}
+          onMailClick={handleMailClick}
+          onTelClick={handleTelClick}
+          onKakaoClick={handleKakaoClick}
+          onMailSubmitClick={handleMailSubmitComplete}
+        />
         <Profile />
         <Success examples={success} />
         <Blogs blogPosts={posts} featuredPosts={featuredPosts} />
@@ -123,6 +229,83 @@ const Mobile = ({ posts, success, featuredPosts, mapMounted, isRender }) => {
                 오시는 길
               </li>
             </ul>
+          </div>
+          <div
+            style={{
+              position: "relative",
+              bottom: -20,
+              left: "50%",
+              transform: "translateX(-50%)",
+              width: "100%",
+              display: "flex",
+              gap: 12,
+              justifyContent: "flex-end",
+              flexDirection: "row",
+              flexWrap: "wrap",
+            }}
+          >
+            <Button
+              style={{
+                display: "block",
+                margin: "0px",
+                width: "50%",
+                height: 80,
+                borderRadius: 8,
+                padding: "0 16px",
+                textAlign: "left",
+                position: "relative",
+                color: root.color.WHITE,
+                background: root.color2.BLACK,
+                // border: `2px solid ${root.color2.COLOR_04}`,
+              }}
+              onClick={handleTelClick}
+            >
+              <span style={{ textAlign: "left" }}>
+                무료
+                <br />
+                전화 상담
+              </span>
+            </Button>
+            <Button
+              onClick={handleKakaoClick}
+              style={{
+                display: "block",
+                margin: "0px",
+                width: "50%",
+                height: 80,
+                borderRadius: 8,
+                padding: "0px 16px",
+                textAlign: "left",
+                position: "relative",
+                color: root.color.WHITE,
+                background: root.color2.BLACK,
+                // border: `2px solid ${root.color2.COLOR_04}`,
+              }}
+            >
+              무료
+              <br />
+              카톡 상담
+            </Button>
+            <Button
+              onClick={handleMailClick}
+              style={{
+                display: "block",
+                margin: "0px",
+                width: "50%",
+                height: 80,
+                borderRadius: 8,
+                padding: "0px 16px",
+                textAlign: "left",
+                position: "relative",
+                color: root.color.WHITE,
+                background: root.color2.BLACK,
+                // border: `2px solid ${root.color2.COLOR_04}`,
+              }}
+            >
+              무료
+              <br />
+              메일 상담
+            </Button>
           </div>
         </SwipeableDrawer>
       )}

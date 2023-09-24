@@ -65,9 +65,7 @@ body {
 }
 
 #blogs_mobile,
-#profile_mobile {
-  scroll-margin: 100px;
-}
+#profile_mobile,
 #success_mobile {
   scroll-margin: 80px;
 }

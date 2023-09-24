@@ -1,10 +1,6 @@
 import {
   mainSection,
-  main_content_text,
   main_title_area,
-  main_title_text,
-  main_title_em,
-  main_title_main_text,
   main_words_list_container,
   main_words_list_item,
   mail_bottom_sheet_container,
@@ -98,111 +94,20 @@ const SwipeableDrawer = styled(MuiSwipeableDrawer)(() => ({
   },
 }));
 
-const Main = ({ isRender }) => {
+const Main = ({
+  isRender,
+  onMailClick,
+  onTelClick,
+  onKakaoClick,
+  onSubmitClick,
+  isMailOpen,
+  onMailClose,
+}) => {
   const [isSnackbarOpen, setIsSnackbarOpen] = useState(false);
   const [open, setOpen] = useState(false);
   const toggleDrawer = (newOpen) => () => {
     setOpen(newOpen);
   };
-
-  const [isClicked, setIsClicked] = useState({
-    kakao: 0,
-    tel: 0,
-    place: 0,
-    mail: 0,
-  });
-
-  const handleKakaoClick = () => {
-    setIsClicked({
-      ...isClicked,
-      kakao: isClicked.kakao++,
-    });
-    window.open("https://pf.kakao.com/_TsAxdG");
-  };
-
-  const handleMailClick = () => {
-    setOpen(true);
-  };
-
-  const handleTelClick = () => {
-    setIsClicked({
-      ...isClicked,
-      tel: isClicked.tel++,
-    });
-    window.location.href = "tel:01079340883";
-  };
-
-  const handleMailSubmitComplete = () => {
-    setIsSnackbarOpen(false);
-    setIsClicked({
-      ...isClicked,
-      mail: isClicked.mail++,
-    });
-  };
-
-  useEffect(() => {
-    if (window && isRender) {
-      window.CallMtm =
-        window.CallMtm ||
-        function () {
-          (window.CallMtm.q = window.CallMtm.q || []).push(arguments);
-        };
-
-      CallMtm({
-        productName: "mail_submit_mobile", //광고주 측에서 설정하고 싶은 값(default convType)
-        convType: "mail_submit_mobile", //etc, join, login
-        click: "#mail_submit_mobile", //click으로 전환 잡을 경우 css selector 값
-      });
-    }
-  }, [isClicked.mail, isRender]);
-
-  useEffect(() => {
-    if (window && isRender) {
-      window.CallMtm =
-        window.CallMtm ||
-        function () {
-          (window.CallMtm.q = window.CallMtm.q || []).push(arguments);
-        };
-
-      CallMtm({
-        productName: "kakao_mobile",
-        convType: "kakao_mobile",
-        click: "#kakao_mobile",
-      });
-    }
-  }, [isClicked.kakao, isRender]);
-
-  useEffect(() => {
-    if (window && isRender) {
-      window.CallMtm =
-        window.CallMtm ||
-        function () {
-          (window.CallMtm.q = window.CallMtm.q || []).push(arguments);
-        };
-
-      CallMtm({
-        productName: "tel_mobile",
-        convType: "tel_mobile",
-        click: "#tel_mobile",
-      });
-    }
-  }, [isClicked.tel, isRender]);
-
-  useEffect(() => {
-    if (window && isRender) {
-      window.CallMtm =
-        window.CallMtm ||
-        function () {
-          (window.CallMtm.q = window.CallMtm.q || []).push(arguments);
-        };
-
-      CallMtm({
-        productName: "place_mobile",
-        convType: "place_mobile",
-        click: "#place_mobile",
-      });
-    }
-  }, [isClicked.place, isRender]);
 
   return (
     <section id="main" className={mainSection}>
@@ -275,7 +180,7 @@ const Main = ({ isRender }) => {
               background: root.color.POINT_02,
               color: root.color.WHITE,
             }}
-            onClick={handleMailClick}
+            onClick={onMailClick}
           >
             지금 당장 무료로 법률 상담을 받아보세요
             <Lottie options={clickMainOptions} height={40} width={40} />
@@ -329,7 +234,7 @@ const Main = ({ isRender }) => {
             background: root.color2.BLACK,
             // border: `2px solid ${root.color2.COLOR_04}`,
           }}
-          onClick={handleTelClick}
+          onClick={onTelClick}
         >
           <div style={{ position: "absolute", top: 0, right: 0 }}>
             <IconPhone />
@@ -348,7 +253,7 @@ const Main = ({ isRender }) => {
           </span>
         </Button>
         <Button
-          onClick={handleKakaoClick}
+          onClick={onKakaoClick}
           style={{
             display: "block",
             margin: "0px",
@@ -379,15 +284,15 @@ const Main = ({ isRender }) => {
       </div>
       <SwipeableDrawer
         anchor="bottom"
-        open={open}
-        onClose={toggleDrawer(false)}
+        open={isMailOpen}
+        onClose={onMailClose}
         swipeAreaWidth={drawerBleeding}
         disableSwipeToOpen={false}
         ModalProps={{
           keepMounted: true,
         }}
       >
-        {open && (
+        {isMailOpen && (
           <div className={mail_bottom_sheet_container}>
             <CounselModal
               onOpenSnackbar={() => setIsSnackbarOpen(true)}
@@ -401,7 +306,7 @@ const Main = ({ isRender }) => {
         anchorOrigin={{ vertical: "top", horizontal: "center" }}
         open={isSnackbarOpen}
         autoHideDuration={2000}
-        onClose={handleMailSubmitComplete}
+        onClose={onSubmitClick}
       >
         <Alert severity="success" sx={{ width: "90%" }}>
           상담 문의 메일이 성공적으로 전송되었습니다.
