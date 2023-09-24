@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useEffect, useRef, useState, Suspense } from "react";
+import { useEffect, useRef, useState, Suspense } from "react";
 import { getPosts } from "../lib/posts";
 
 import Slider from "react-slick";
@@ -32,37 +32,18 @@ const BorderLinearProgress = styled(LinearProgress)(() => ({
 
 const MainPage = (props) => {
   const { posts: blogPosts, success, featuredPosts } = props;
-  const carouselSettings = {
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    dots: false,
-    infinite: true,
-    arrows: false,
-    slide: "div",
-    vertical: true,
-    verticalSwiping: true,
-    swipeToSlide: true,
-    draggable: true,
-  };
-
   const bodyRef = useRef(null);
 
   const [isDOMRendered, setIsDOMRendered] = useState();
 
   const [isDesktopView, setIsDesktopView] = useState();
-
-  // useEffect(() => {
-  //   const resizeObserver = new ResizeObserver((entries) => {
-  //     setTimeout(() => setWidth(entries[0].contentRect.width), 2000);
-  //   });
-
-  //   resizeObserver.observe(bodyRef.current);
-  // }, []);
+  const [mapMounted, setMapMounted] = useState();
 
   useEffect(() => {
     const width = window.innerWidth;
     if (width < 1200) {
       setIsDesktopView(false);
+      setMapMounted("mobile");
       return;
     }
     setIsDesktopView(true);

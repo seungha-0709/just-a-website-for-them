@@ -78,6 +78,10 @@ const SuccessItem = ({ onClick, selected, itemId, item }) => {
     <div
       onClick={() => window.open(getBlogUrl(item))}
       className={success_example_item}
+      style={{
+        width: 200,
+        height: 320,
+      }}
     >
       <Image
         src={item.feature_image}

@@ -12,7 +12,7 @@ import Place from "./Place";
 import { addMember } from "../../../lib/admin";
 import Nav from "./Nav";
 
-const Mobile = ({ posts, success, featuredPosts, isRender }) => {
+const Mobile = ({ posts, success, featuredPosts, mapMounted, isRender }) => {
   const [tabIndex, setTabIndex] = useState(0);
 
   return (

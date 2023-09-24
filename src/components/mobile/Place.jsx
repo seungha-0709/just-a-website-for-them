@@ -6,12 +6,30 @@ import {
   success_content_area,
   success_title,
 } from "@/styles/mobileStyle.css";
-import { Map, MapMarker, StaticMap } from "react-kakao-maps-sdk";
+import { Map, MapMarker } from "react-kakao-maps-sdk";
 import { root } from "@/styles/root.css";
 import useKakaoLoader from "@/hooks/useKakaoLoader";
+import { useState, useEffect } from "react";
 
-const Place = () => {
+const Place = ({ mapMounted }) => {
   useKakaoLoader();
+  const [isMounted, setIsMounted] = useState();
+  const [latLng, setLatLng] = useState({
+    lat: undefined,
+    lng: undefined,
+  });
+
+  useEffect(() => {
+    setIsMounted(true);
+  }, []);
+
+  useEffect(() => {
+    setLatLng({
+      lat: 37.517404,
+      lng: 127.01876,
+    });
+  }, []);
+
   return (
     <section id="place" className={place_section}>
       {/* <Image
@@ -41,26 +59,20 @@ const Place = () => {
           <br />
           법무법인 소울
         </p>
-        <div
-          style={{
-            position: "relative",
-            display: "flex",
-            justifyContent: "center",
-          }}
-        >
+        {isMounted && latLng.lat && latLng.lng && (
           <Map
-            zoomable={false}
-            draggable={true}
+            draggable
+            id="map"
             level={3}
-            onClick={() => window.open()}
-            center={{ lat: 37.517404, lng: 127.01876 }}
+            onClick={() => window.open("https://kko.to/5gtm6q2CpD")}
+            center={{ lat: latLng.lat, lng: latLng.lng }}
             style={{ width: 300, height: 250 }}
           >
-            <MapMarker position={{ lat: 37.517404, lng: 127.01876 }}>
+            <MapMarker position={{ lat: latLng.lat, lng: latLng.lng }}>
               <div style={{ color: "#000" }}>법무법인 소울</div>
             </MapMarker>
           </Map>
-        </div>
+        )}
       </div>
     </section>
   );
