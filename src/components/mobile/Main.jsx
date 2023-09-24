@@ -24,7 +24,7 @@ import MainSvg from "@/assets/svgs/MainSvg.svg";
 import { TextField as MuiTextField, styled } from "@mui/material";
 import { root } from "@/styles/root.css";
 import Button from "../ui/Button";
-import SendRoundedIcon from "@mui/icons-material/SendRounded";
+
 import IconKakaotalk from "@/assets/icons/IconKakaotalk";
 import IconPhone from "@/assets/icons/IconPhone";
 import { useState, useEffect } from "react";
@@ -288,8 +288,6 @@ const Main = ({ isRender }) => {
           top: 0,
           height: 170,
           borderRadius: 18,
-          // background: "#EFE2C2",
-          // border: `2px solid ${root.color2.COLOR_02}`,
         }}
       >
         <div className={main_words_list_container}>
@@ -402,7 +400,7 @@ const Main = ({ isRender }) => {
       <Snackbar
         anchorOrigin={{ vertical: "top", horizontal: "center" }}
         open={isSnackbarOpen}
-        autoHideDuration={500}
+        autoHideDuration={2000}
         onClose={handleMailSubmitComplete}
       >
         <Alert severity="success" sx={{ width: "90%" }}>

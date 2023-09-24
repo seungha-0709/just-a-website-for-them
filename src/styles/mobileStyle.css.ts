@@ -549,3 +549,10 @@ export const place_content_area = style({
   // alignItems: "center",
   flexDirection: "column",
 });
+
+export const hamburger_li = style({
+  fontSize: 16,
+  fontWeight: 500,
+  color: root.color2.BLACK,
+  marginBottom: 8,
+});

@@ -63,7 +63,7 @@ const Blogs = ({ blogPosts: posts, featuredPosts }) => {
   const featuredPost = featuredPosts[0];
 
   return (
-    <section id="blogs" className={blogSection}>
+    <section id="blogs_mobile" className={blogSection}>
       <div style={{ position: "absolute", right: 20, top: 90 }}>
         <Lottie options={animationOptions} width={280} height={200} />
       </div>

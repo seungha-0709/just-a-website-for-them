@@ -94,22 +94,19 @@ const CounselModal = ({ onClose, isRender, onOpenSnackbar }) => {
   const sendEmail = (e) => {
     e.preventDefault();
 
-    // emailjs
-    //   .sendForm(
-    //     "service_rmtlcpa",
-    //     "template_vmdkb9q",
-    //     form.current,
-    //     "kN_K_gdIppMdJChHt"
-    //   )
-    //   .then((res) => {
-    //     setIsSubmitComplete(isSubmitComplete + 1);
-    //     onClose();
-    //     onOpenSnackbar(true);
-    //   });
-
-    onClose();
-    onOpenSnackbar(true);
+    emailjs
+      .sendForm(
+        "service_rmtlcpa",
+        "template_vmdkb9q",
+        form.current,
+        "kN_K_gdIppMdJChHt"
+      )
+      .then((res) => {
+        onClose();
+        onOpenSnackbar(true);
+      });
   };
+
   return (
     <>
       <div style={{ padding: "40px 20px", position: "relative" }}>

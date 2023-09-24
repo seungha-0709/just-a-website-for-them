@@ -229,7 +229,7 @@ const Success = ({ examples }) => {
   };
 
   return (
-    <section id="success" className={successSection}>
+    <section id="success_mobile" className={successSection}>
       <div style={{ position: "absolute", right: 80, top: -16 }}>
         <Lottie options={defaultOptions} height={150} width={150} />
       </div>

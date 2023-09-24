@@ -16,8 +16,8 @@ import Image from "next/image";
 
 const Profile = () => {
   return (
-    <section id="profile" className={profileSection}>
-      <div className={profile_kong}>
+    <section className={profileSection}>
+      <div id="profile_mobile" className={profile_kong}>
         <div className={profile_title_text}>
           변호사 <em className={name}>공 지 연</em>
           <div

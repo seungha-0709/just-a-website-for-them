@@ -24,7 +24,7 @@ const Place = () => {
   };
 
   return (
-    <section id="place" className={place_section}>
+    <section id="place_mobile" className={place_section}>
       <div style={{ position: "absolute", right: 20, top: -16, zIndex: 0 }}>
         <Lottie options={defaultOptions} height={180} width={180} />
       </div>
