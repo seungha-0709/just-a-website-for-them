@@ -99,7 +99,6 @@ const SwipeableDrawer = styled(MuiSwipeableDrawer)(() => ({
 }));
 
 const Main = ({ isRender }) => {
-  const [isMailModalOpen, setIsMailModalOpen] = useState(false);
   const [isSnackbarOpen, setIsSnackbarOpen] = useState(false);
   const [open, setOpen] = useState(false);
   const toggleDrawer = (newOpen) => () => {
@@ -112,6 +111,50 @@ const Main = ({ isRender }) => {
     place: 0,
     mail: 0,
   });
+
+  const handleKakaoClick = () => {
+    setIsClicked({
+      ...isClicked,
+      kakao: isClicked.kakao++,
+    });
+    window.open("https://pf.kakao.com/_TsAxdG");
+  };
+
+  const handleMailClick = () => {
+    setOpen(true);
+  };
+
+  const handleTelClick = () => {
+    setIsClicked({
+      ...isClicked,
+      tel: isClicked.tel++,
+    });
+    window.location.href = "tel:01079340883";
+  };
+
+  const handleMailSubmitComplete = () => {
+    setIsSnackbarOpen(false);
+    setIsClicked({
+      ...isClicked,
+      mail: isClicked.mail++,
+    });
+  };
+
+  useEffect(() => {
+    if (window && isRender) {
+      window.CallMtm =
+        window.CallMtm ||
+        function () {
+          (window.CallMtm.q = window.CallMtm.q || []).push(arguments);
+        };
+
+      CallMtm({
+        productName: "mail_submit_mobile", //광고주 측에서 설정하고 싶은 값(default convType)
+        convType: "mail_submit_mobile", //etc, join, login
+        click: "#mail_submit_mobile", //click으로 전환 잡을 경우 css selector 값
+      });
+    }
+  }, [isClicked.mail, isRender]);
 
   useEffect(() => {
     if (window && isRender) {
@@ -160,28 +203,6 @@ const Main = ({ isRender }) => {
       });
     }
   }, [isClicked.place, isRender]);
-
-  const handleKakaoClick = () => {
-    setIsClicked({
-      ...isClicked,
-      kakao: isClicked.kakao++,
-    });
-    window.open("https://pf.kakao.com/_TsAxdG");
-  };
-
-  const handleMailClick = () => {
-    setOpen(true);
-    // addMember({});
-    // setIsMailModalOpen(true);
-  };
-
-  const handleTelClick = () => {
-    setIsClicked({
-      ...isClicked,
-      tel: isClicked.tel++,
-    });
-    window.location.href = "tel:01079340883";
-  };
 
   return (
     <section id="main" className={mainSection}>
@@ -381,7 +402,8 @@ const Main = ({ isRender }) => {
       <Snackbar
         anchorOrigin={{ vertical: "top", horizontal: "center" }}
         open={isSnackbarOpen}
-        autoHideDuration={3000}
+        autoHideDuration={500}
+        onClose={handleMailSubmitComplete}
       >
         <Alert severity="success" sx={{ width: "90%" }}>
           상담 문의 메일이 성공적으로 전송되었습니다.

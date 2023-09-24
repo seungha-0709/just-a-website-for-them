@@ -84,7 +84,7 @@ const TextField = styled(MuiTextField)(() => ({
 
 const CounselModal = ({ onClose, isRender, onOpenSnackbar }) => {
   const form = useRef();
-  const [isSubmitComplete, setIsSubmitComplete] = useState(0);
+
   const [userInfo, setUserInfo] = useState({
     email: "",
     name: "",
@@ -94,36 +94,22 @@ const CounselModal = ({ onClose, isRender, onOpenSnackbar }) => {
   const sendEmail = (e) => {
     e.preventDefault();
 
-    emailjs
-      .sendForm(
-        "service_rmtlcpa",
-        "template_vmdkb9q",
-        form.current,
-        "kN_K_gdIppMdJChHt"
-      )
-      .then((res) => {
-        setIsSubmitComplete(isSubmitComplete + 1);
-        onClose();
-        onOpenSnackbar(true);
-      });
+    // emailjs
+    //   .sendForm(
+    //     "service_rmtlcpa",
+    //     "template_vmdkb9q",
+    //     form.current,
+    //     "kN_K_gdIppMdJChHt"
+    //   )
+    //   .then((res) => {
+    //     setIsSubmitComplete(isSubmitComplete + 1);
+    //     onClose();
+    //     onOpenSnackbar(true);
+    //   });
+
+    onClose();
+    onOpenSnackbar(true);
   };
-
-  useEffect(() => {
-    if (window && isRender) {
-      window.CallMtm =
-        window.CallMtm ||
-        function () {
-          (window.CallMtm.q = window.CallMtm.q || []).push(arguments);
-        };
-
-      CallMtm({
-        productName: "mail_submit_mobile", //광고주 측에서 설정하고 싶은 값(default convType)
-        convType: "mail_submit_mobile", //etc, join, login
-        click: "#mail_submit_mobile", //click으로 전환 잡을 경우 css selector 값
-      });
-    }
-  }, [isSubmitComplete, isRender]);
-
   return (
     <>
       <div style={{ padding: "40px 20px", position: "relative" }}>

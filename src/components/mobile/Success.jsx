@@ -145,6 +145,7 @@ const SuccessItem = ({ onClick, selected, itemId, item }) => {
             color: root.color2.BLACK,
             position: "relative",
             zIndex: 40,
+            height: 40,
           }}
         >
           {content.title}
