@@ -14,6 +14,7 @@ import { SwipeableDrawer as MuiSwipeableDrawer, styled } from "@mui/material";
 import { addMember } from "../../../lib/admin";
 import Nav from "./Nav";
 import Button from "../ui/Button";
+import Logo from "@/assets/svgs/logo.svg";
 
 import IconKakaotalk from "@/assets/icons/IconKakaotalk";
 import IconPhone from "@/assets/icons/IconPhone";
@@ -152,6 +153,7 @@ const Mobile = ({ posts, success, featuredPosts, mapMounted, isRender }) => {
           zIndex: 50,
           background: root.color.WHITE,
           display: "flex",
+          // justifyContent: "space-between",
           alignItems: "center",
           padding: "0 20px",
           borderBottom: `1px solid #e1e1e1`,
@@ -160,6 +162,8 @@ const Mobile = ({ posts, success, featuredPosts, mapMounted, isRender }) => {
         <button className={hamburger_button} onClick={toggleDrawer(true)}>
           <MenuIcon style={{ color: root.color2.BLACK }} />
         </button>
+        <Logo style={{ marginLeft: 8 }} />
+        {/* <div /> */}
       </header>
       <div style={{ position: "relative", top: 40 }}>
         <Main
