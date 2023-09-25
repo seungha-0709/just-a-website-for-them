@@ -189,7 +189,7 @@ const Mobile = ({ posts, success, featuredPosts, mapMounted, isRender }) => {
           style={{ marginRight: 40 }}
           className={hamburger_button}
         >
-          <ShareIcon />
+          <ShareIcon style={{ color: root.color2.BLACK }} />
         </button>
       </header>
       <div style={{ position: "relative", top: 40 }}>
