@@ -25,11 +25,12 @@ export const root = createGlobalTheme(":root", {
     COLOR_02: "#7f3d38",
     COLOR_03: "#9b5c46",
     COLOR_04: "#9b604e",
-    COLOR_05: "#d89c54",
+    COLOR_05: "#b87321",
     COLOR_06: "#f2cc70", // 242, 204, 112
     COLOR_07: "#ffe799",
     COLOR_08: "#EFE2C2",
     GRAY_01: "#ACA8A7",
+    GRAY_02: "#756b69",
     BLUE_01: "#294863",
     BLUE_02: "#3e6593",
     BLUE_03: "#80aeff",

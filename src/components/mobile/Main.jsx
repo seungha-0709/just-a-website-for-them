@@ -147,7 +147,7 @@ const Main = ({
 
           <p
             style={{
-              color: root.color2.GRAY_01,
+              color: root.color2.GRAY_02,
               fontWeight: 500,
               fontSize: 16,
               marginTop: 28,
@@ -177,7 +177,7 @@ const Main = ({
               marginTop: 30,
               width: "fit-content",
               padding: "8px 22px",
-              background: root.color.POINT_02,
+              background: root.color2.COLOR_05,
               color: root.color.WHITE,
             }}
             onClick={onMailClick}

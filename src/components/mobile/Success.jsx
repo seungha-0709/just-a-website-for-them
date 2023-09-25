@@ -155,7 +155,7 @@ const SuccessItem = ({ onClick, selected, itemId, item }) => {
             className="success_item_brief"
             style={{
               marginTop: 12,
-              color: "#9e9e9e",
+              color: "#717171",
               fontSize: 12,
               fontWeight: 400,
             }}
