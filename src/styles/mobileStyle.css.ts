@@ -179,7 +179,7 @@ export const ul = style({
 
 export const li_span = style({
   fontWeight: 400,
-  color: root.color.POINT_01,
+  color: root.color.WHITE,
   display: "block",
   width: "fit-content",
   margin: "12px 0",
@@ -189,7 +189,7 @@ export const li_strong = style({
   marginBottom: 4,
   display: "block",
   letterSpacing: 0,
-  color: root.color.COLOR_08,
+  color: root.color.COLOR_09,
 });
 
 export const main_title_area = style({
