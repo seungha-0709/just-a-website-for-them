@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { root } from "@/styles/root.css";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import AppBar from "@mui/material/AppBar";
 import Main from "./Main";
 import Profile from "./Profile";
@@ -15,6 +15,7 @@ import { addMember } from "../../../lib/admin";
 import Nav from "./Nav";
 import Button from "../ui/Button";
 import Logo from "@/assets/svgs/logo.svg";
+import ShareIcon from "@mui/icons-material/Share";
 
 import IconKakaotalk from "@/assets/icons/IconKakaotalk";
 import IconPhone from "@/assets/icons/IconPhone";
@@ -30,6 +31,8 @@ const SwipeableDrawer = styled(MuiSwipeableDrawer)(() => ({
 
 const Mobile = ({ posts, success, featuredPosts, mapMounted, isRender }) => {
   const router = useRouter();
+  const shareButtonRef = useRef(null);
+
   const [isMailOpen, setIsMailOpen] = useState(false);
   const [open, setOpen] = useState(false);
   const toggleDrawer = (newOpen) => () => {
@@ -77,6 +80,22 @@ const Mobile = ({ posts, success, featuredPosts, mapMounted, isRender }) => {
       mail: isClicked.mail++,
     });
   };
+
+  useEffect(() => {
+    if (window && shareButtonRef.current) {
+      shareButtonRef.current.addEventListener("click", async () => {
+        try {
+          await window.navigator.share({
+            title: "공지연, 정진권 변호사 - 법무법인 소울",
+            text: "오직 당신만의 공정을 찾아 함께합니다.",
+            url: "https://kongjeongthelaw.com",
+          });
+        } catch (e) {
+          console.log(e);
+        }
+      });
+    }
+  }, []);
 
   useEffect(() => {
     if (window && isRender) {
@@ -153,17 +172,25 @@ const Mobile = ({ posts, success, featuredPosts, mapMounted, isRender }) => {
           zIndex: 50,
           background: root.color.WHITE,
           display: "flex",
-          // justifyContent: "space-between",
+          justifyContent: "space-between",
           alignItems: "center",
           padding: "0 20px",
           borderBottom: `1px solid #e1e1e1`,
         }}
       >
-        <button className={hamburger_button} onClick={toggleDrawer(true)}>
-          <MenuIcon style={{ color: root.color2.BLACK }} />
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <button className={hamburger_button} onClick={toggleDrawer(true)}>
+            <MenuIcon style={{ color: root.color2.BLACK }} />
+          </button>
+          <Logo style={{ marginLeft: 8 }} />
+        </div>
+        <button
+          ref={shareButtonRef}
+          style={{ marginRight: 40 }}
+          className={hamburger_button}
+        >
+          <ShareIcon />
         </button>
-        <Logo style={{ marginLeft: 8 }} />
-        {/* <div /> */}
       </header>
       <div style={{ position: "relative", top: 40 }}>
         <Main
