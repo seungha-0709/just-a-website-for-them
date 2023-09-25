@@ -1,8 +1,6 @@
-import Image from "next/image";
 import { root } from "@/styles/root.css";
 
 import { useState, useEffect, useRef } from "react";
-import AppBar from "@mui/material/AppBar";
 import Main from "./Main";
 import Profile from "./Profile";
 import Blogs from "./Blogs";
@@ -10,15 +8,17 @@ import Success from "./Success";
 import MenuIcon from "@mui/icons-material/Menu";
 import CloseIcon from "@mui/icons-material/Close";
 import Place from "./Place";
-import { SwipeableDrawer as MuiSwipeableDrawer, styled } from "@mui/material";
-import { addMember } from "../../../lib/admin";
-import Nav from "./Nav";
+import {
+  Snackbar,
+  Alert,
+  SwipeableDrawer as MuiSwipeableDrawer,
+  styled,
+} from "@mui/material";
+// import { addMember } from "../../../lib/admin";
 import Button from "../ui/Button";
 import Logo from "@/assets/svgs/logo.svg";
 import ShareIcon from "@mui/icons-material/Share";
 
-import IconKakaotalk from "@/assets/icons/IconKakaotalk";
-import IconPhone from "@/assets/icons/IconPhone";
 import { hamburger_button, hamburger_li } from "@/styles/mobileStyle.css";
 import { useRouter } from "next/router";
 
@@ -32,7 +32,7 @@ const SwipeableDrawer = styled(MuiSwipeableDrawer)(() => ({
 const Mobile = ({ posts, success, featuredPosts, mapMounted, isRender }) => {
   const router = useRouter();
   const shareButtonRef = useRef(null);
-
+  const [isSnackbarOpen, setIsSnackbarOpen] = useState(false);
   const [isMailOpen, setIsMailOpen] = useState(false);
   const [open, setOpen] = useState(false);
   const toggleDrawer = (newOpen) => () => {
@@ -85,11 +85,17 @@ const Mobile = ({ posts, success, featuredPosts, mapMounted, isRender }) => {
     if (window && shareButtonRef.current) {
       shareButtonRef.current.addEventListener("click", async () => {
         try {
-          await window.navigator.share({
-            title: "공지연, 정진권 변호사 - 법무법인 소울",
-            text: "오직 당신만의 공정을 찾아 함께합니다.",
-            url: "https://kongjeongthelaw.com",
-          });
+          if (window.navigator.share) {
+            await window.navigator.share({
+              title: "공지연, 정진권 변호사 - 법무법인 소울",
+              text: "오직 당신만의 공정을 찾아 함께합니다.",
+              url: "https://kongjeongthelaw.com",
+            });
+            return;
+          }
+          await navigator.clipboard
+            .writeText("https://kongjeongthelaw.com")
+            .then(() => setIsSnackbarOpen(true));
         } catch (e) {
           console.log(e);
         }
@@ -340,6 +346,16 @@ const Mobile = ({ posts, success, featuredPosts, mapMounted, isRender }) => {
           </div>
         </SwipeableDrawer>
       )}
+      <Snackbar
+        anchorOrigin={{ vertical: "top", horizontal: "center" }}
+        open={isSnackbarOpen}
+        autoHideDuration={2000}
+        onClose={() => setIsSnackbarOpen(false)}
+      >
+        <Alert severity="success" sx={{ width: "90%" }}>
+          링크가 복사되었습니다.
+        </Alert>
+      </Snackbar>
     </div>
   );
 };
