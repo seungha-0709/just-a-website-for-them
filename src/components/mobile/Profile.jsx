@@ -72,7 +72,10 @@ const Profile = () => {
           })}
         </ul>
       </div>
-      <div className={profile_jeong}>
+      <div
+        className={profile_jeong}
+        style={{ background: root.color2.COLOR_00 }}
+      >
         <div className={profile_title_text}>
           변호사 <em className={name}>정 진 권</em>
           <div
