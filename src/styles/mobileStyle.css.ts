@@ -96,11 +96,11 @@ export const profile_jeong_backgroundStyle = style({
 });
 
 export const profile_jeong = style({
-  background: root.color2.COLOR_00,
+  background: root.color.COLOR_06,
   padding: "50px 30px",
   position: "relative",
   top: -20,
-  zIndex: 0,
+  zIndex: 1,
   borderRadius: 12,
   margin: 20,
   boxSizing: "border-box",

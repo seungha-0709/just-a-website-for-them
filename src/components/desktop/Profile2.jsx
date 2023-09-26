@@ -73,7 +73,7 @@ const Profile2 = () => {
         </div>
       </div>
       <div
-        style={{ width: "100%", height: 500, background: root.color.POINT_05 }}
+        style={{ width: "100%", height: 500, background: root.color.POINT_04 }}
       >
         <div
           style={{
