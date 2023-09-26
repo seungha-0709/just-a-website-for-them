@@ -169,6 +169,7 @@ const Nav = ({ isRender }) => {
             icon={<IconCounsel />}
           />
           <BottomNavigationAction
+            id="kakao"
             style={{ background: root.color.POINT_01 }}
             onClick={handleKakaoClick}
             label={
@@ -187,6 +188,7 @@ const Nav = ({ isRender }) => {
             icon={<IconPlace />}
           />
           <BottomNavigationAction
+            id="tel"
             onClick={handleTelClick}
             style={{ background: root.color.BLACK }}
             label="대표 전화"

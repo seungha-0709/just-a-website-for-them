@@ -14,6 +14,45 @@ const MainPage = (props) => {
 
   const [isDesktopView, setIsDesktopView] = useState();
 
+  const [open, setOpen] = useState(false);
+  const [isClicked, setIsClicked] = useState({
+    kakao: 0,
+    tel: 0,
+    place: 0,
+    mail: 0,
+  });
+
+  const handleKakaoClick = () => () => {
+    setOpen(false);
+    setIsClicked({
+      ...isClicked,
+      kakao: isClicked.kakao + 1,
+    });
+    window.open("https://pf.kakao.com/_TsAxdG");
+  };
+
+  const handleMailClick = () => () => {
+    setOpen(false);
+    setIsMailOpen(true);
+  };
+
+  const handleTelClick = () => () => {
+    setOpen(false);
+    setIsClicked({
+      ...isClicked,
+      tel: isClicked.tel + 1,
+    });
+    window.location.href = "tel:01079340883";
+  };
+
+  const handleMailSubmitComplete = () => () => {
+    setIsSnackbarOpen(false);
+    setIsClicked({
+      ...isClicked,
+      mail: isClicked.mail + 1,
+    });
+  };
+
   useEffect(() => {
     const width = window && window.innerWidth;
     if (width < 1200) {
@@ -22,6 +61,73 @@ const MainPage = (props) => {
     }
     setIsDesktopView(true);
   }, []);
+
+  useEffect(() => {
+    if (window) {
+      window.CallMtm =
+        window.CallMtm ||
+        function () {
+          (window.CallMtm.q = window.CallMtm.q || []).push(arguments);
+        };
+
+      CallMtm({
+        productName: "mail_submit", //광고주 측에서 설정하고 싶은 값(default convType) : "mail_submit_mobile", //광고주 측에서 설정하고 싶은 값(default convType)
+        convType: "etc", //etc, join, login
+        click: "#mail_submit", //click으로 전환 잡을 경우 css selector 값
+      });
+    }
+  }, [isClicked.mail, isDesktopView]);
+
+  useEffect(() => {
+    if (window) {
+      window.CallMtm =
+        window.CallMtm ||
+        function () {
+          (window.CallMtm.q = window.CallMtm.q || []).push(arguments);
+        };
+
+      CallMtm({
+        productName: "kakao",
+        convType: "etc",
+        click: "#kakao",
+      });
+    }
+  }, [isClicked.kakao, isDesktopView]);
+
+  useEffect(() => {
+    if (window) {
+      window.CallMtm =
+        window.CallMtm ||
+        function () {
+          (window.CallMtm.q = window.CallMtm.q || []).push(arguments);
+        };
+
+      CallMtm({
+        productName: "tel",
+        convType: "etc",
+        click: "#tel",
+      });
+      console.log("???");
+    }
+  }, [isClicked.tel, isDesktopView]);
+
+  console.log(isClicked);
+
+  useEffect(() => {
+    if (window) {
+      window.CallMtm =
+        window.CallMtm ||
+        function () {
+          (window.CallMtm.q = window.CallMtm.q || []).push(arguments);
+        };
+
+      CallMtm({
+        productName: "place",
+        convType: "etc",
+        click: "#place",
+      });
+    }
+  }, [isClicked.place, isDesktopView]);
 
   return (
     <>
@@ -53,6 +159,10 @@ const MainPage = (props) => {
       >
         <Suspense fallback={<p>loading</p>}>
           <Desktop
+            handleMailClick={handleMailClick()}
+            handleTelClick={handleTelClick()}
+            handleKakaoClick={handleKakaoClick()}
+            handleMailSubmitComplete={handleMailSubmitComplete()}
             isRender={isDesktopView}
             posts={blogPosts}
             success={success}
@@ -60,6 +170,12 @@ const MainPage = (props) => {
           />
 
           <Mobile
+            open={open}
+            setOpen={setOpen}
+            handleMailClick={handleMailClick()}
+            handleTelClick={handleTelClick()}
+            handleKakaoClick={handleKakaoClick()}
+            handleMailSubmitComplete={handleMailSubmitComplete()}
             isRender={!isDesktopView}
             posts={blogPosts}
             success={success}

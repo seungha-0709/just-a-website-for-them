@@ -194,7 +194,7 @@ const CounselModal = ({ onClose, isRender, onOpenSnackbar }) => {
           >
             <Button
               type="submit"
-              id="mail_submit_mobile"
+              id="mail_submit"
               style={{
                 position: "fixed",
                 bottom: 20,

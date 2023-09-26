@@ -174,7 +174,7 @@ const CounselModal = ({ onClose, isOpen, isRender }) => {
             </div>
             <Button
               type="submit"
-              id="mail_submit_pc"
+              id="mail_submit"
               disabled={!userInfo.content || !userInfo.email || !userInfo.name}
             >
               문의하기

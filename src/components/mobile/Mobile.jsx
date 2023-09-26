@@ -29,56 +29,29 @@ const SwipeableDrawer = styled(MuiSwipeableDrawer)(() => ({
   },
 }));
 
-const Mobile = ({ posts, success, featuredPosts, mapMounted, isRender }) => {
+const Mobile = ({
+  posts,
+  success,
+  featuredPosts,
+  isRender,
+  handleKakaoClick,
+  handleMailClick,
+  handleMailSubmitComplete,
+  handleTelClick,
+  open,
+  setOpen,
+}) => {
   const router = useRouter();
   const shareButtonRef = useRef(null);
   const [isSnackbarOpen, setIsSnackbarOpen] = useState(false);
   const [isMailOpen, setIsMailOpen] = useState(false);
-  const [open, setOpen] = useState(false);
+
   const toggleDrawer = (newOpen) => () => {
     setOpen(newOpen);
   };
   const handleLiMenuClick = (href) => () => {
     router.push(href);
     setOpen(false);
-  };
-
-  const [isClicked, setIsClicked] = useState({
-    kakao: 0,
-    tel: 0,
-    place: 0,
-    mail: 0,
-  });
-
-  const handleKakaoClick = () => {
-    setOpen(false);
-    setIsClicked({
-      ...isClicked,
-      kakao: isClicked.kakao++,
-    });
-    window.open("https://pf.kakao.com/_TsAxdG");
-  };
-
-  const handleMailClick = () => {
-    setOpen(false);
-    setIsMailOpen(true);
-  };
-
-  const handleTelClick = () => {
-    setOpen(false);
-    setIsClicked({
-      ...isClicked,
-      tel: isClicked.tel++,
-    });
-    window.location.href = "tel:01079340883";
-  };
-
-  const handleMailSubmitComplete = () => {
-    setIsSnackbarOpen(false);
-    setIsClicked({
-      ...isClicked,
-      mail: isClicked.mail++,
-    });
   };
 
   useEffect(() => {
@@ -102,70 +75,6 @@ const Mobile = ({ posts, success, featuredPosts, mapMounted, isRender }) => {
       });
     }
   }, []);
-
-  useEffect(() => {
-    if (window && isRender) {
-      window.CallMtm =
-        window.CallMtm ||
-        function () {
-          (window.CallMtm.q = window.CallMtm.q || []).push(arguments);
-        };
-
-      CallMtm({
-        productName: "mail_submit_mobile", //광고주 측에서 설정하고 싶은 값(default convType)
-        convType: "mail_submit_mobile", //etc, join, login
-        click: "#mail_submit_mobile", //click으로 전환 잡을 경우 css selector 값
-      });
-    }
-  }, [isClicked.mail, isRender]);
-
-  useEffect(() => {
-    if (window && isRender) {
-      window.CallMtm =
-        window.CallMtm ||
-        function () {
-          (window.CallMtm.q = window.CallMtm.q || []).push(arguments);
-        };
-
-      CallMtm({
-        productName: "kakao_mobile",
-        convType: "kakao_mobile",
-        click: "#kakao_mobile",
-      });
-    }
-  }, [isClicked.kakao, isRender]);
-
-  useEffect(() => {
-    if (window && isRender) {
-      window.CallMtm =
-        window.CallMtm ||
-        function () {
-          (window.CallMtm.q = window.CallMtm.q || []).push(arguments);
-        };
-
-      CallMtm({
-        productName: "tel_mobile",
-        convType: "tel_mobile",
-        click: "#tel_mobile",
-      });
-    }
-  }, [isClicked.tel, isRender]);
-
-  useEffect(() => {
-    if (window && isRender) {
-      window.CallMtm =
-        window.CallMtm ||
-        function () {
-          (window.CallMtm.q = window.CallMtm.q || []).push(arguments);
-        };
-
-      CallMtm({
-        productName: "place_mobile",
-        convType: "place_mobile",
-        click: "#place_mobile",
-      });
-    }
-  }, [isClicked.place, isRender]);
 
   return (
     <div style={{ display: `${isRender ? "block" : "none"}` }}>
@@ -282,6 +191,7 @@ const Mobile = ({ posts, success, featuredPosts, mapMounted, isRender }) => {
             }}
           >
             <Button
+              id="tel_mobile"
               style={{
                 display: "block",
                 margin: "0px",
@@ -304,6 +214,7 @@ const Mobile = ({ posts, success, featuredPosts, mapMounted, isRender }) => {
               </span>
             </Button>
             <Button
+              id="kakao_mobile"
               onClick={handleKakaoClick}
               style={{
                 display: "block",
@@ -324,6 +235,7 @@ const Mobile = ({ posts, success, featuredPosts, mapMounted, isRender }) => {
               카톡 상담
             </Button>
             <Button
+              id="mail_mobile"
               onClick={handleMailClick}
               style={{
                 display: "block",

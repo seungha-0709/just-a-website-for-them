@@ -21,16 +21,27 @@ const Success = dynamic(() => import("./Success"), {
   loading: () => <p>Loading...</p>,
 });
 
-const Desktop = ({ posts, success, featuredPosts, isRender }) => {
-  const mainCarouselRef = useRef(Slider);
-
+const Desktop = ({
+  posts,
+  success,
+  featuredPosts,
+  isRender,
+  handleTelClick,
+  handleKakaoClick,
+  handleMailSubmit,
+}) => {
   return (
     <div style={{ display: `${isRender ? "block" : "none"}` }}>
       <Header />
-      <Nav isRender={isRender} />
+      <Nav
+        isRender={isRender}
+        handleKakaoClick={handleKakaoClick}
+        handleMailSubmit={handleMailSubmit}
+        handleTelClick={handleTelClick}
+      />
       <div className={desktop_container}>
         <div>
-          <Main toNext={mainCarouselRef.current.slickNext} />
+          <Main />
           <Profile2 />
           <Blogs blogPosts={posts} featuredPosts={featuredPosts} />
           <Success examples={success} />

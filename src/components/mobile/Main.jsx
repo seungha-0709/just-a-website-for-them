@@ -221,6 +221,7 @@ const Main = ({
         }}
       >
         <Button
+          id="tel"
           style={{
             display: "block",
             margin: "0px",
@@ -253,6 +254,7 @@ const Main = ({
           </span>
         </Button>
         <Button
+          id="kakao"
           onClick={onKakaoClick}
           style={{
             display: "block",

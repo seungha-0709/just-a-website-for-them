@@ -20,7 +20,7 @@ const WORDS_LIST = [
   "외국인",
 ];
 
-const Main = (props) => {
+const Main = () => {
   return (
     <section id="main" className={mainSection}>
       <div style={{ width: "100%", height: 500, position: "relative" }}>
