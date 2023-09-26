@@ -76,7 +76,7 @@ const MainPage = (props) => {
         click: "#mail_submit", //click으로 전환 잡을 경우 css selector 값
       });
     }
-  }, [isClicked.mail, isDesktopView]);
+  }, [isClicked.mail]);
 
   useEffect(() => {
     if (window) {
@@ -92,7 +92,7 @@ const MainPage = (props) => {
         click: "#kakao",
       });
     }
-  }, [isClicked.kakao, isDesktopView]);
+  }, [isClicked.kakao]);
 
   useEffect(() => {
     if (window) {
@@ -109,7 +109,7 @@ const MainPage = (props) => {
       });
       console.log("???");
     }
-  }, [isClicked.tel, isDesktopView]);
+  }, [isClicked.tel]);
 
   console.log(isClicked);
 
@@ -127,7 +127,7 @@ const MainPage = (props) => {
         click: "#place",
       });
     }
-  }, [isClicked.place, isDesktopView]);
+  }, [isClicked.place]);
 
   return (
     <>
